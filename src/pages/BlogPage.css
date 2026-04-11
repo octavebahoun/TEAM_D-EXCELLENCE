@@ -1,0 +1,215 @@
+.blogpage-section {
+  background-color: transparent;
+  color: #063d30;
+}
+
+.blogpage-container {
+  width: min(1200px, 100% - 40px);
+  margin-inline: auto;
+}
+
+.blogpage-header {
+  margin-bottom: 60px;
+}
+
+.blogpage-main-title {
+  text-align: left;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 0.9;
+  margin: 0 0 20px 0;
+  color: #063d30;
+}
+
+.blogpage-subtitle {
+  font-family: "Satoshi", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  max-width: 480px;
+  line-height: 1.5;
+  margin: 0;
+  color: #063d30;
+}
+
+.blogpage-search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 20px;
+  max-width: 400px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(6, 61, 48, 0.2);
+}
+
+.search-icon {
+  color: #063d30;
+  opacity: 0.6;
+  margin-right: 12px;
+}
+
+.blogpage-search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: "Satoshi", sans-serif;
+  font-size: 1rem;
+  background: transparent;
+  color: #063d30;
+}
+
+.blogpage-search-input::placeholder {
+  color: rgba(6, 61, 48, 0.5);
+}
+
+/* Featured Post */
+.blogpage-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #114232; /* dark green */
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    color: #fafafa;
+}
+
+.featured-content {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.featured-tag {
+    font-family: "Satoshi", sans-serif;
+    color: #fcd718;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.featured-title {
+    font-family: "Satoshi", sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+}
+
+.featured-desc {
+    font-family: "Satoshi", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0 0 40px 0;
+    opacity: 0.9;
+    max-width: 90%;
+}
+
+.featured-btn {
+    background: transparent;
+    border: none;
+    color: #fafafa;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.4);
+    padding: 0 0 4px 0;
+    font-family: "Satoshi", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.featured-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.featured-sparkle {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Grid of Posts */
+.blogpage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 30px;
+}
+
+.blogpage-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.blogpage-card-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.blogpage-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blogpage-card:hover .blogpage-card-image img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.blogpage-card-title {
+    font-family: "Satoshi", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+    color: #063d30;
+}
+
+.blogpage-card-desc {
+    font-family: "Satoshi", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #063d30;
+    opacity: 0.85;
+}
+
+@media (max-width: 960px) {
+    .blogpage-featured {
+        grid-template-columns: 1fr;
+    }
+    .featured-image {
+        min-height: 300px;
+    }
+    .blogpage-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .blogpage-grid {
+        grid-template-columns: 1fr;
+    }
+    .featured-content {
+        padding: 40px 30px;
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "featured": {
+    "tag": "FEATURED",
+    "title": "Preserving History Through Vintage Car Restoration",
+    "description": "How classic automobiles are brought back to life through craftsmanship and passion.",
+    "image": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200",
+    "linkText": "Read Full Article ↗"
+  },
+  "articles": [
+    {
+      "id": 1,
+      "title": "Designing Products with Clear Purpose",
+      "description": "How mission-led design turns digital products into richer, more meaningful experiences.",
+      "image": "https://images.unsplash.com/photo-1558981418-4c1264c78201?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 2,
+      "title": "The Future of Modern Fashion Websites",
+      "description": "Why modern fashion brands need digital experiences as stylish as their collections.",
+      "image": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 3,
+      "title": "How Creative Teams Build Brand Systems",
+      "description": "A look at the workflows that keep branding consistent across every touchpoint.",
+      "image": "https://images.unsplash.com/photo-1554744512-d6c603f27c54?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 4,
+      "title": "Starting and Growing a Career in Web Design",
+      "description": "Web design blends creativity and tech, offering strong demand and roles in design and development.",
+      "image": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 5,
+      "title": "Top Web Design Trends to Watch in 2025",
+      "description": "Stay ahead of the curve with these key design trends shaping the future of the web.",
+      "image": "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 6,
+      "title": "The Rise of Modern Tech Startup Websites",
+      "description": "Why tech startups need clear, high trust digital experiences to communicate and attract users.",
+      "image": "https://images.unsplash.com/photo-1498661694102-0a3793edbe54?auto=format&fit=crop&q=80&w=600"
+    }
+  ]
+}

@@ -23,7 +23,10 @@ function WorksPage() {
         className="workspage-main"
         style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}
       >
-        <section className="workspage-section" style={{ paddingTop: "180px", paddingBottom: "120px" }}>
+        <section
+          className="workspage-section"
+          style={{ paddingTop: "180px", paddingBottom: "120px" }}
+        >
           <div className="workspage-container">
             <div className="workspage-header">
               <motion.h2
@@ -105,7 +108,6 @@ function WorksPage() {
 
         {/* Adding FAQ section requested here */}
         <FAQ />
-
       </main>
       <Footer />
     </>
