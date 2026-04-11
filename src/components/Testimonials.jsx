@@ -42,7 +42,12 @@ function Testimonials() {
                 </motion.span>
               ))}
             </p>
-            <button className="testimonial-cta">Start a Project ↗</button>
+            <button
+              className="testimonial-cta btn-roulette"
+              data-text="Start a Project ↗"
+            >
+              <span className="btn-text">Start a Project ↗</span>
+            </button>
           </div>
 
           <motion.div

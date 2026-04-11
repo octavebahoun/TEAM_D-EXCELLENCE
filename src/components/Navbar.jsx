@@ -22,8 +22,12 @@ function Navbar() {
           {/* Desktop Links */}
           <div className="nav-desktop">
             {navItems.map((item) => (
-              <button key={item} className="nav-item">
-                {item}
+              <button
+                key={item}
+                className="nav-item btn-roulette"
+                data-text={item}
+              >
+                <span className="btn-text">{item}</span>
               </button>
             ))}
           </div>
@@ -54,13 +58,14 @@ function Navbar() {
               {navItems.map((item, i) => (
                 <motion.button
                   key={item}
-                  className="mobile-nav-item"
+                  className="mobile-nav-item btn-roulette"
+                  data-text={item}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.1 }}
                   onClick={() => setIsOpen(false)}
                 >
-                  {item}
+                  <span className="btn-text">{item}</span>
                 </motion.button>
               ))}
             </div>

@@ -52,13 +52,14 @@ function Services() {
             Your Brand
           </motion.h2>
           <motion.button
-            className="start-project-btn"
+            className="start-project-btn btn-roulette"
+            data-text="Start a Project ↗"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.05 }}
           >
-            Start a Project ↗
+            <span className="btn-text">Start a Project ↗</span>
           </motion.button>
         </div>
       </div>

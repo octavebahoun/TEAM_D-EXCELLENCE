@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import "./Footer.css";
 
 const Footer = () => {
@@ -50,17 +51,37 @@ const Footer = () => {
           </div>
 
           <div className="social-links">
-            <a href="#" className="social-icon">
-              Instagram
+            <a href="#" className="social-icon icon-roulette">
+              <span className="icon-front">
+                <Instagram size={20} />
+              </span>
+              <span className="icon-back">
+                <Instagram size={20} />
+              </span>
             </a>
-            <a href="#" className="social-icon">
-              YouTube
+            <a href="#" className="social-icon icon-roulette">
+              <span className="icon-front">
+                <Youtube size={20} />
+              </span>
+              <span className="icon-back">
+                <Youtube size={20} />
+              </span>
             </a>
-            <a href="#" className="social-icon">
-              LinkedIn
+            <a href="#" className="social-icon icon-roulette">
+              <span className="icon-front">
+                <Linkedin size={20} />
+              </span>
+              <span className="icon-back">
+                <Linkedin size={20} />
+              </span>
             </a>
-            <a href="#" className="social-icon">
-              Twitter
+            <a href="#" className="social-icon icon-roulette">
+              <span className="icon-front">
+                <Twitter size={20} />
+              </span>
+              <span className="icon-back">
+                <Twitter size={20} />
+              </span>
             </a>
           </div>
         </div>

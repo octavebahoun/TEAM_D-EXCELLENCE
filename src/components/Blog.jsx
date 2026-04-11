@@ -49,11 +49,12 @@ function Blog() {
             </motion.h2>
           </div>
           <motion.button
-            className="see-all-btn"
+            className="see-all-btn btn-roulette"
+            data-text="See All Posts ↗"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            See All Posts ↗
+            <span className="btn-text">See All Posts ↗</span>
           </motion.button>
         </div>
 

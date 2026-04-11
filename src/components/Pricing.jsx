@@ -122,7 +122,9 @@ function Pricing() {
                 ))}
               </div>
 
-              <button className="tier-cta">{tier.cta}</button>
+              <button className="tier-cta btn-roulette" data-text={tier.cta}>
+                <span className="btn-text">{tier.cta}</span>
+              </button>
             </motion.div>
           ))}
         </div>

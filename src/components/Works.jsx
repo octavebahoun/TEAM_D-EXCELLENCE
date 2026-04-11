@@ -6,15 +6,19 @@ const initialWorks = [
   {
     category: "INGÉNIERIE DIGITAL",
     title: "Web Development",
-    description: "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200",
+    description:
+      "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    image:
+      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200",
     side: "left",
   },
   {
     category: "FEV 2025 • BRANDING",
     title: "Lumen Atelier",
-    description: "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200",
+    description:
+      "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    image:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200",
     side: "right",
   },
 ];
@@ -25,24 +29,30 @@ const listProjects = [
     title: "Nimble Apparel",
     date: "Aug 2024",
     category: "ILLUSTRATION",
-    description: "Redefining urban style with sustainable materials and modular design patterns.",
-    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=60&w=800",
+    description:
+      "Redefining urban style with sustainable materials and modular design patterns.",
+    image:
+      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=60&w=800",
   },
   {
     id: "heritage",
     title: "Heritage Motor",
     date: "Oct 2025",
     category: "BRANDING",
-    description: "Honoring automotive history through a modern, digital-first brand experience.",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=60&w=800",
+    description:
+      "Honoring automotive history through a modern, digital-first brand experience.",
+    image:
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=60&w=800",
   },
   {
     id: "root",
     title: "Root & Rise",
     date: "Nov 2023",
     category: "BRANDING",
-    description: "An organic identity for a future-facing wellness collective focused on growth.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=60&w=800",
+    description:
+      "An organic identity for a future-facing wellness collective focused on growth.",
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=60&w=800",
   },
 ];
 
@@ -78,7 +88,11 @@ function Works() {
             <div key={index} className={`work-item ${work.side}`}>
               <motion.div
                 className="work-info"
-                initial={{ opacity: 0, x: work.side === "left" ? -50 : 50, filter: "blur(15px)" }}
+                initial={{
+                  opacity: 0,
+                  x: work.side === "left" ? -50 : 50,
+                  filter: "blur(15px)",
+                }}
                 whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
@@ -86,7 +100,12 @@ function Works() {
                 <span className="work-category">{work.category}</span>
                 <h3 className="work-title">{work.title}</h3>
                 <p className="work-desc">{work.description}</p>
-                <button className="work-btn">See Project ↗</button>
+                <button
+                  className="work-btn btn-roulette"
+                  data-text="See Project ↗"
+                >
+                  <span className="btn-text">See Project ↗</span>
+                </button>
               </motion.div>
 
               <motion.div
@@ -113,7 +132,7 @@ function Works() {
               >
                 {expandedId !== project.id ? (
                   // Closed State: Row
-                  <motion.div 
+                  <motion.div
                     className="small-work-row"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -128,7 +147,7 @@ function Works() {
                   </motion.div>
                 ) : (
                   // Open State: Card (based on your screenshot)
-                  <motion.div 
+                  <motion.div
                     className="expanded-project-card"
                     initial={{ opacity: 0, filter: "blur(20px)" }}
                     animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -136,13 +155,20 @@ function Works() {
                     layout
                   >
                     <div className="expanded-image">
-                       <img src={project.image} alt={project.title} />
+                      <img src={project.image} alt={project.title} />
                     </div>
                     <div className="expanded-content">
-                      <span className="expanded-label">{project.date} • {project.category}</span>
+                      <span className="expanded-label">
+                        {project.date} • {project.category}
+                      </span>
                       <h3 className="expanded-title">{project.title}</h3>
                       <p className="expanded-desc">{project.description}</p>
-                      <button className="expanded-btn">See Project ↗</button>
+                      <button
+                        className="expanded-btn btn-roulette"
+                        data-text="See Project ↗"
+                      >
+                        <span className="btn-text">See Project ↗</span>
+                      </button>
                     </div>
                   </motion.div>
                 )}
@@ -151,12 +177,17 @@ function Works() {
           </LayoutGroup>
         </div>
 
-        <motion.div 
-            className="discover-more-wrap"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          className="discover-more-wrap"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-            <button className="discover-btn">Discover More</button>
+          <button
+            className="discover-btn btn-roulette"
+            data-text="Discover More"
+          >
+            <span className="btn-text">Discover More</span>
+          </button>
         </motion.div>
       </div>
     </section>

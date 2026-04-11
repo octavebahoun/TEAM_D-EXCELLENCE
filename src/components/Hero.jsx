@@ -91,7 +91,12 @@ function Hero() {
             </MotionSpan>
           ))}
         </MotionP>
-        <button className="hero-main-cta">Let&apos;s Collab!</button>
+        <button
+          className="hero-main-cta btn-roulette"
+          data-text="Let's Collab!"
+        >
+          <span className="btn-text">Let&apos;s Collab!</span>
+        </button>
       </MotionDiv>
 
       <div className="hero-media" aria-hidden="true">
