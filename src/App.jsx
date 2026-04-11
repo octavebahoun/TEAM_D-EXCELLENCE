@@ -12,6 +12,8 @@ import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import WorksPage from "./pages/WorksPage";
 import BlogPage from "./pages/BlogPage";
+import ArticlePage from "./pages/ArticlePage";
+import ContactPage from "./pages/ContactPage";
 
 function HomePage() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/works" element={<WorksPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<ArticlePage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

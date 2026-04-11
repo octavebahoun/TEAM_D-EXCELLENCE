@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
@@ -67,9 +68,11 @@ function BlogPage() {
                   <span className="featured-tag">{data.featured.tag}</span>
                   <h2 className="featured-title">{data.featured.title}</h2>
                   <p className="featured-desc">{data.featured.description}</p>
-                  <button className="featured-btn btn-roulette" data-text={data.featured.linkText}>
-                    <span className="btn-text">{data.featured.linkText}</span>
-                  </button>
+                  <Link to={`/blog/${data.featured.id}`}>
+                    <button className="featured-btn btn-roulette" data-text={data.featured.linkText}>
+                      <span className="btn-text">{data.featured.linkText}</span>
+                    </button>
+                  </Link>
                 </div>
                 <div className="featured-image">
                   <img src={data.featured.image} alt={data.featured.title} />
@@ -86,20 +89,21 @@ function BlogPage() {
 
             <div className="blogpage-grid">
               {data.articles.map((article, index) => (
-                <motion.div 
-                  key={article.id} 
-                  className="blogpage-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <div className="blogpage-card-image">
-                    <img src={article.image} alt={article.title} />
-                  </div>
-                  <h3 className="blogpage-card-title">{article.title}</h3>
-                  <p className="blogpage-card-desc">{article.description}</p>
-                </motion.div>
+                <Link to={`/blog/${article.id}`} key={article.id}>
+                  <motion.div 
+                    className="blogpage-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                  >
+                    <div className="blogpage-card-image">
+                      <img src={article.image} alt={article.title} />
+                    </div>
+                    <h3 className="blogpage-card-title">{article.title}</h3>
+                    <p className="blogpage-card-desc">{article.description}</p>
+                  </motion.div>
+                </Link>
               ))}
             </div>
 
