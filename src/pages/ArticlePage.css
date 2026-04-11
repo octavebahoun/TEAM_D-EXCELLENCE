@@ -4,7 +4,7 @@
 }
 
 .paddingTop {
-  padding-top: 180px;
+  padding-top: clamp(100px, 15vw, 180px);
 }
 
 .article-header {
@@ -14,7 +14,7 @@
 .article-title {
   text-align: left;
   font-family: "Anton", sans-serif;
-  font-size: clamp(3.5rem, 5vw, 6.5rem);
+  font-size: clamp(2.2rem, 5vw, 6.5rem);
   line-height: 0.9;
   margin: 0 0 20px 0;
   color: #063d30;
@@ -98,7 +98,7 @@
 
 .more-articles-title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4.5rem);
   color: #063d30;
   margin-bottom: 40px;
 }
@@ -114,7 +114,7 @@
 
 .create-together-text h2 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(4rem, 6vw, 6.5rem);
+  font-size: clamp(2.5rem, 6vw, 6.5rem);
   line-height: 0.9;
   margin: 0;
   color: #063d30;

@@ -15,7 +15,7 @@
 .workspage-main-title {
     text-align: left;
     font-family: 'Anton', sans-serif;
-    font-size: clamp(3.5rem, 7vw, 7.5rem);
+    font-size: clamp(2.2rem, 7vw, 7.5rem);
     line-height: 0.9;
     margin: 0 0 20px 0;
     color: #063d30;

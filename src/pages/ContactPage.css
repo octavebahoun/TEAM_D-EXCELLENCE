@@ -1,5 +1,5 @@
 .contact-section {
-  padding: 180px 0 100px 0;
+  padding: clamp(100px, 15vw, 180px) 0 clamp(60px, 10vw, 100px) 0;
 }
 
 .contact-container {
@@ -13,7 +13,7 @@
 
 .contact-title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(4rem, 8vw, 8.5rem);
+  font-size: clamp(2.5rem, 8vw, 8.5rem);
   line-height: 0.9;
   color: #063d30;
   margin: 0 0 24px 0;

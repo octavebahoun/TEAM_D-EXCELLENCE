@@ -25,7 +25,7 @@ function WorksPage() {
       >
         <section
           className="workspage-section"
-          style={{ paddingTop: "180px", paddingBottom: "120px" }}
+          style={{ paddingTop: "clamp(100px, 15vw, 180px)", paddingBottom: "clamp(60px, 10vw, 120px)" }}
         >
           <div className="workspage-container">
             <div className="workspage-header">

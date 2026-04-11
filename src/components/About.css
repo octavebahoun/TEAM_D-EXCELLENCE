@@ -36,7 +36,7 @@
     margin: 0 0 24px;
     font-family: 'Anton', sans-serif;
     color: #fafafa;
-    font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+    font-size: clamp(2rem, 5.2vw, 5.2rem);
     line-height: 0.98;
     letter-spacing: -0.01em;
 }

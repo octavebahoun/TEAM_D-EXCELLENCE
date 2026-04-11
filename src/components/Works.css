@@ -23,7 +23,7 @@
 .works-main-title {
     text-align: center;
     font-family: 'Anton', sans-serif;
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(2rem, 6vw, 6rem);
     line-height: 0.9;
     margin: 0 0 100px;
 }

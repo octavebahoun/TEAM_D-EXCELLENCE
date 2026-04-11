@@ -105,7 +105,7 @@
   margin: 0;
   font-family: 'Anton', sans-serif;
   color: #063d30;
-  font-size: clamp(3.7rem, 6.8vw, 7.1rem);
+  font-size: clamp(2.5rem, 6.8vw, 7.1rem);
   line-height: 0.95;
   letter-spacing: 0.01em;
 }
@@ -280,86 +280,19 @@
 }
 
 /* NAVBAR & MOBILE TOGGLE STYLES */
-.nav-desktop {
-  display: flex;
-  gap: 12px;
-}
 
-.nav-burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: transparent;
-  align-items: center;
-  border: 1px solid rgba(250, 250, 250, 0.3);
-  cursor: pointer;
-  z-index: 101;
-}
 
-.burger-line {
-  width: 20px;
-  height: 2px;
-  background: #fafafa;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
 
 /* Burger Animation states */
-.open-1 {
-  transform: translateY(4px) rotate(45deg);
-}
 
-.open-2 {
-  transform: translateY(-4px) rotate(-45deg);
-}
 
 /* MOBILE OVERLAY STYLES */
-.mobile-menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 61, 48, 0.98);
-  backdrop-filter: blur(16px);
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.mobile-menu-content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  text-align: center;
-}
 
-.mobile-nav-item {
-  background: transparent;
-  border: none;
-  font-size: 3rem;
-  font-family: 'Anton', sans-serif;
-  color: #fafafa;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 0.2s;
-}
 
-.mobile-nav-item:hover {
-  color: #fcd718;
-  -webkit-text-stroke: 1px #fafafa;
-}
 
 @media (max-width: 900px) {
-  .nav-desktop {
-    display: none;
-  }
 
-  .nav-burger {
-    display: flex;
-  }
 }
 /* EFFET HOVER BOUTONS (ROULETTE OBLIQUE) */
 .btn-roulette {
@@ -410,14 +343,7 @@
 }
 
 /* Animation au survol */
-.btn-roulette:hover .btn-text {
-  transform: translateY(-120%) skewY(-12deg);
-  opacity: 0;
-}
 
-.btn-roulette:hover::after {
-  transform: translateY(0) skewY(0deg);
-}
 
 /* EFFET HOVER ICONES (ROULETTE OBLIQUE) */
 .icon-roulette {
@@ -458,4 +384,28 @@
 
 .icon-roulette:hover .icon-back {
   transform: translateY(0) skewY(0deg);
+}
+
+/* Hide scrollbar for mobile navbar */
+.top-nav::-webkit-scrollbar {
+  display: none;
+}
+.top-nav {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+@media (max-width: 760px) {
+  .top-nav-wrap {
+    top: 10px;
+    padding: 0 10px;
+  }
+  .top-nav {
+    justify-content: flex-start;
+    padding: 6px;
+  }
+  .nav-item {
+    font-size: 0.85rem;
+    padding: 0 12px;
+    height: 34px;
+  }
 }
