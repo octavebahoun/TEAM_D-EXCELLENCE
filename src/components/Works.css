@@ -235,3 +235,14 @@
         display: none;
     }
 }
+
+@media (max-width: 900px) {
+    .work-item {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .work-item.right {
+        direction: ltr;
+    }
+}
+

@@ -81,7 +81,7 @@
 }
 
 .pricing-card.accent {
-    background: #ffeeab;
+    background: #fafafa;
     box-shadow: 0 40px 100px rgba(6, 61, 48, 0.15);
 }
 
@@ -147,7 +147,7 @@
 
 .tier-cta {
     background: transparent;
-    border: 1px solid rgba(6, 61, 48, 0.2);
+    border: 1px solid #063d30;
     padding: 16px;
     border-radius: 999px;
     font-family: 'Satoshi', sans-serif;
@@ -164,7 +164,7 @@
 
 .pricing-card.accent .tier-cta {
     background: #fcd718;
-    border-color: #fcd718;
+    border-color: #063d30;
 }
 
 .pricing-card.accent .tier-cta:hover {

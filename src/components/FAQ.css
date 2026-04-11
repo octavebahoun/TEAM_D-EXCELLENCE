@@ -1,8 +1,9 @@
 .faq-section {
-    background-color: #fafafa;
+    background-color: #063d30;
     padding: 120px 0;
     position: relative;
     z-index: 10;
+    color: #fafafa;
 }
 
 .faq-container {
@@ -20,13 +21,13 @@
     font-family: 'Anton', sans-serif;
     font-size: clamp(3rem, 6vw, 6rem);
     line-height: 0.9;
-    color: #063d30;
+    color: #fafafa;
     margin: 30px 0;
 }
 
 .faq-desc {
     font-family: 'Satoshi', sans-serif;
-    color: #063d30;
+    color: #fafafa;
     font-size: 1.1rem;
     line-height: 1.6;
     opacity: 0.7;
@@ -40,16 +41,18 @@
 }
 
 .faq-item {
-    background: #f8f8f8;
-    border-radius: 24px;
+    background: transparent;
+    border: 1px solid rgba(250, 250, 250, 0.15);
+    border-radius: 12px;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     overflow: hidden;
-    padding: 32px;
+    padding: 24px 32px;
 }
 
 .faq-item.active {
-    background: #063d30;
+    background: rgba(250, 250, 250, 0.05);
+    border-color: rgba(250, 250, 250, 0.3);
 }
 
 .faq-question {
@@ -59,10 +62,11 @@
 }
 
 .faq-question h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.8rem;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
     margin: 0;
-    color: #063d30;
+    color: #fafafa;
     transition: color 0.4s;
 }
 
@@ -71,27 +75,56 @@
 }
 
 .faq-icon {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    color: #063d30;
+    color: #fafafa;
     transition: color 0.4s;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+    border-radius: 4px;
+    padding: 2px 6px;
 }
 
 .faq-item.active .faq-icon {
     color: #fcd718;
+    border-color: #fcd718;
 }
 
 .faq-answer {
-    padding-top: 24px;
+    padding-top: 16px;
 }
 
 .faq-answer p {
     font-family: 'Satoshi', sans-serif;
     color: #fafafa;
     line-height: 1.6;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 0;
-    opacity: 0.8;
+    opacity: 0.7;
+}
+
+.faq-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.faq-footer-link {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.faq-footer-link:hover {
+    color: #fcd718;
 }
 
 @media (max-width: 1000px) {
