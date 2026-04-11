@@ -24,15 +24,15 @@ function About() {
   };
 
   const wordVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 15, 
+    hidden: {
+      opacity: 0,
+      y: 15,
       filter: "blur(12px)",
-      rotate: 2
+      rotate: 2,
     },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       filter: "blur(0px)",
       rotate: 0,
       transition: {
@@ -44,6 +44,7 @@ function About() {
 
   return (
     <MotionSection
+      id="about"
       className="about"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -52,7 +53,7 @@ function About() {
     >
       <div className="about-content">
         <div className="about-text">
-          <MotionDiv 
+          <MotionDiv
             className="about-label"
             initial={{ opacity: 0, x: -20, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -61,7 +62,7 @@ function About() {
           >
             ABOUT US
           </MotionDiv>
-          
+
           <MotionDiv
             className="about-title"
             initial={{ opacity: 0, y: 30, filter: "blur(15px)" }}
@@ -72,7 +73,7 @@ function About() {
             Ideas Crafted Into Impact
           </MotionDiv>
 
-          <MotionDiv 
+          <MotionDiv
             className="about-description"
             variants={containerVariants}
             initial="hidden"
@@ -94,8 +95,20 @@ function About() {
         <div className="about-media">
           <MotionDiv
             className="about-image-wrapper"
-            initial={{ opacity: 0, filter: "blur(25px)", rotate: -12, scale: 0.85, y: 60 }}
-            whileInView={{ opacity: 1, filter: "blur(0px)", rotate: -6, scale: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              filter: "blur(25px)",
+              rotate: -12,
+              scale: 0.85,
+              y: 60,
+            }}
+            whileInView={{
+              opacity: 1,
+              filter: "blur(0px)",
+              rotate: -6,
+              scale: 1,
+              y: 0,
+            }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{
               duration: 1.4,

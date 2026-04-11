@@ -29,7 +29,7 @@ const MotionDiv = motion.div;
 
 function Services() {
   return (
-    <section className="services-section">
+    <section id="services" className="services-section">
       <div className="services-header">
         <motion.span
           className="section-label"

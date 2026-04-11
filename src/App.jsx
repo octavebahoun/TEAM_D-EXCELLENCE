@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -9,8 +10,9 @@ import Pricing from "./components/Pricing";
 import Blog from "./components/Blog";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
+import WorksPage from "./pages/WorksPage";
 
-function App() {
+function HomePage() {
   return (
     <>
       <div className="vignette-blur-bottom" />
@@ -33,6 +35,17 @@ function App() {
       <FAQ />
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/works" element={<WorksPage />} />
+      </Routes>
+    </Router>
   );
 }
 

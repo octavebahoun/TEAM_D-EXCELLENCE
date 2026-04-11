@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "topLabel": "• INGENIERIE DIGITAL",
+    "title": "Web Development",
+    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    "mainImage": "https://images.unsplash.com/photo-1558981418-4c1264c78201?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=200",
+    "side": "left"
+  },
+  {
+    "id": 2,
+    "topLabel": "Feb 2025 • BRANDING",
+    "title": "Lumen Atelier",
+    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    "mainImage": "https://images.unsplash.com/photo-1554744512-d6c603f27c54?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=200",
+    "side": "right"
+  },
+  {
+    "id": 3,
+    "topLabel": "Aug 2024 • ILLUSTRATION",
+    "title": "Nimble Apparel",
+    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    "mainImage": "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1498661694102-0a3793edbe54?auto=format&fit=crop&q=80&w=200",
+    "side": "left"
+  },
+  {
+    "id": 4,
+    "topLabel": "Oct 2025 • BRANDING",
+    "title": "Heritage Motor",
+    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    "mainImage": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1507436034177-3e1104e6717a?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=200",
+    "side": "right"
+  },
+  {
+    "id": 5,
+    "topLabel": "Nov 2023 • BRANDING",
+    "title": "Root & Rise",
+    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+    "mainImage": "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=200",
+    "side": "left"
+  }
+]

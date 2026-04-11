@@ -230,7 +230,7 @@
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .row-meta {
         display: none;
     }
@@ -241,8 +241,8 @@
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
     .work-item.right {
         direction: ltr;
     }
 }
-
