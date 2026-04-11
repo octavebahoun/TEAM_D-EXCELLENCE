@@ -279,22 +279,124 @@
   }
 }
 
-/* NAVBAR & MOBILE TOGGLE STYLES */
+.desktop-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
+.burger-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 6px;
+  position: relative;
+  z-index: 101;
+}
 
+.burger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #fafafa;
+  border-radius: 999px;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
-/* Burger Animation states */
+.burger-toggle.open .line-1 {
+  transform: translateY(4px) rotate(45deg);
+}
 
+.burger-toggle.open .line-2 {
+  transform: translateY(-4px) rotate(-45deg);
+}
 
-/* MOBILE OVERLAY STYLES */
+/* On change d'avis, on veut qu'ils forment une croix ou juste qu'ils restent stylés */
+/* Mais l'image montre juste deux lignes. On va les garder et peut être les animer */
 
+.mobile-menu-overlay {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 20px;
+  right: 20px;
+  background: rgba(6, 61, 48, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(250, 250, 250, 0.15);
+  border-radius: 32px;
+  padding: 32px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 99;
+  pointer-events: auto;
+}
 
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
+.mobile-nav-item {
+  background: transparent;
+  border: none;
+  color: #fafafa;
+  font-family: 'Anton', sans-serif;
+  font-size: 2.2rem;
+  text-align: left;
+  padding: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+  width: 100%;
+}
+
+.mobile-nav-item:hover {
+  color: #fcd718;
+}
+
+.mobile-menu-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(250, 250, 250, 0.1);
+}
+
+.mobile-cta-btn {
+  background: #fcd718;
+  color: #063d30;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  width: 100%;
+  cursor: pointer;
+}
 
 @media (max-width: 900px) {
+  .desktop-nav-items {
+    display: none;
+  }
 
+  .burger-toggle {
+    display: flex;
+  }
+
+  .top-nav {
+    width: min(400px, 100% - 20px);
+    justify-content: space-between;
+    padding: 6px 16px 6px 6px;
+  }
 }
-/* EFFET HOVER BOUTONS (ROULETTE OBLIQUE) */
+
+/* EFFECT HOVER BOUTONS (ROULETTE OBLIQUE) */
+
 .btn-roulette {
   position: relative;
   overflow: hidden;
@@ -330,7 +432,11 @@
 }
 
 /* Cas spécifiques d'alignement pour que l'after colle bien au padding */
-.hero-main-cta::after, .tier-cta::after, .testimonial-cta::after, .start-project-btn::after, .discover-btn::after {
+.hero-main-cta::after,
+.tier-cta::after,
+.testimonial-cta::after,
+.start-project-btn::after,
+.discover-btn::after {
   justify-content: center;
 }
 
@@ -338,7 +444,8 @@
   justify-content: center;
 }
 
-.work-btn::after, .see-all-btn::after {
+.work-btn::after,
+.see-all-btn::after {
   justify-content: flex-start;
 }
 
@@ -386,26 +493,9 @@
   transform: translateY(0) skewY(0deg);
 }
 
-/* Hide scrollbar for mobile navbar */
-.top-nav::-webkit-scrollbar {
-  display: none;
-}
-.top-nav {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-@media (max-width: 760px) {
-  .top-nav-wrap {
-    top: 10px;
-    padding: 0 10px;
-  }
-  .top-nav {
-    justify-content: flex-start;
-    padding: 6px;
-  }
-  .nav-item {
-    font-size: 0.85rem;
-    padding: 0 12px;
-    height: 34px;
-  }
+/* UI Enhancements for the new Navbar */
+.top-nav.menu-is-open {
+  background: #063d30;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
