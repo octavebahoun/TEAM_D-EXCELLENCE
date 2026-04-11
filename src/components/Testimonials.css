@@ -1,0 +1,117 @@
+.testimonials-section {
+    background-color: #063d30;
+    padding: 140px 0;
+    color: #fafafa;
+}
+
+.testimonials-container {
+    width: min(1200px, 100% - 40px);
+    margin-inline: auto;
+}
+
+.section-label-light {
+    display: block;
+    text-align: center;
+    font-family: 'Satoshi', sans-serif;
+    color: #fcd718;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.testimonials-header {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    margin: 0 0 100px;
+}
+
+.testimonial-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.testimonial-brand {
+    display: block;
+    font-family: 'Satoshi', sans-serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.testimonial-quote {
+    font-family: 'Satoshi', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.8rem);
+    line-height: 1.15;
+    font-weight: 500;
+    margin: 0 0 48px;
+    max-width: 680px;
+}
+
+.testimonial-cta {
+    background: transparent;
+    border: 1px solid rgba(250, 250, 250, 0.3);
+    color: #fafafa;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-cta:hover {
+    background: #fafafa;
+    color: #063d30;
+}
+
+.testimonial-image-wrap {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+    aspect-ratio: 0.85;
+}
+
+.testimonial-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-author {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.testimonial-author strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.testimonial-author span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .testimonial-card {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}

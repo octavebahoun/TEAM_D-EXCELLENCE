@@ -1,0 +1,237 @@
+.works-section {
+    background-color: #063d30;
+    padding: 120px 0;
+    color: #fafafa;
+}
+
+.works-container {
+    width: min(1240px, 100% - 40px);
+    margin-inline: auto;
+}
+
+.section-label-light {
+    display: block;
+    text-align: center;
+    font-family: 'Satoshi', sans-serif;
+    color: #fcd718;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+}
+
+.works-main-title {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.9;
+    margin: 0 0 100px;
+}
+
+.works-list {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    margin-bottom: 120px;
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.work-item.right {
+    direction: rtl;
+}
+
+.work-item.right .work-info {
+    direction: ltr;
+}
+
+.work-category {
+    display: block;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.work-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin: 0 0 24px;
+    line-height: 1;
+}
+
+.work-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    max-width: 480px;
+}
+
+.work-btn {
+    background: transparent;
+    border: none;
+    color: #fafafa;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.3);
+    padding-bottom: 4px;
+}
+
+.work-image {
+    border-radius: 32px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Small Works List / Interactive Card CSS */
+.small-works-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.small-work-wrapper {
+    border-top: 1px solid rgba(250, 250, 250, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.small-work-wrapper:last-child {
+    border-bottom: 1px solid rgba(250, 250, 250, 0.1);
+}
+
+/* Row State */
+.small-work-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    transition: background-color 0.3s ease;
+}
+
+.small-work-row:hover {
+    background-color: rgba(250, 250, 250, 0.05);
+}
+
+.row-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin: 0;
+}
+
+.row-meta {
+    display: flex;
+    gap: 80px;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+    opacity: 0.6;
+    min-width: 300px;
+}
+
+/* Expanded Card State (Photo Match) */
+.expanded-project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.expanded-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.expanded-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.expanded-label {
+    display: block;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+
+.expanded-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin: 0 0 20px;
+    line-height: 0.95;
+}
+
+.expanded-desc {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.45;
+    margin-bottom: 30px;
+    max-width: 440px;
+    opacity: 0.9;
+}
+
+.expanded-btn {
+    background: transparent;
+    border: none;
+    color: #fafafa;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(250, 250, 250, 0.4);
+    padding-bottom: 4px;
+    cursor: pointer;
+}
+
+.discover-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.discover-btn {
+    background: #fcd718;
+    color: #063d30;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.discover-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+    .expanded-project-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .row-meta {
+        display: none;
+    }
+}
