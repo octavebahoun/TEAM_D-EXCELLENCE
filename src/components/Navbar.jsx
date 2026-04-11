@@ -24,6 +24,12 @@ function Navbar() {
       return;
     }
 
+    if (name === "Blog") {
+      navigate("/blog");
+      window.scrollTo(0, 0);
+      return;
+    }
+
     const targetItem = ObjectNavItems.find((item) => item.name === name);
     if (targetItem && targetItem.id) {
       if (location.pathname !== "/") {

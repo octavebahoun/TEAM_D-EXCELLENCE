@@ -11,6 +11,7 @@ import Blog from "./components/Blog";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import WorksPage from "./pages/WorksPage";
+import BlogPage from "./pages/BlogPage";
 
 function HomePage() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/works" element={<WorksPage />} />
+        <Route path="/blog" element={<BlogPage />} />
       </Routes>
     </Router>
   );
