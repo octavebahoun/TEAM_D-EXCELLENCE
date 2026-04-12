@@ -5,7 +5,16 @@
       <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
     </linearGradient>
   </defs>
+  <!-- Background Hexagon -->
   <path d="M50 5 L91.3 28.8 V71.2 L50 95 L8.7 71.2 V28.8 L50 5Z" fill="#0A0A0A" stroke="url(#goldGradient)" stroke-width="3"/>
+  
+  <!-- Stylized Monogram ET -->
+  <!-- E -->
   <path d="M30 35 H60 V42 H38 V48 H55 V55 H38 V61 H60 V68 H30 Z" fill="url(#goldGradient)"/>
+  <!-- T -->
   <path d="M55 35 H75 V42 H69 V68 H61 V42 H55 Z" fill="#FFFFFF" opacity="0.8"/>
+  
+  <!-- Tech Accent -->
+  <path d="M15 30 L25 30 M75 70 L85 70" stroke="#FFD700" stroke-width="1" stroke-linecap="round"/>
 </svg>
+

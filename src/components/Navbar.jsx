@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import navbarLogo from "../assets/navbarlogo.png";
+import navbarLogo from "../assets/logo.svg";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ObjectNavItems = [
