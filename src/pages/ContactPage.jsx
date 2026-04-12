@@ -1,113 +1,49 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import "./ContactPage.css";
 
 function ContactPage() {
+  const [formData, setFormData] = useState({ name: "", email: "", project: "" });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
   return (
     <>
-      <SEO
-        title="Contactez-nous"
-        description="Vous avez un projet digital ou une question sur la cybersécurité ? Contactez Excellence Team à Cotonou pour un accompagnement sur mesure."
-      />
-      <div className="vignette-blur-bottom" />
-
-      <main
-        className="contact-main"
-        style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}
-      >
+      <SEO title="Contactez-nous | Excellence Team" description="Discutons de vos projets digitaux et cybersécurité." />
+      <main className="contact-main" style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}>
         <section className="contact-section">
           <div className="contact-container">
             <div className="contact-left">
-              <motion.h1
-                className="contact-title"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                Collaborons
-                <br />
-                Ensemble.
+              <motion.h1 className="contact-title" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+                Parlons de votre <br /> prochain projet.
               </motion.h1>
-              <motion.p
-                className="contact-subtitle"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                Vous avez un projet ou une question ? Remplissez le formulaire,
-                et nous reviendrons vers vous rapidement.
-              </motion.p>
+              <p className="contact-subtitle">
+                Une idée, un besoin technique ou une question ? Notre équipe vous répond sous 24h.
+              </p>
             </div>
 
-            <motion.div
-              className="contact-right"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <form
-                className="contact-form"
-                onSubmit={(e) => e.preventDefault()}
-              >
+            <motion.div className="contact-right" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
+              <form className="contact-form" onSubmit={(e) => { e.preventDefault(); console.log(formData); }}>
                 <div className="form-group">
-                  <label htmlFor="name">Nom</label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Votre nom complet"
-                  />
+                  <label htmlFor="name">Nom complet</label>
+                  <input type="text" id="name" value={formData.name} onChange={handleChange} placeholder="Jean Dupont" required />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="votre@email.com"
-                  />
+                  <label htmlFor="email">Adresse Email</label>
+                  <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="jean@entreprise.com" required />
                 </div>
 
                 <div className="form-group">
-                  <label>Votre Budget (FCFA)</label>
-                  <div className="radio-group">
-                    <label className="radio-label">
-                      <input
-                        type="radio"
-                        name="budget"
-                        value="<1M"
-                        defaultChecked
-                      />
-                      <span className="radio-custom"></span> &$lt;$ 1M
-                    </label>
-                    <label className="radio-label">
-                      <input type="radio" name="budget" value="1M-5M" />
-                      <span className="radio-custom"></span> 1M - 5M
-                    </label>
-                    <label className="radio-label">
-                      <input type="radio" name="budget" value=">5M" />
-                      <span className="radio-custom"></span> &$gt;$ 5M
-                    </label>
-                  </div>
+                  <label htmlFor="project">Votre message</label>
+                  <textarea id="project" rows="5" value={formData.project} onChange={handleChange} placeholder="Détaillez votre besoin ici..." required />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="project">Votre Projet</label>
-                  <textarea
-                    id="project"
-                    rows="4"
-                    placeholder="Décrivez votre projet ou votre besoin"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="submit-btn btn-roulette"
-                  data-text="Envoyer"
-                >
-                  <span className="btn-text">Envoyer</span>
-                </button>
+                <button type="submit" className="submit-btn">Envoyer le message</button>
               </form>
             </motion.div>
           </div>
