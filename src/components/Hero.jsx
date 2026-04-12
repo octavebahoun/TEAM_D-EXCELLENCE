@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/hero.avif";
-import heroImageAlt from "../assets/hero2.avif";
+import { Link } from "react-router-dom";
 
+
+const heroImage = "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956867/digital_kiin4o.avif"
+
+const heroImageAlt = "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956985/alt_pt9hxh.avif"
 const MotionDiv = motion.div;
 const MotionP = motion.p;
 const MotionSpan = motion.span;
@@ -50,29 +53,33 @@ function Hero() {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1>
-          BRINGING YOUR
+          L'excellence
           <br />
-          VISION TO LIFE.
+          au service du
+          <br />
+          numérique.
         </h1>
         <MotionP>
           {[
-            "Where",
-            "imagination,",
-            "strategy,",
-            "and",
-            "storytelling",
-            "collide",
-            "to",
-            "build",
-            "unforgettable",
-            "brand",
-            "experiences",
-            "that",
-            "move",
-            "people",
-            "and",
-            "grow",
-            "businesses.",
+            "Ingénierie",
+            "digitale,",
+            "cybersécurité,",
+            "création",
+            "visuelle",
+            "et",
+            "infrastructure",
+            "—",
+            "Excellence",
+            "Team",
+            "conçoit",
+            "les",
+            "solutions",
+            "qui",
+            "font",
+            "avancer",
+            "les",
+            "entreprises",
+            "béninoises.",
           ].map((word, index) => (
             <MotionSpan
               key={index}
@@ -91,12 +98,14 @@ function Hero() {
             </MotionSpan>
           ))}
         </MotionP>
-        <button
-          className="hero-main-cta btn-roulette"
-          data-text="Let's Collab!"
-        >
-          <span className="btn-text">Let&apos;s Collab!</span>
-        </button>
+        <Link to="/contact">
+          <button
+            className="hero-main-cta btn-roulette"
+            data-text="Construisez avec nous !"
+          >
+            <span className="btn-text">Construisez avec nous !</span>
+          </button>
+        </Link>
       </MotionDiv>
 
       <div className="hero-media" aria-hidden="true">

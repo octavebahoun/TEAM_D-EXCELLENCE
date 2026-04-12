@@ -1,52 +1,57 @@
 [
   {
     "id": 1,
-    "topLabel": "• INGENIERIE DIGITAL",
-    "title": "Web Development",
-    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    "mainImage": "https://images.unsplash.com/photo-1558981418-4c1264c78201?auto=format&fit=crop&q=80&w=1200",
-    "thumb1": "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=200",
-    "thumb2": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=200",
-    "side": "left"
+    "topLabel": "Août 2025 • INGÉNIERIE DIGITALE",
+    "title": "Le TWIN",
+    "description": "Plateforme E-commerce haut de gamme pour une marque de mode urbaine béninoise. Expérience d'achat immersive et gestion de stock automatisée.",
+    "mainImage": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773366626/WhatsApp_Image_2026-02-07_at_13.55.04_jb8uve.jpg",
+    "thumb1": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773383601/WhatsApp_Image_2026-03-13_at_07.27.56_3_tng9hq.jpg",
+    "thumb2": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773383601/WhatsApp_Image_2026-03-13_at_07.27.56_nukyzh.jpg",
+    "side": "left",
+    "url": "https://le-twin.vercel.app/"
   },
   {
     "id": 2,
-    "topLabel": "Feb 2025 • BRANDING",
-    "title": "Lumen Atelier",
-    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    "mainImage": "https://images.unsplash.com/photo-1554744512-d6c603f27c54?auto=format&fit=crop&q=80&w=1200",
-    "thumb1": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&q=80&w=200",
-    "thumb2": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&q=80&w=200",
-    "side": "right"
+    "topLabel": "Fév 2025 • SAAS & MÉTIER",
+    "title": "Academix",
+    "description": "Système d'information scolaire complet : gestion des notes, bulletins automatisés et portail parents pour les établissements d'enseignement secondaire.",
+    "mainImage": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955345/academix_fn4oat.png",
+    "thumb1": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955350/master_kbxpmf.avif",
+    "thumb2": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955383/winner_rfjzdb.avif",
+    "side": "right",
+    "url": "https://team-d-excellence-hackbyifri-2026.vercel.app/"
   },
   {
     "id": 3,
-    "topLabel": "Aug 2024 • ILLUSTRATION",
-    "title": "Nimble Apparel",
-    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    "mainImage": "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=1200",
-    "thumb1": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=200",
-    "thumb2": "https://images.unsplash.com/photo-1498661694102-0a3793edbe54?auto=format&fit=crop&q=80&w=200",
-    "side": "left"
+    "topLabel": "Mars 2026 • RECHERCHE TECH",
+    "title": "Fieri Research",
+    "description": "Plateforme collaborative dédiée à la recherche scientifique et à l'innovation étudiant-chercheur. Hub central pour les événements et publications.",
+    "mainImage": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955620/fieri_pjxyof.webp",
+    "thumb1": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955702/fieri1_yxrrja.jpg",
+    "thumb2": "",
+    "side": "left",
+    "url": "https://fieri-research.org"
   },
   {
     "id": 4,
-    "topLabel": "Oct 2025 • BRANDING",
-    "title": "Heritage Motor",
-    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    "mainImage": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200",
-    "thumb1": "https://images.unsplash.com/photo-1507436034177-3e1104e6717a?auto=format&fit=crop&q=80&w=200",
-    "thumb2": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=200",
-    "side": "right"
+    "topLabel": "Nov 2023 • ÉVÉNEMENTIEL",
+    "title": "La Nuit du Cœur",
+    "description": "Vitrine digitale pour un événement artistique majeur à Lokossa. Promotion des talents locaux et billetterie en ligne intégrée.",
+    "mainImage": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955767/nuit_de_coeur_jx18zr.avif",
+    "thumb1": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&q=80&w=200",
+    "side": "right",
+    "url": "https://nightheart.rf.gd/"
   },
   {
     "id": 5,
-    "topLabel": "Nov 2023 • BRANDING",
-    "title": "Root & Rise",
-    "description": "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
-    "mainImage": "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&q=80&w=1200",
-    "thumb1": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=200",
-    "thumb2": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&q=80&w=200",
-    "side": "left"
+    "topLabel": "Jan 2026 • CYBERSÉCURITÉ",
+    "title": "Pentest PME Bénin",
+    "description": "Audit complet de sécurité pour un groupe logistique. Identification de 14 vulnérabilités critiques et mise en place d'un protocole de remédiation.",
+    "mainImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
+    "thumb1": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=200",
+    "thumb2": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=200",
+    "side": "left",
+    "url": "#"
   }
 ]

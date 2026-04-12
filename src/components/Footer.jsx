@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import "./Footer.css";
 
@@ -8,45 +9,49 @@ const Footer = () => {
     <footer className="footer-section">
       <div className="footer-container">
         {/* Large CTA Section */}
-        <div className="footer-top">
-          <div className="cta-left">
-            <h2 className="footer-main-title">
-              LET'S CREATE <br />
-              TOGETHER <span className="arrow-icon">↗</span>
-            </h2>
-          </div>
+        <Link to="/contact" className="footer-cta-link">
+          <div className="footer-top">
+            <div className="cta-left">
+              <h2 className="footer-main-title">
+                CRÉONS L'AVENIR <br />
+                ENSEMBLE <span className="arrow-icon">↗</span>
+              </h2>
+            </div>
 
-          <div className="cta-right">
-            <div className="footer-image-stack">
-              <div className="footer-img-card card-3"></div>
-              <div className="footer-img-card card-2"></div>
-              <div className="footer-img-card card-1">
-                <img
-                  src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop"
-                  alt="Creative work"
-                />
+            <div className="cta-right">
+              <div className="footer-image-stack">
+                <div className="footer-img-card card-3"></div>
+                <div className="footer-img-card card-2"></div>
+                <div className="footer-img-card card-1">
+                  <img
+                    src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop"
+                    alt="Creative work"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Info Grid */}
         <div className="footer-grid">
           <div className="info-col">
-            <span className="col-label">Visit Us</span>
+            <span className="col-label">Nous rendre visite</span>
             <p className="col-text">
-              7814 Harrison Blvd. Wilmington,
+              Lokossa , Bénin
               <br />
-              19804 United States
+              Agnivedji
             </p>
           </div>
 
           <div className="info-col">
-            <span className="col-label">Contact Us</span>
+            <span className="col-label">Nous contacter</span>
             <p className="col-text">
-              <a href="mailto:hello@framer.com">hello@framer.com</a>
+              <a href="mailto:excellenceteam@gmail.com">
+                excellenceteam@gmail.com
+              </a>
               <br />
-              <a href="tel:+12345678910">+1 (234) 567-8910</a>
+              <a href="tel:+2290147797082">+229 01 47 79 70 82</a>
             </p>
           </div>
 
@@ -88,11 +93,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <div className="copyright">© 2025 Templyo - All right reserved</div>
+          <div className="copyright">
+            © 2026 Excellence Team - Tous droits réservés
+          </div>
           <div className="legal-links">
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Refund Policy</a>
+            <Link to="/terms">Conditions Générales</Link>
+            <Link to="/privacy">Politique de Confidentialité</Link>
           </div>
         </div>
       </div>

@@ -9,6 +9,17 @@
     margin-inline: auto;
 }
 
+.section-label-light {
+    display: block;
+    text-align: center;
+    font-family: 'Satoshi', sans-serif;
+    color: #fcd718;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
 .pricing-header {
     text-align: center;
     font-family: 'Anton', sans-serif;
@@ -17,57 +28,9 @@
     margin: 0 0 60px;
 }
 
-.pricing-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 80px;
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.pricing-toggle span {
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.pricing-toggle span.active {
-    opacity: 1;
-}
-
-.pricing-switch {
-    width: 60px;
-    height: 32px;
-    background: rgba(250, 250, 250, 0.1);
-    border-radius: 99px;
-    padding: 4px;
-    cursor: pointer;
-    position: relative;
-    border: 1px solid rgba(250, 250, 250, 0.2);
-}
-
-.switch-thumb {
-    width: 24px;
-    height: 24px;
-    background: #fafafa;
-    border-radius: 50%;
-}
-
-.pricing-switch.yearly {
-    background: #fcd718;
-}
-
-.pricing-switch.yearly .switch-thumb {
-    background: #063d30;
-    margin-left: 28px;
-}
-
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -78,57 +41,48 @@
     border-radius: 32px;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .pricing-card.accent {
-    background: #fafafa;
     box-shadow: 0 40px 100px rgba(6, 61, 48, 0.15);
+    border-color: #fcd718;
 }
 
 .tier-name {
     font-family: 'Anton', sans-serif;
     font-size: 2.5rem;
-    margin: 0 0 16px;
+    margin: 0 0 8px;
+    color: #063d30;
+}
+
+.tier-target {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    background: #063d30;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
 }
 
 .tier-desc {
     font-family: 'Satoshi', sans-serif;
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.4;
-    margin-bottom: 40px;
-    opacity: 0.8;
-}
-
-.tier-price {
-    display: flex;
-    align-items: baseline;
-    font-family: 'Anton', sans-serif;
-    margin-bottom: 40px;
-}
-
-.tier-price .currency {
-    font-size: 2rem;
-    margin-right: 4px;
-}
-
-.tier-price .amount {
-    font-size: 5rem;
-    margin-right: 8px;
-    line-height: 1;
-}
-
-.tier-price .period {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    opacity: 0.6;
+    margin-bottom: 32px;
+    opacity: 0.9;
+    color: #063d30;
 }
 
 .tier-features {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
     flex-grow: 1;
 }
 
@@ -145,9 +99,17 @@
     font-weight: 700;
 }
 
+.pricing-card a {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+}
+
 .tier-cta {
+    width: 100%;
     background: transparent;
     border: 1px solid #063d30;
+
     padding: 16px;
     border-radius: 999px;
     font-family: 'Satoshi', sans-serif;

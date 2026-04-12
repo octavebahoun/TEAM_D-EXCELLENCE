@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./Testimonials.css";
 import testimonialImg from "../assets/hero2.avif"; // Using existing asset for now
 
 function Testimonials() {
   const quote =
-    "Damas elevated our brand far beyond expectations. The campaign they crafted felt authentic, fresh, and exactly what our audience needed.";
+    "Excellence Digital a su comprendre et traduire notre vision en une expérience digitale immersive et authentique. Leur expertise technique et leur créativité ont été des atouts majeurs pour le lancement du TWIN.";
   const words = quote.split(" ");
 
   return (
@@ -15,7 +16,7 @@ function Testimonials() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          TESTIMONIALS
+          Temoignages
         </motion.span>
 
         <motion.h2
@@ -23,12 +24,12 @@ function Testimonials() {
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         >
-          What Our Clients Say
+          Ce que nos clients disent de nous
         </motion.h2>
 
         <div className="testimonial-card">
           <div className="testimonial-text">
-            <span className="testimonial-brand">StyleStash</span>
+            <span className="testimonial-brand">Le TWIN</span>
             <p className="testimonial-quote">
               {words.map((word, i) => (
                 <motion.span
@@ -42,12 +43,14 @@ function Testimonials() {
                 </motion.span>
               ))}
             </p>
-            <button
-              className="testimonial-cta btn-roulette"
-              data-text="Start a Project ↗"
-            >
-              <span className="btn-text">Start a Project ↗</span>
-            </button>
+            <Link to="/contact">
+              <button
+                className="testimonial-cta btn-roulette"
+                data-text="Commencez avec nous ↗"
+              >
+                <span className="btn-text">Commencez avec nous ↗</span>
+              </button>
+            </Link>
           </div>
 
           <motion.div
@@ -67,12 +70,12 @@ function Testimonials() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+              src="https://res.cloudinary.com/dla8wr5qj/image/upload/v1773383605/WhatsApp_Image_2026-03-13_at_07.28.01_1_pb0qhe.jpg"
               alt="Client"
             />
             <div className="testimonial-author">
-              <strong>Yakoub Kashmiri</strong>
-              <span>Marketing Director</span>
+              <strong className="text-white">Mechack HOUNKPATIN</strong>
+              <span className="text-white">Directeur Général</span>
             </div>
           </motion.div>
         </div>

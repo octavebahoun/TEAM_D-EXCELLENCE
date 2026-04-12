@@ -1,56 +1,74 @@
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #fcd718;
+  z-index: 2000;
+  transition: width 0.1s ease-out;
+}
+
+.article-main {
+  background-color: #f4f3ed;
+  min-height: 100vh;
+}
+
 .article-container {
-  width: min(1200px, 100% - 40px);
+  width: min(900px, 100% - 40px);
   margin-inline: auto;
 }
 
 .paddingTop {
-  padding-top: clamp(100px, 15vw, 180px);
+  padding-top: clamp(120px, 15vw, 200px);
 }
 
-.article-header {
-  margin-bottom: 60px;
+.article-top-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.article-tag {
+  background: #063d30;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.article-date-time {
+  color: rgba(6, 61, 48, 0.4);
 }
 
 .article-title {
-  text-align: left;
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.2rem, 5vw, 6.5rem);
-  line-height: 0.9;
-  margin: 0 0 20px 0;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1;
   color: #063d30;
-  max-width: 800px;
+  margin: 0 0 32px 0;
+  text-transform: uppercase;
 }
 
 .article-subtitle {
   font-family: "Satoshi", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  max-width: 600px;
-  line-height: 1.5;
-  margin: 0 0 30px 0;
-  color: #063d30;
-  opacity: 0.9;
-}
-
-.article-meta {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  font-family: "Satoshi", sans-serif;
-  font-size: 0.95rem;
-  color: #063d30;
-  opacity: 0.7;
-  border-bottom: 1px solid rgba(6, 61, 48, 0.2);
-  padding-bottom: 20px;
-  margin-bottom: 40px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: rgba(6, 61, 48, 0.8);
+  margin-bottom: 60px;
+  max-width: 700px;
 }
 
 .article-hero-image {
+  position: relative;
   width: 100%;
-  aspect-ratio: 21/9;
-  border-radius: 20px;
+  aspect-ratio: 16/9;
+  border-radius: 40px;
   overflow: hidden;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+  box-shadow: 0 50px 100px rgba(6, 61, 48, 0.1);
 }
 
 .article-hero-image img {
@@ -59,130 +77,159 @@
   object-fit: cover;
 }
 
+.image-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.15;
+  pointer-events: none;
+}
+
 .article-content {
-  max-width: 800px;
-  margin: 0 auto 120px auto;
-  color: #063d30;
+  max-width: 720px;
+  margin: 0 auto 150px;
 }
 
 .article-content h2 {
-  font-family: "Satoshi", sans-serif;
-  font-size: 2.2rem;
-  font-weight: 500;
-  margin: 60px 0 20px 0;
-  line-height: 1.2;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: #063d30;
+  margin: 80px 0 32px;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .article-content p {
   font-family: "Satoshi", sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #063d30;
+  margin-bottom: 32px;
+  opacity: 0.9;
 }
 
 .article-content blockquote {
   font-family: "Satoshi", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.8rem;
+  font-weight: 300;
   font-style: italic;
-  border-left: 2px solid rgba(6, 61, 48, 0.3);
-  padding-left: 20px;
-  margin: 40px 0;
-  color: rgba(6, 61, 48, 0.8);
+  margin: 60px 0;
+  padding: 40px;
+  background: white;
+  border-radius: 32px;
+  color: #063d30;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(6, 61, 48, 0.05);
+}
+
+.article-content blockquote::before {
+  content: "“";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 5rem;
+  color: #fcd718;
+  font-family: "Anton", sans-serif;
+  opacity: 0.5;
 }
 
 .more-articles-section {
-  padding: 80px 0;
-  border-top: 1px solid rgba(6, 61, 48, 0.1);
+  padding: 120px 0;
+  background: white;
 }
 
 .more-articles-title {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: #063d30;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
 }
 
-/* Let's Create Together */
 .create-together-block {
-  margin-top: 120px;
+  margin-top: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 0;
+  background: #063d30;
+  padding: 80px;
+  border-radius: 60px;
+  color: white;
 }
 
 .create-together-text h2 {
   font-family: "Anton", sans-serif;
-  font-size: clamp(2.5rem, 6vw, 6.5rem);
-  line-height: 0.9;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.85;
   margin: 0;
-  color: #063d30;
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
+  text-transform: uppercase;
 }
 
-.create-together-text span {
-  font-size: 2rem;
-  border: 2px solid #063d30;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+.arrow-btn {
+  color: #fcd718;
+}
+
+.cta-image-link {
+  text-decoration: none;
 }
 
 .create-together-images {
   position: relative;
-  width: 350px;
-  height: 250px;
+  width: 300px;
+  height: 200px;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.create-together-block:hover .create-together-images {
+  transform: scale(1.05) rotate(2deg);
 }
 
 .ct-card {
   position: absolute;
-  width: 250px;
-  height: 160px;
-  border-radius: 12px;
+  width: 220px;
+  height: 140px;
+  border-radius: 20px;
   overflow: hidden;
-  background: #a9b5ab;
-  border: 4px solid #f4f3ed;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .ct-card-1 {
-  top: 0;
-  left: 0;
+  top: -20px;
+  left: -20px;
+  background: #2a2a2a;
   z-index: 1;
+  transform: rotate(-10deg);
 }
 
 .ct-card-2 {
-  top: 20px;
-  left: 30px;
+  top: 10px;
+  left: 20px;
+  background: #facd18;
   z-index: 2;
-  background: #25282d;
+  transform: rotate(5deg);
 }
 
 .ct-card-3 {
   top: 40px;
   left: 60px;
   z-index: 3;
+  transform: rotate(-5deg);
 }
 
-.ct-card-3 img {
+.ct-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .create-together-block {
     flex-direction: column;
-    align-items: flex-start;
+    padding: 60px 40px;
     gap: 60px;
-  }
-  .create-together-images {
-    width: 100%;
+    border-radius: 40px;
   }
 }

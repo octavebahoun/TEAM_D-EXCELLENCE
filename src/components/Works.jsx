@@ -1,58 +1,65 @@
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 import "./Works.css";
 
 const initialWorks = [
   {
     category: "INGÉNIERIE DIGITAL",
-    title: "Web Development",
+    title: "Academix",
     description:
-      "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+      "Plateforme SaaS de gestion académique complète — bulletins automatisés, messagerie parents-école, tableau de bord en temps réel.",
     image:
-      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200",
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955345/academix_fn4oat.png",
     side: "left",
+    url: "https://team-d-excellence-hackbyifri-2026.vercel.app/",
   },
   {
-    category: "FEV 2025 • BRANDING",
-    title: "Lumen Atelier",
+    category: "CYBERSECURITE",
+    title: "Pentest PME",
     description:
-      "A high-performance brand crafted for a new era of electric sports cars, fast and emotionally charged.",
+      "Mission complète de pentest sur l'infrastructure réseau d'une PME béninoise — 14 vulnérabilités identifiées, rapport de remédiation livré.",
     image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200",
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956588/pentest_rytrll.webp",
     side: "right",
+    url: "#",
   },
 ];
 
 const listProjects = [
   {
-    id: "nimble",
-    title: "Nimble Apparel",
+    id: "twin",
+    title: "Le TWIN",
     date: "Aug 2024",
-    category: "ILLUSTRATION",
+    category: "INGÉNIERIE DIGITAL",
     description:
-      "Redefining urban style with sustainable materials and modular design patterns.",
+      "Le TWIN est une marque de mode urbaine haut de gamme originaire du Bénin, axée sur une esthétique streetwear minimaliste et sombre, conçue pour la génération Z. Voici l'application officielle, offrant une expérience d'achat fluide et haut de gamme.",
     image:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=60&w=800",
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773366626/WhatsApp_Image_2026-02-07_at_13.55.04_jb8uve.jpg",
+    url: "https://le-twin.vercel.app/",
   },
   {
-    id: "heritage",
-    title: "Heritage Motor",
-    date: "Oct 2025",
-    category: "BRANDING",
+    id: "fieri",
+    title: "Fieri Research",
+    date: "Mars 2026",
+    category: "INGÉNIERIE DIGITAL",
     description:
-      "Honoring automotive history through a modern, digital-first brand experience.",
+      "FIERI Research est une plateforme web dédiée à la recherche scientifique, à l'innovation, aux clubs étudiants et chercheurs, aux événements et à l'espace membre. Voici le site officiel, offrant une expérience utilisateur fluide et moderne.",
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=60&w=800",
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955620/fieri_pjxyof.webp",
+    url: "https://fieri-research.org",
   },
   {
-    id: "root",
-    title: "Root & Rise",
+    id: "nuitdecoeur",
+    title: "La Nuit de Coeur",
     date: "Nov 2023",
     category: "BRANDING",
     description:
-      "An organic identity for a future-facing wellness collective focused on growth.",
+      "La Nuit du Cœur est un évènement culturel et artistique majeur organisé à Lokossa. Notre mission est simple mais puissante : célébrer l'amour sous toutes ses formes, valoriser les talents locaux et encourager la créativité. Voici le site officiel, offrant une expérience utilisateur fluide et moderne.",
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=60&w=800",
+      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955767/nuit_de_coeur_jx18zr.avif",
+    url: "https://nightheart.rf.gd",
   },
 ];
 
@@ -80,9 +87,8 @@ function Works() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1 }}
         >
-          Our Brightest Creations
+          Nos Brillantes Réalisations
         </motion.h2>
-
         <div className="works-list">
           {initialWorks.map((work, index) => (
             <div key={index} className={`work-item ${work.side}`}>
@@ -100,12 +106,19 @@ function Works() {
                 <span className="work-category">{work.category}</span>
                 <h3 className="work-title">{work.title}</h3>
                 <p className="work-desc">{work.description}</p>
-                <button
-                  className="work-btn btn-roulette"
-                  data-text="See Project ↗"
+                <a
+                  href={work.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="work-external-link"
                 >
-                  <span className="btn-text">See Project ↗</span>
-                </button>
+                  <button
+                    className="work-btn btn-roulette"
+                    data-text="Découvrir le projet ↗"
+                  >
+                    <span className="btn-text">Découvrir le projet ↗</span>
+                  </button>
+                </a>
               </motion.div>
 
               <motion.div
@@ -163,12 +176,20 @@ function Works() {
                       </span>
                       <h3 className="expanded-title">{project.title}</h3>
                       <p className="expanded-desc">{project.description}</p>
-                      <button
-                        className="expanded-btn btn-roulette"
-                        data-text="See Project ↗"
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="work-external-link"
+                        onClick={(e) => e.stopPropagation()}
                       >
-                        <span className="btn-text">See Project ↗</span>
-                      </button>
+                        <button
+                          className="expanded-btn btn-roulette"
+                          data-text="Voir le site ↗"
+                        >
+                          <span className="btn-text">Voir le site ↗</span>
+                        </button>
+                      </a>
                     </div>
                   </motion.div>
                 )}
@@ -182,12 +203,14 @@ function Works() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <button
-            className="discover-btn btn-roulette"
-            data-text="Discover More"
-          >
-            <span className="btn-text">Discover More</span>
-          </button>
+          <Link to="/works">
+            <button
+              className="discover-btn btn-roulette"
+              data-text="Voir tout le portfolio"
+            >
+              <span className="btn-text">Voir tout le portfolio</span>
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

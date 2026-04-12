@@ -1,54 +1,54 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./Pricing.css";
 
 const tiers = [
   {
     name: "Starter",
-    price: 999,
+    target: "Entrepreneurs, auto-entrepreneurs, petits commerces",
     description:
-      "Perfect for small teams exploring creative and general support.",
+      "Vous lancez votre activité et avez besoin d'une présence digitale professionnelle qui inspire confiance dès le premier clic.",
     features: [
-      "Manage up to 3 brand assets",
-      "Access to basic design templates",
-      "Standard project comments",
-      "Community discussions",
+      "Site vitrine 1 à 5 pages",
+      "Landing page conversion",
+      "Identité visuelle de base",
+      "Configuration hébergement",
     ],
-    cta: "Let's Collab!",
+    cta: "Démarrer →",
     accent: false,
   },
   {
-    name: "Studio",
-    price: 1999,
+    name: "Growth",
+    target: "PME, startups, associations, institutions",
     description:
-      "Designed for growing brands that need consistent creative output.",
+      "Votre activité tourne. Vous avez besoin d'outils qui structurent, automatisent et vous donnent un avantage sur vos concurrents.",
     features: [
-      "Unlimited brand assets",
-      "Collaboration with up to 5 team members",
-      "Reusable component library",
-      "Priority design reviews",
+      "Plateformes web & métiers",
+      "SaaS & outils sur-mesure",
+      "Audits de sécurité & cyber",
+      "Stratégies digitales & contenu",
     ],
-    cta: "Let's Collab!",
+    cta: "Discuter du projet →",
     accent: true,
   },
   {
-    name: "Agency",
-    price: 2999,
-    description: "End-to-end creative partnership for scaling businesses.",
+    name: "Enterprise",
+    target: "Grandes entreprises, groupes, institutions",
+    description:
+      "Vous pilotez une organisation d'envergure. On devient votre partenaire tech de confiance sur le long terme.",
     features: [
-      "Unlimited team members",
-      "White-label client dashboards",
-      "Advanced workflow automation",
-      "Dedicated account specialist",
+      "Systèmes d'information complexes",
+      "Infrastructure cloud enterprise",
+      "Transformation digitale",
+      "SLA garanti & équipe dédiée",
     ],
-    cta: "Let's Collab!",
+    cta: "Nous contacter →",
     accent: false,
   },
 ];
 
 function Pricing() {
-  const [billing, setBilling] = useState("monthly");
-
   return (
     <section className="pricing-section">
       <div className="pricing-container">
@@ -57,61 +57,31 @@ function Pricing() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          PRICING
+          POUR QUI ON TRAVAILLE
         </motion.span>
 
         <motion.h2
           className="pricing-header"
-          initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          Affordable Plans
+          Un partenaire pour chaque étape
           <br />
-          For Everyone.
+          de votre croissance.
         </motion.h2>
-
-        <div className="pricing-toggle">
-          <span
-            className={billing === "monthly" ? "active" : ""}
-            onClick={() => setBilling("monthly")}
-          >
-            Monthly
-          </span>
-          <div
-            className={`pricing-switch ${billing}`}
-            onClick={() =>
-              setBilling((b) => (b === "monthly" ? "yearly" : "monthly"))
-            }
-          >
-            <motion.div className="switch-thumb" layout />
-          </div>
-          <span
-            className={billing === "yearly" ? "active" : ""}
-            onClick={() => setBilling("yearly")}
-          >
-            Yearly
-          </span>
-        </div>
 
         <div className="pricing-grid">
           {tiers.map((tier, i) => (
             <motion.div
               key={i}
               className={`pricing-card ${tier.accent ? "accent" : ""}`}
-              initial={{ opacity: 0, scale: 0.9, y: 40, filter: "blur(15px)" }}
-              whileInView={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: i * 0.15, duration: 0.8 }}
-              whileHover={{ y: -10 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
             >
               <h3 className="tier-name">{tier.name}</h3>
+              <p className="tier-target">{tier.target}</p>
               <p className="tier-desc">{tier.description}</p>
-
-              <div className="tier-price">
-                <span className="currency">$</span>
-                <span className="amount">{tier.price}</span>
-                <span className="period">/month</span>
-              </div>
 
               <div className="tier-features">
                 {tier.features.map((feature, j) => (
@@ -122,9 +92,11 @@ function Pricing() {
                 ))}
               </div>
 
-              <button className="tier-cta btn-roulette" data-text={tier.cta}>
-                <span className="btn-text">{tier.cta}</span>
-              </button>
+              <Link to="/contact">
+                <button className="tier-cta btn-roulette" data-text={tier.cta}>
+                  <span className="btn-text">{tier.cta}</span>
+                </button>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -4,11 +4,11 @@ import navbarLogo from "../assets/navbarlogo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ObjectNavItems = [
-  { name: "About Us", id: "about" },
+  { name: "À propos", id: "about" },
   { name: "Services", id: "services" },
 ];
 
-const navItems = ["About Us", "Services", "Works", "Blog"];
+const navItems = ["À propos", "Services", "Réalisations", "Blog"];
 
 function Navbar() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Navbar() {
   const handleNavClick = (name) => {
     setIsMenuOpen(false);
 
-    if (name === "Works") {
+    if (name === "Réalisations") {
       navigate("/works");
       window.scrollTo(0, 0);
       return;
@@ -36,19 +36,30 @@ function Navbar() {
 
     const targetItem = ObjectNavItems.find((item) => item.name === name);
     if (targetItem && targetItem.id) {
+      const scrollToElement = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80; // Adjust for fixed header height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      };
+
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => {
-          const element = document.getElementById(targetItem.id);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
+          scrollToElement(targetItem.id);
+        }, 300); // Increased timeout for page load
       } else {
-        const element = document.getElementById(targetItem.id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+        // Even if on home page, a small delay helps on mobile to let the menu close
+        setTimeout(() => {
+          scrollToElement(targetItem.id);
+        }, 100);
       }
     }
   };
@@ -96,52 +107,71 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Burger Button (Mobile) */}
-        <button
-          className={`burger-toggle ${isMenuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <div className="burger-line line-1"></div>
-          <div className="burger-line line-2"></div>
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="mobile-menu-overlay"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+        {/* Burger Button (Mobile) - Hidden when menu is open */}
+        {!isMenuOpen && (
+          <button
+            className="burger-toggle"
+            onClick={toggleMenu}
+            aria-label="Open menu"
           >
-            <div className="mobile-menu-content">
-              {navItems.map((item) => (
+            <div className="burger-line line-1"></div>
+            <div className="burger-line line-2"></div>
+          </button>
+        )}
+
+        {/* Expanded Mobile Menu - Matches the provided box design */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="mobile-menu-box"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mobile-menu-header">
+                {/* Logo and close button on the same line */}
                 <button
-                  key={item}
-                  className="mobile-nav-item"
-                  onClick={() => handleNavClick(item)}
+                  className="nav-logo mobile-box-logo"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
+                  <img src={navbarLogo} alt="Excellence" />
                 </button>
-              ))}
-              <div className="mobile-menu-footer">
                 <button
-                  className="mobile-cta-btn"
-                  onClick={() => {
-                    navigate("/");
-                    setIsMenuOpen(false);
-                  }}
+                  className="close-x-btn"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact Us
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
                 </button>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+              <div className="mobile-menu-list">
+                {navItems.map((item) => (
+                  <button
+                    key={item}
+                    className="mobile-pill-btn"
+                    onClick={() => handleNavClick(item)}
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </header>
   );
 }

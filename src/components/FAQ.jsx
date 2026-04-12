@@ -4,24 +4,39 @@ import "./FAQ.css";
 
 const faqData = [
   {
-    question: "How long is the process?",
+    question: "Combien coûte un projet avec Excellence Team ?",
     answer:
-      "Our process typically ranges from 4 to 8 weeks, depending on the scope. We prioritize quality over speed, but we work in focused sprints to ensure efficient delivery.",
+      "Nous ne publions pas de tarifs fixes car chaque projet est différent. Ce qui détermine le prix : la complexité technique, le délai souhaité, et le niveau d'accompagnement. Tout commence par un audit gratuit pour comprendre votre besoin avant de chiffrer.",
   },
   {
-    question: "Do you offer web maintenance?",
+    question: "Combien de temps prend un projet ?",
     answer:
-      "Every site we build comes with a 3-month support period. We also offer monthly maintenance packages for updates, security monitoring, and continuous SEO improvements.",
+      "Un site vitrine : 2 à 4 semaines. Une application sur-mesure : 1 à 3 mois. Un audit cybersécurité : 1 à 2 semaines. Nous vous donnons un planning précis dès la validation du devis — et nous le respectons.",
   },
   {
-    question: "I have a limited budget. Can we work together?",
+    question: "Travaillez-vous uniquement à Cotonou ?",
     answer:
-      "We strive to support ambitious founders. While our 'Studio' and 'Scale' tiers are standard, we can tailor a roadmap for smaller projects that need a high-impact starting point.",
+      "Non. Nous intervenons dans tout le Bénin — Cotonou, Abomey-Calavi, Lokossa, Porto-Novo — et nous travaillons à distance pour les projets digitaux, partout en Afrique et au-delà.",
   },
   {
-    question: "What is your main expertise?",
+    question: "Comment se passe le paiement ?",
     answer:
-      "We specialize in brand-centric digital experiences. That means we don't just build websites; we create visual identities and digital products that tell a story and convert users.",
+      "40% à la signature du devis, 40% à mi-parcours ou à la validation des livrables intermédiaires, 20% à la livraison finale. Nous acceptons Mobile Money, virement bancaire et espèces.",
+  },
+  {
+    question: "Est-ce que vous assurez la maintenance après livraison ?",
+    answer:
+      "Oui. Nous proposons des contrats de maintenance mensuelle ou annuelle selon vos besoins — mises à jour, corrections, sauvegardes, monitoring. C'est optionnel mais fortement recommandé.",
+  },
+  {
+    question: "Vous avez une expertise sur quelle technologies ?",
+    answer:
+      "React, Next.js, Node.js, Laravel, Vue.js, React Native, Three.js, Python, MongoDB, MySQL, Docker, AWS, Kali Linux — et bien d'autres. Si votre besoin nécessite une stack spécifique, on s'adaptte.",
+  },
+  {
+    question: "Comment démarrer avec Excellence Team ?",
+    answer:
+      "Remplissez le formulaire de contact ou envoyez-nous un message WhatsApp. On vous répond sous 24h pour fixer un premier appel de 30 minutes — gratuit, sans engagement — pendant lequel on définit ensemble si on peut vous aider.",
   },
 ];
 
@@ -34,10 +49,10 @@ const FAQ = () => {
         <div className="faq-grid">
           <div className="faq-left">
             <span className="section-label">FAQ</span>
-            <h2 className="faq-title">Questions?</h2>
+            <h2 className="faq-title">Questions ?</h2>
             <p className="faq-desc">
-              Everything you need to know about working with us. If you have
-              more questions, let's talk.
+              Tout ce que vous devez savoir sur notre collaboration. Si vous
+              avez d'autres questions, discutons-en.
             </p>
           </div>
 

@@ -1,0 +1,138 @@
+.team-section {
+    background: #063d30;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.team-container {
+    width: min(1200px, 100% - 40px);
+    margin: auto;
+    position: relative;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.team-label {
+    color: #fcd718;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.team-main-title {
+    font-family: "Anton", sans-serif;
+    font-size: 3rem;
+    color: #fafafa;
+}
+
+.team-carousel-outer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.team-carousel-wrap {
+    overflow: hidden;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.team-slider {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.team-card {
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.member-image-wrap {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fcd71833;
+    margin: auto;
+    padding: 5px;
+    transition: 0.4s;
+}
+
+.team-card:hover .member-image-wrap {
+    border-color: #fcd718;
+    transform: scale(1.05);
+}
+
+.member-image-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.member-image-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    color: #fafafa;
+    font-size: 1.4rem;
+    margin: 15px 0 5px;
+}
+
+.member-role {
+    color: #fcd718;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.member-quote {
+    color: #ffffffb3;
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.member-portfolio-link {
+    display: inline-block;
+    color: #fcd718;
+    font-family: "Satoshi", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.member-portfolio-link:hover {
+    opacity: 1;
+    letter-spacing: 0.15em;
+}
+
+.team-nav-btn {
+    background: #fafafa1a;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 5;
+}
+
+.team-nav-btn:hover:not(:disabled) {
+    background: #fcd718;
+    color: #063d30;
+}
+
+.team-nav-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}

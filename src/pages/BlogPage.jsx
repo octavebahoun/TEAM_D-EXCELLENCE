@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 import "./BlogPage.css";
 import blogData from "../data/blog.json";
 
@@ -12,127 +13,104 @@ function BlogPage() {
   const [data, setData] = useState({ featured: null, articles: [] });
 
   useEffect(() => {
-    // Simulating API fetch
     setData(blogData);
   }, []);
 
   return (
     <>
+      <SEO
+        title="Blog & Insights"
+        description="Décryptage tech, actualités cybersécurité et guides de transformation digitale. Le journal d'Excellence Team pour rester à la pointe de l'innovation."
+      />
       <Navbar />
-      <div className="vignette-blur-bottom" />
-      <main
-        className="blogpage-main"
-        style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}
-      >
-        <section
-          className="blogpage-section"
-          style={{ paddingTop: "clamp(100px, 15vw, 180px)", paddingBottom: "clamp(60px, 10vw, 120px)" }}
-        >
-          <div className="blogpage-container">
-            <div className="blogpage-header">
-              <motion.h2
-                className="blogpage-main-title"
-                initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 1 }}
-              >
-                Inside the <br />
-                Damas Journal
-              </motion.h2>
-              <motion.p
-                className="blogpage-subtitle"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                Discover fresh ideas, practical tips, and creative insights{" "}
-                <br />
-                designed to inspire and help you build better digital
-                experiences.
-              </motion.p>
-            </div>
 
-            <div className="blogpage-search-container">
-              <Search className="search-icon" size={20} />
-              <input
-                type="text"
-                placeholder="Search articles..."
-                className="blogpage-search-input"
-              />
-            </div>
+      <main className="blogpage-main">
+        {/* Marquee Header */}
+        <div className="blog-marquee">
+          <div className="marquee-content">
+            {[1, 2, 3].map((n) => (
+              <span key={n}>
+                L'OPINION D'EXCELLENCE • INSIGHTS DIGITAUX • STRATÉGIE TECH
+                •{" "}
+              </span>
+            ))}
+          </div>
+        </div>
 
+        <section className="blog-hero">
+          <div className="blog-container">
+            <motion.h1
+              className="blog-title"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+            >
+              Le Journal
+              <br />
+              <span className="italic-text">d'Excellence</span>
+            </motion.h1>
+          </div>
+        </section>
+
+        <section className="blog-content">
+          <div className="blog-container">
+            {/* Featured Article - Large Side Layout */}
             {data.featured && (
               <motion.div
-                className="blogpage-featured"
-                initial={{ opacity: 0, y: 30 }}
+                className="featured-post"
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
               >
-                <div className="featured-content">
-                  <span className="featured-tag">{data.featured.tag}</span>
-                  <h2 className="featured-title">{data.featured.title}</h2>
-                  <p className="featured-desc">{data.featured.description}</p>
-                  <Link to={`/blog/${data.featured.id}`}>
-                    <button
-                      className="featured-btn btn-roulette"
-                      data-text={data.featured.linkText}
-                    >
-                      <span className="btn-text">{data.featured.linkText}</span>
-                    </button>
-                  </Link>
-                </div>
-                <div className="featured-image">
-                  <img src={data.featured.image} alt={data.featured.title} />
-                  <div className="featured-sparkle">
-                    <svg
-                      width="60"
-                      height="60"
-                      viewBox="0 0 100 100"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M50 0V30"
-                        stroke="#fcd718"
-                        strokeWidth="8"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M85 15L65 35"
-                        stroke="#fcd718"
-                        strokeWidth="8"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M100 50H70"
-                        stroke="#fcd718"
-                        strokeWidth="8"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                <Link
+                  to={`/blog/${data.featured.id}`}
+                  className="featured-link"
+                >
+                  <div className="featured-image-box">
+                    <img src={data.featured.image} alt={data.featured.title} />
+                    <div className="image-overlay" />
                   </div>
-                </div>
+                  <div className="featured-info">
+                    <span className="post-tag">{data.featured.tag}</span>
+                    <h2 className="featured-post-title">
+                      {data.featured.title}
+                    </h2>
+                    <p className="featured-post-desc">
+                      {data.featured.description}
+                    </p>
+                    <div className="post-meta">
+                      {data.featured.date} • {data.featured.readTime}
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             )}
 
-            <div className="blogpage-grid">
-              {data.articles.map((article, index) => (
-                <Link to={`/blog/${article.id}`} key={article.id}>
-                  <motion.div
-                    className="blogpage-card"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <div className="blogpage-card-image">
+            {/* Asymmetrical Grid */}
+            <div className="blog-asym-grid">
+              {data.articles.map((article, i) => (
+                <motion.div
+                  key={article.id}
+                  className={`blog-post-card card-${(i % 4) + 1}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <Link to={`/blog/${article.id}`}>
+                    <div className="post-image-wrap">
                       <img src={article.image} alt={article.title} />
+                      <span className="post-tag-floating">{article.tag}</span>
                     </div>
-                    <h3 className="blogpage-card-title">{article.title}</h3>
-                    <p className="blogpage-card-desc">{article.description}</p>
-                  </motion.div>
-                </Link>
+                    <div className="post-text-content">
+                      <h3 className="post-title-small">{article.title}</h3>
+                      <p className="post-preview">{article.description}</p>
+                      <div className="post-meta-small">
+                        {article.date} • {article.readTime}
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>

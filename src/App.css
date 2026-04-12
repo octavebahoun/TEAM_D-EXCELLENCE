@@ -88,13 +88,6 @@
   background: #fcd718;
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: 1.04fr 0.96fr;
-  align-items: end;
-  gap: 8px;
-  margin-top: 78px;
-}
 
 .hero-copy {
   max-width: 640px;
@@ -317,66 +310,92 @@
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* On change d'avis, on veut qu'ils forment une croix ou juste qu'ils restent stylés */
-/* Mais l'image montre juste deux lignes. On va les garder et peut être les animer */
-
-.mobile-menu-overlay {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 20px;
-  right: 20px;
-  background: rgba(6, 61, 48, 0.95);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(250, 250, 250, 0.15);
-  border-radius: 32px;
-  padding: 32px;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  z-index: 99;
-  pointer-events: auto;
+/* MOBILE MENU BOX DESIGN */
+.top-nav.menu-is-open {
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 24px;
+  width: min(340px, 100% - 40px);
+  background: #063d30;
+  padding: 12px;
+  gap: 0;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
 }
 
-.mobile-menu-content {
+.top-nav.menu-is-open .nav-logo {
+  display: none;
+  /* We use the one inside the box header */
+}
+
+.mobile-menu-box {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.mobile-nav-item {
-  background: transparent;
-  border: none;
-  color: #fafafa;
-  font-family: 'Anton', sans-serif;
-  font-size: 2.2rem;
-  text-align: left;
-  padding: 8px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  transition: color 0.3s ease;
   width: 100%;
 }
 
-.mobile-nav-item:hover {
-  color: #fcd718;
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 4px 16px 4px;
 }
 
-.mobile-menu-footer {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(250, 250, 250, 0.1);
+.close-x-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mobile-cta-btn {
-  background: #fcd718;
+.mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 4px 8px 4px;
+}
+
+.mobile-pill-btn {
+  background: #fafafa;
   color: #063d30;
   border: none;
   border-radius: 999px;
-  padding: 14px 28px;
+  height: 44px;
+  padding: 0 20px;
   font-family: 'Satoshi', 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  text-align: left;
   width: 100%;
+  max-width: fit-content;
+  transition: all 0.2s ease;
   cursor: pointer;
+}
+
+.mobile-pill-btn:hover {
+  background: #fcd718;
+  transform: translateX(4px);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  align-items: end;
+  gap: 8px;
+  margin-top: 140px;
+  /* Increased from 78px to move away from fixed menu */
+}
+
+@media (max-width: 1140px) {
+  .hero {
+    grid-template-columns: 1fr;
+    margin-top: 120px;
+    /* Increased */
+    gap: 26px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -386,14 +405,29 @@
 
   .burger-toggle {
     display: flex;
+    margin-right: 8px;
   }
 
   .top-nav {
-    width: min(400px, 100% - 20px);
+    width: min(340px, 100% - 40px);
     justify-content: space-between;
-    padding: 6px 16px 6px 6px;
+    padding: 6px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .hero {
+    margin-top: 130px;
   }
 }
+
+@media (max-width: 760px) {
+  .hero {
+    margin-top: 120px;
+  }
+}
+
+
+
 
 /* EFFECT HOVER BOUTONS (ROULETTE OBLIQUE) */
 
@@ -450,7 +484,16 @@
 }
 
 /* Animation au survol */
+@media (hover: hover) {
+  .btn-roulette:hover .btn-text {
+    transform: translateY(-120%) skewY(-12deg);
+    opacity: 0;
+  }
 
+  .btn-roulette:hover::after {
+    transform: translateY(0) skewY(0deg);
+  }
+}
 
 /* EFFET HOVER ICONES (ROULETTE OBLIQUE) */
 .icon-roulette {
@@ -491,11 +534,4 @@
 
 .icon-roulette:hover .icon-back {
   transform: translateY(0) skewY(0deg);
-}
-
-/* UI Enhancements for the new Navbar */
-.top-nav.menu-is-open {
-  background: #063d30;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }

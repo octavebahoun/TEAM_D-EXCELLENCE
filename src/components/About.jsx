@@ -8,8 +8,7 @@ const MotionSection = motion.section;
 
 function About() {
   const descriptionText =
-    "Damas Creative is a collective of designers, strategists, and storytellers who turn bold ideas into meaningful brand expressions. We partner with ambitious companies to shape identities, build trust, and create visual narratives that leave a lasting impression.";
-
+"Excellence Team est une entreprise de services du numérique fondée en 2025 à Cotonou. Nous sommes 6 experts — développeurs, designers, ingénieurs réseaux et spécialistes cybersécurité — réunis par une conviction commune : les entreprises béninoises méritent des solutions numériques à la hauteur des standards internationaux."
   const words = descriptionText.split(" ");
 
   const containerVariants = {
@@ -60,7 +59,7 @@ function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            ABOUT US
+            À propos de nous
           </MotionDiv>
 
           <MotionDiv
@@ -70,7 +69,8 @@ function About() {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            Ideas Crafted Into Impact
+            Nés à Cotonou.  Pensés pour l'Afrique.
+
           </MotionDiv>
 
           <MotionDiv

@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
+
 import "../components/Works.css"; // We will duplicate Works.css into WorksPage.css
 import "./WorksPage.css";
 import worksData from "../data/works.json";
@@ -17,15 +20,22 @@ function WorksPage() {
 
   return (
     <>
-      <Navbar />
+      <SEO
+        title="Nos Réalisations"
+        description="Explorez le portfolio d'Excellence Team : plateformes E-commerce, solutions SaaS, audits de cybersécurité et infrastructures IT au Bénin."
+      />
       <div className="vignette-blur-bottom" />
+
       <main
         className="workspage-main"
         style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}
       >
         <section
           className="workspage-section"
-          style={{ paddingTop: "clamp(100px, 15vw, 180px)", paddingBottom: "clamp(60px, 10vw, 120px)" }}
+          style={{
+            paddingTop: "clamp(100px, 15vw, 180px)",
+            paddingBottom: "clamp(60px, 10vw, 120px)",
+          }}
         >
           <div className="workspage-container">
             <div className="workspage-header">
@@ -35,8 +45,8 @@ function WorksPage() {
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 1 }}
               >
-                Our Brightest <br />
-                creations
+                Nos Brillantes <br />
+                Réalisations
               </motion.h2>
               <motion.p
                 className="workspage-subtitle"
@@ -44,8 +54,8 @@ function WorksPage() {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                A showcase of our latest projects, highlighting <br />
-                thoughtful design, clear strategy, and impactful results.
+                Une sélection de nos projets récents, alliant <br />
+                design réfléchi, stratégie claire et résultats d'impact.
               </motion.p>
             </div>
 
@@ -72,12 +82,19 @@ function WorksPage() {
 
                     <div className="workspage-desc-wrap">
                       <p className="workspage-desc">{work.description}</p>
-                      <button
-                        className="workspage-btn btn-roulette"
-                        data-text="See Project ↗"
+                      <a
+                        href={work.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="workspage-external-link"
                       >
-                        <span className="btn-text">See Project ↗</span>
-                      </button>
+                        <button
+                          className="workspage-btn btn-roulette"
+                          data-text="Visiter le site ↗"
+                        >
+                          <span className="btn-text">Visiter le site ↗</span>
+                        </button>
+                      </a>
                     </div>
                   </motion.div>
 
