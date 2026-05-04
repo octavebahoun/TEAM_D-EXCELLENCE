@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useAccessibleMotion, fadeIn } from "../lib/animations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import teamData from "../data/team.json";
 import "./Team.css";
 
 function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(3);
+  const reduce = useAccessibleMotion();
 
   // Ajuste le nombre de cartes selon l'écran
   useEffect(() => {
@@ -30,6 +34,10 @@ function Team() {
         <div className="team-header">
           <span className="team-label">Expertise</span>
           <h2 className="team-main-title">Notre Équipe</h2>
+          <p className="team-subtitle">
+            Une equipe pluridisciplinaire qui combine vision produit,
+            developpement, cloud et securite pour livrer des projets fiables.
+          </p>
         </div>
 
         <div className="team-carousel-outer">
@@ -37,6 +45,7 @@ function Team() {
             className="team-nav-btn prev"
             onClick={prev}
             disabled={currentIndex === 0}
+            aria-label="Membres precedents"
           >
             <ChevronLeft />
           </button>
@@ -49,10 +58,11 @@ function Team() {
               }}
             >
               {teamData.map((member) => (
-                <div
+                <motion.div
                   key={member.id}
                   className="team-card"
                   style={{ minWidth: `${100 / itemsToShow}%` }}
+                  {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : fadeIn(0, 0.6))}
                 >
                   <div className="member-image-wrap">
                     <div className="member-image-inner">
@@ -63,16 +73,20 @@ function Team() {
                     <h3 className="member-name">{member.name}</h3>
                     <span className="member-role">{member.role}</span>
                     <p className="member-quote">{member.quote}</p>
-                    <a
-                      href={member.portfolio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="member-portfolio-link"
-                    >
-                      Portfolio ↗
-                    </a>
+                    {member.portfolio && member.portfolio !== "#" ? (
+                      <a
+                        href={member.portfolio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="member-portfolio-link"
+                      >
+                        Voir le profil ↗
+                      </a>
+                    ) : (
+                      <span className="member-portfolio-soon">Profil a venir</span>
+                    )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -81,9 +95,17 @@ function Team() {
             className="team-nav-btn next"
             onClick={next}
             disabled={currentIndex >= teamData.length - itemsToShow}
+            aria-label="Membres suivants"
           >
             <ChevronRight />
           </button>
+        </div>
+
+        <div className="team-cta-band">
+          <p>Un projet sensible ou strategique a lancer ?</p>
+          <Link to="/contact" className="team-cta-link">
+            Echanger avec l'equipe ↗
+          </Link>
         </div>
       </div>
     </section>

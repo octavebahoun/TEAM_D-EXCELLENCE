@@ -112,7 +112,9 @@ function Navbar() {
           <button
             className="burger-toggle"
             onClick={toggleMenu}
-            aria-label="Open menu"
+            aria-label="Ouvrir le menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="menu-mobile"
           >
             <div className="burger-line line-1"></div>
             <div className="burger-line line-2"></div>
@@ -123,6 +125,7 @@ function Navbar() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id="menu-mobile"
               className="mobile-menu-box"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
@@ -140,6 +143,7 @@ function Navbar() {
                 <button
                   className="close-x-btn"
                   onClick={() => setIsMenuOpen(false)}
+                  aria-label="Fermer le menu"
                 >
                   <svg
                     width="24"

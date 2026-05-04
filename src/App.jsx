@@ -18,6 +18,7 @@ import Pricing from "./components/Pricing";
 import Blog from "./components/Blog";
 import Team from "./components/Team";
 import FAQ from "./components/FAQ";
+import teamData from "./data/team.json";
 
 import Footer from "./components/Footer";
 import WorksPage from "./pages/WorksPage";
@@ -60,6 +61,7 @@ function HomePage() {
       <SEO
         title="L'Ingénierie Digitale d'Exception au Bénin"
         description="Experts en développement logiciel, cybersécurité et infrastructure. Excellence Team accompagne les entreprises vers une transformation digitale premium."
+        teamMembers={teamData}
       />
       <div className="vignette-blur-bottom" />
 

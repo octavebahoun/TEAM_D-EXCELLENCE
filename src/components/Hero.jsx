@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { fadeIn, imageReveal, useAccessibleMotion } from "../lib/animations";
 
 
 const heroImage = "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956867/digital_kiin4o.avif"
@@ -11,101 +12,70 @@ const MotionSpan = motion.span;
 const MotionSection = motion.section;
 
 function ImageReveal({ className, src, alt, delay }) {
+  const reduce = useAccessibleMotion();
+  const revealProps = reduce
+    ? { initial: { opacity: 1 }, animate: { opacity: 1 }, whileInView: { opacity: 1 }, transition: { duration: 0 } }
+    : imageReveal(delay, 1.2);
+
+  const noiseProps = reduce
+    ? { initial: { opacity: 0 }, animate: { opacity: 0 }, whileInView: { opacity: 0 }, transition: { duration: 0 } }
+    : {
+        initial: { opacity: 0.36 },
+        animate: { opacity: 0 },
+        whileInView: { opacity: 0 },
+        viewport: { once: true, amount: 0.35 },
+        transition: { duration: 1.1, delay: delay + 0.35, ease: "easeOut" },
+      };
+
   return (
-    <MotionDiv
-      className={`hero-card ${className}`}
-      initial={{ opacity: 0.2, filter: "blur(22px)", y: 24 }}
-      animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 1.2, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <MotionDiv className={`hero-card ${className}`} {...revealProps}>
       <img src={src} alt={alt} loading="eager" />
-      <MotionSpan
-        className="card-noise"
-        initial={{ opacity: 0.36 }}
-        animate={{ opacity: 0 }}
-        whileInView={{ opacity: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 1.1, delay: delay + 0.35, ease: "easeOut" }}
-      />
+      <MotionSpan className="card-noise" {...noiseProps} />
     </MotionDiv>
   );
 }
 
 function Hero() {
+  const reduce = useAccessibleMotion();
+  const sectionProps = reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 }, transition: { duration: 0 } } : fadeIn(0, 1.1);
+  const copyProps = reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 }, transition: { duration: 0 } } : fadeIn(0.05, 1);
+
   return (
-    <MotionSection
-      className="hero"
-      aria-label="Section d'accueil"
-      initial={{ opacity: 0.15, filter: "blur(22px)", y: 20 }}
-      animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <MotionDiv
-        className="hero-copy"
-        initial={{ opacity: 0.2, y: 16, filter: "blur(18px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
+    <MotionSection className="hero" aria-label="Section d'accueil" {...sectionProps}>
+      <MotionDiv className="hero-copy" {...copyProps}>
+        <span className="hero-kicker">SARL d'ingenierie digitale au Benin</span>
         <h1>
-          L'excellence
+          Systeme robuste.
           <br />
-          au service du
+          Design premium.
           <br />
-          numérique.
+          Impact mesurable.
         </h1>
-        <MotionP>
-          {[
-            "Ingénierie",
-            "digitale,",
-            "cybersécurité,",
-            "création",
-            "visuelle",
-            "et",
-            "infrastructure",
-            "—",
-            "Excellence",
-            "Team",
-            "conçoit",
-            "les",
-            "solutions",
-            "qui",
-            "font",
-            "avancer",
-            "les",
-            "entreprises",
-            "béninoises.",
-          ].map((word, index) => (
-            <MotionSpan
-              key={index}
-              initial={{ opacity: 0, x: -20, filter: "blur(8px)" }}
-              animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, amount: 0.55 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.2 + index * 0.06,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{ display: "inline-block", marginRight: "0.3em" }}
-            >
-              {word}
-            </MotionSpan>
-          ))}
+        <MotionP {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 }, transition: { duration: 0 } } : fadeIn(0.12, 0.9))}>
+          Excellence Team accompagne les entreprises et institutions avec une
+          execution complete: architecture logicielle, cybersécurite,
+          infrastructure cloud et experiences web haut de gamme.
         </MotionP>
-        <Link to="/contact">
-          <button
-            className="hero-main-cta btn-roulette"
-            data-text="Construisez avec nous !"
-          >
-            <span className="btn-text">Construisez avec nous !</span>
-          </button>
-        </Link>
+
+        <div className="hero-proof-list" aria-label="Elements de confiance">
+          <span>Equipe pluridisciplinaire</span>
+          <span>Execution de bout en bout</span>
+          <span>Reponse initiale sous 24h</span>
+        </div>
+
+        <div className="hero-cta-row">
+          <Link to="/contact">
+            <button
+              className="hero-main-cta btn-roulette"
+              data-text="Demarrer un projet"
+            >
+              <span className="btn-text">Demarrer un projet</span>
+            </button>
+          </Link>
+          <Link to="/works">
+            <button className="hero-secondary-cta">Voir nos realisations</button>
+          </Link>
+        </div>
       </MotionDiv>
 
       <div className="hero-media" aria-hidden="true">

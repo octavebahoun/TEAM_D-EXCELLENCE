@@ -3,9 +3,23 @@
 @import "tailwindcss";
 
 :root {
+  --bg-cream: #f6f2e9;
+  --bg-ink: #063d30;
+  --text-strong: #052e24;
+  --text-soft: rgba(5, 46, 36, 0.82);
+  --accent-gold: #f2be2d;
+  --accent-copper: #b96e1d;
+  --surface-light: rgba(255, 255, 255, 0.82);
+  --surface-dark: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(5, 46, 36, 0.18);
+  --radius-pill: 999px;
+  --radius-lg: 24px;
+  --shadow-soft: 0 14px 40px rgba(6, 61, 48, 0.12);
+  --focus-ring: 0 0 0 3px rgba(242, 190, 45, 0.35);
+
   font-family: 'Satoshi', 'Inter', 'Segoe UI', system-ui, sans-serif;
-  background: #fafafa;
-  color: #063d30;
+  background: var(--bg-cream);
+  color: var(--text-strong);
   color-scheme: only light;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,9 +49,11 @@ body {
 
 body {
   min-height: 100vh;
-  background-color: #063d30;
-  color: #063d30;
+  background-color: var(--bg-ink);
+  color: var(--text-strong);
   font-family: 'Satoshi', 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   position: relative;
   overflow-x: clip;
 }
@@ -64,6 +80,13 @@ h4,
 h5,
 h6 {
   font-family: 'Anton', sans-serif;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+p {
+  line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .hero-section::before,
@@ -111,6 +134,26 @@ a {
 
 button {
   color: inherit;
+  min-height: 44px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Masquer scrollbar */

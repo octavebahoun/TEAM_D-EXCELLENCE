@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useAccessibleMotion, fadeIn, containerStagger } from "../lib/animations";
 import aboutImage from "../assets/hero2.avif";
 import "./About.css";
 
@@ -11,35 +12,24 @@ function About() {
 "Excellence Team est une entreprise de services du numérique fondée en 2025 à Cotonou. Nous sommes 6 experts — développeurs, designers, ingénieurs réseaux et spécialistes cybersécurité — réunis par une conviction commune : les entreprises béninoises méritent des solutions numériques à la hauteur des standards internationaux."
   const words = descriptionText.split(" ");
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.03,
-        delayChildren: 0.2,
-      },
-    },
-  };
+  const reduce = useAccessibleMotion();
 
-  const wordVariants = {
-    hidden: {
-      opacity: 0,
-      y: 15,
-      filter: "blur(12px)",
-      rotate: 2,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      rotate: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
+  const containerVariants = reduce
+    ? null
+    : containerStagger(0.03, 0.18);
+
+  const wordVariants = reduce
+    ? null
+    : {
+        hidden: { opacity: 0, y: 15, filter: "blur(12px)", rotate: 2 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          rotate: 0,
+          transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+        },
+      };
 
   return (
     <MotionSection
@@ -75,46 +65,35 @@ function About() {
 
           <MotionDiv
             className="about-description"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            {...(reduce
+              ? { initial: undefined, whileInView: undefined }
+              : { variants: containerVariants, initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } })}
           >
-            {words.map((word, index) => (
-              <MotionSpan
-                key={index}
-                variants={wordVariants}
-                style={{ display: "inline-block", marginRight: "0.38em" }}
-              >
-                {word}
-              </MotionSpan>
-            ))}
+            {reduce
+              ? words.join(" ")
+              : words.map((word, index) => (
+                  <MotionSpan
+                    key={index}
+                    variants={wordVariants}
+                    style={{ display: "inline-block", marginRight: "0.38em" }}
+                  >
+                    {word}
+                  </MotionSpan>
+                ))}
           </MotionDiv>
         </div>
 
         <div className="about-media">
           <MotionDiv
             className="about-image-wrapper"
-            initial={{
-              opacity: 0,
-              filter: "blur(25px)",
-              rotate: -12,
-              scale: 0.85,
-              y: 60,
-            }}
-            whileInView={{
-              opacity: 1,
-              filter: "blur(0px)",
-              rotate: -6,
-              scale: 1,
-              y: 0,
-            }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{
-              duration: 1.4,
-              delay: 0.4,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            {...(reduce
+              ? { initial: undefined, whileInView: undefined }
+              : {
+                  initial: { opacity: 0, filter: "blur(25px)", rotate: -12, scale: 0.85, y: 60 },
+                  whileInView: { opacity: 1, filter: "blur(0px)", rotate: -6, scale: 1, y: 0 },
+                  viewport: { once: true, amount: 0.4 },
+                  transition: { duration: 1.4, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
+                })}
           >
             <img src={aboutImage} alt="Damas Creative work" />
           </MotionDiv>

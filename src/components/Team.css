@@ -1,5 +1,8 @@
 .team-section {
-    background: #063d30;
+    background:
+        radial-gradient(90% 80% at 90% 0%, rgba(252, 215, 24, 0.12), transparent 60%),
+        radial-gradient(60% 60% at 0% 100%, rgba(180, 119, 24, 0.16), transparent 62%),
+        #063d30;
     padding: 80px 0;
     overflow: hidden;
 }
@@ -28,6 +31,15 @@
     color: #fafafa;
 }
 
+.team-subtitle {
+    margin: 12px auto 0;
+    max-width: 760px;
+    color: rgba(250, 250, 250, 0.82);
+    line-height: 1.55;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 .team-carousel-outer {
     position: relative;
     display: flex;
@@ -49,6 +61,15 @@
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
+}
+
+.member-info {
+    margin-top: 16px;
+    border-radius: 20px;
+    padding: 20px 16px 18px;
+    border: 1px solid rgba(252, 215, 24, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    min-height: 242px;
 }
 
 .member-image-wrap {
@@ -87,8 +108,10 @@
 
 .member-role {
     color: #fcd718;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
+    display: inline-block;
+    line-height: 1.4;
 }
 
 .member-quote {
@@ -117,6 +140,16 @@
     letter-spacing: 0.15em;
 }
 
+.member-portfolio-soon {
+    display: inline-block;
+    margin-top: 4px;
+    color: rgba(250, 250, 250, 0.74);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
 .team-nav-btn {
     background: #fafafa1a;
     border: none;
@@ -135,4 +168,61 @@
 .team-nav-btn:disabled {
     opacity: 0.2;
     cursor: not-allowed;
+}
+
+.team-cta-band {
+    margin-top: 34px;
+    border: 1px solid rgba(252, 215, 24, 0.28);
+    border-radius: 18px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.team-cta-band p {
+    margin: 0;
+    color: #fafafa;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.team-cta-link {
+    color: #063d30;
+    background: #fcd718;
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+    .team-main-title {
+        font-size: 2.35rem;
+    }
+
+    .team-cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* On small screens remove the decorative border around member descriptions
+   so cards appear flush like the provided mobile design */
+@media (max-width: 760px) {
+    .member-info {
+        border: none;
+        background: transparent;
+        padding: 12px 8px 10px;
+        min-height: auto;
+        box-shadow: none;
+    }
+
+    .member-role {
+        display: block;
+    }
 }

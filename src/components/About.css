@@ -1,9 +1,8 @@
 .about {
     display: grid;
     grid-template-columns: 1fr;
-    padding-top: 140px;
-    padding-bottom: 120px;
-    
+    padding-top: 110px;
+    padding-bottom: 100px;
     color: #fafafa;
 }
 
@@ -36,7 +35,7 @@
     margin: 0 0 24px;
     font-family: 'Anton', sans-serif;
     color: #fafafa;
-    font-size: clamp(2rem, 5.2vw, 5.2rem);
+    font-size: clamp(1.9rem, 4.6vw, 4.1rem);
     line-height: 0.98;
     letter-spacing: -0.01em;
 }
@@ -45,9 +44,10 @@
     margin: 0;
     font-family: 'Satoshi', 'Inter', 'Segoe UI', sans-serif;
     color: #fafafa;
-    font-size: clamp(0.95rem, 1.05vw, 1.25rem);
+    font-size: clamp(1rem, 1.02vw, 1.14rem);
     line-height: 1.58;
-    font-weight: 500;
+    font-weight: 600;
+    opacity: 0.9;
 }
 
 .about-media {

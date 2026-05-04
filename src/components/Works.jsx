@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { useAccessibleMotion } from "../lib/animations";
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import "./Works.css";
@@ -64,6 +65,7 @@ const listProjects = [
 ];
 
 function Works() {
+  const reduce = useAccessibleMotion();
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleProject = (id) => {
@@ -73,20 +75,11 @@ function Works() {
   return (
     <section className="works-section">
       <div className="works-container">
-        <motion.span
-          className="section-label-light"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
+        <motion.span className="section-label-light" {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0 }, whileInView: { opacity: 1 } })}>
           SELECTED WORKS
         </motion.span>
 
-        <motion.h2
-          className="works-main-title"
-          initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 1 }}
-        >
+        <motion.h2 className="works-main-title" {...(reduce ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } } : { initial: { opacity: 0, y: 40, filter: "blur(15px)" }, whileInView: { opacity: 1, y: 0, filter: "blur(0px)" }, transition: { duration: 1 } })}>
           Nos Brillantes Réalisations
         </motion.h2>
         <div className="works-list">
@@ -94,14 +87,9 @@ function Works() {
             <div key={index} className={`work-item ${work.side}`}>
               <motion.div
                 className="work-info"
-                initial={{
-                  opacity: 0,
-                  x: work.side === "left" ? -50 : 50,
-                  filter: "blur(15px)",
-                }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                {...(reduce
+                  ? { initial: { opacity: 1, x: 0 }, whileInView: { opacity: 1, x: 0 } }
+                  : { initial: { opacity: 0, x: work.side === "left" ? -50 : 50, filter: "blur(15px)" }, whileInView: { opacity: 1, x: 0, filter: "blur(0px)" }, viewport: { once: true }, transition: { duration: 0.8 } })}
               >
                 <span className="work-category">{work.category}</span>
                 <h3 className="work-title">{work.title}</h3>
@@ -121,13 +109,7 @@ function Works() {
                 </a>
               </motion.div>
 
-              <motion.div
-                className="work-image"
-                initial={{ opacity: 0, scale: 0.9, filter: "blur(20px)" }}
-                whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-              >
+              <motion.div className="work-image" {...(reduce ? { initial: { opacity: 1, scale: 1 }, whileInView: { opacity: 1, scale: 1 } } : { initial: { opacity: 0, scale: 0.9, filter: "blur(20px)" }, whileInView: { opacity: 1, scale: 1, filter: "blur(0px)" }, viewport: { once: true }, transition: { duration: 1 } })}>
                 <img src={work.image} alt={work.title} />
               </motion.div>
             </div>
@@ -142,14 +124,22 @@ function Works() {
                 key={project.id}
                 className={`small-work-wrapper ${expandedId === project.id ? "expanded" : ""}`}
                 onClick={() => toggleProject(project.id)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleProject(project.id);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedId === project.id}
+                aria-label={`Afficher le projet ${project.title}`}
               >
                 {expandedId !== project.id ? (
                   // Closed State: Row
                   <motion.div
                     className="small-work-row"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    {...(reduce ? { initial: { opacity: 1 }, animate: { opacity: 1 }, exit: { opacity: 1 } } : { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 } })}
                     layout
                   >
                     <h4 className="row-title">{project.title}</h4>
@@ -160,13 +150,7 @@ function Works() {
                   </motion.div>
                 ) : (
                   // Open State: Card (based on your screenshot)
-                  <motion.div
-                    className="expanded-project-card"
-                    initial={{ opacity: 0, filter: "blur(20px)" }}
-                    animate={{ opacity: 1, filter: "blur(0px)" }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    layout
-                  >
+                  <motion.div className="expanded-project-card" {...(reduce ? { initial: { opacity: 1 }, animate: { opacity: 1 } } : { initial: { opacity: 0, filter: "blur(20px)" }, animate: { opacity: 1, filter: "blur(0px)" }, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } })} layout>
                     <div className="expanded-image">
                       <img src={project.image} alt={project.title} />
                     </div>

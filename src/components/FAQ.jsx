@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./FAQ.css";
 
@@ -61,18 +61,25 @@ const FAQ = () => {
               <div
                 key={index}
                 className={`faq-item ${openIndex === index ? "active" : ""}`}
-                onClick={() => setOpenIndex(index)}
               >
-                <div className="faq-question">
-                  <h3>{item.question}</h3>
-                  <span className="faq-icon">
-                    {openIndex === index ? "−" : "+"}
-                  </span>
-                </div>
+                <button
+                  className="faq-trigger"
+                  onClick={() => setOpenIndex(index)}
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-panel-${index}`}
+                >
+                  <div className="faq-question">
+                    <h3>{item.question}</h3>
+                    <span className="faq-icon" aria-hidden="true">
+                      {openIndex === index ? "−" : "+"}
+                    </span>
+                  </div>
+                </button>
 
                 <AnimatePresence>
                   {openIndex === index && (
                     <motion.div
+                      id={`faq-panel-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

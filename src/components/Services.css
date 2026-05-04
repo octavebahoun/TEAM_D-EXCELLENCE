@@ -1,5 +1,8 @@
 .services-section {
-    background-color: #fafafa;
+    background:
+        radial-gradient(120% 80% at 100% 0%, rgba(6, 61, 48, 0.08), transparent 56%),
+        radial-gradient(80% 60% at 0% 100%, rgba(210, 137, 28, 0.1), transparent 58%),
+        #fafafa;
     padding: 100px 0;
     position: relative;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.04);
@@ -32,9 +35,18 @@
     margin: 0;
     font-family: 'Anton', sans-serif;
     color: #063d30;
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.2rem, 4.8vw, 4.2rem);
     line-height: 1;
     text-transform: capitalize;
+}
+
+.services-intro {
+    margin: 22px 0 0;
+    max-width: 760px;
+    color: rgba(6, 61, 48, 0.8);
+    line-height: 1.55;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .start-project-btn {
@@ -63,13 +75,14 @@
 }
 
 .service-card {
-    background: #f4f4f4;
-    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 26px;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(6, 61, 48, 0.12);
+    backdrop-filter: blur(6px);
 }
 
 .service-image {
@@ -99,7 +112,7 @@
 .service-info h3 {
     margin: 0 0 16px;
     font-family: 'Anton', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: #063d30;
     text-transform: uppercase;
 }
@@ -113,6 +126,15 @@
     opacity: 0.7;
     border-bottom: 1px solid rgba(6, 61, 48, 0.1);
     padding-bottom: 20px;
+}
+
+.service-result {
+    display: block;
+    margin: 0 0 18px;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: #063d30;
+    font-weight: 700;
 }
 
 /* --- STYLE DE LA LISTE --- */
@@ -140,13 +162,27 @@
     content: "→";
     position: absolute;
     left: 0;
-    color: #2563EB; /* Ton Cobalt */
+    color: #b56d16;
     font-weight: bold;
     transition: transform 0.3s ease;
 }
 
 .service-card:hover li::before {
     transform: translateX(3px);
+}
+
+.service-contact-link {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #063d30;
+    border-bottom: 1px solid rgba(6, 61, 48, 0.5);
+    padding-bottom: 4px;
 }
 
 @media (max-width: 1024px) {
