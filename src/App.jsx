@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useEffect } from "react";
 import SEO from "./components/SEO";
-
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -51,6 +51,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
