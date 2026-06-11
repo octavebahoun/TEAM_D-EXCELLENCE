@@ -5,22 +5,22 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import SEO from "./components/SEO";
+import SEO from "./components/layout/SEO";
 import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Works from "./components/Works";
-import Testimonials from "./components/Testimonials";
-import Pricing from "./components/Pricing";
-import Blog from "./components/Blog";
-import Team from "./components/Team";
-import FAQ from "./components/FAQ";
+import Navbar from "./components/layout/Navbar";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Services from "./components/sections/Services";
+import Works from "./components/sections/Works";
+import Testimonials from "./components/sections/Testimonials";
+import Pricing from "./components/sections/Pricing";
+import Blog from "./components/sections/Blog";
+import Team from "./components/sections/Team";
+import FAQ from "./components/sections/FAQ";
 import teamData from "./data/team.json";
 
-import Footer from "./components/Footer";
+import Footer from "./components/layout/Footer";
 import WorksPage from "./pages/WorksPage";
 import BlogPage from "./pages/BlogPage";
 import ArticlePage from "./pages/ArticlePage";
@@ -65,24 +65,16 @@ function HomePage() {
         teamMembers={teamData}
       />
       <div className="vignette-blur-bottom" />
+      <div className="noise-overlay" />
 
-      <div className="hero-section">
-        <main className="page-shell">
-          <Hero />
-        </main>
-      </div>
-      <div className="about-section">
-        <div className="page-shell">
-          <About />
-        </div>
-      </div>
+      <Hero />
+      <About />
       <Services />
       <Works />
       <Testimonials />
       <Pricing />
       <Team />
       <Blog />
-
       <FAQ />
       <Footer />
     </>

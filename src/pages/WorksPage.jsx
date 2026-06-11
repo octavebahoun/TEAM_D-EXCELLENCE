@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import FAQ from "../components/FAQ";
-import Footer from "../components/Footer";
-import SEO from "../components/SEO";
-
-import "../components/Works.css"; // We will duplicate Works.css into WorksPage.css
-import "./WorksPage.css";
+import FAQ from "../components/sections/FAQ";
+import Footer from "../components/layout/Footer";
+import SEO from "../components/layout/SEO";
 import worksData from "../data/works.json";
 
 function WorksPage() {
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    // Simulating API fetch
     setWorks(worksData);
   }, []);
 
@@ -25,107 +19,113 @@ function WorksPage() {
         description="Explorez le portfolio d'Excellence Team : plateformes E-commerce, solutions SaaS, audits de cybersécurité et infrastructures IT au Bénin."
       />
       <div className="vignette-blur-bottom" />
+      <div className="noise-overlay" />
 
-      <main
-        className="workspage-main"
-        style={{ backgroundColor: "#f4f3ed", minHeight: "100vh" }}
-      >
-        <section
-          className="workspage-section"
-          style={{
-            paddingTop: "clamp(100px, 15vw, 180px)",
-            paddingBottom: "clamp(60px, 10vw, 120px)",
-          }}
-        >
-          <div className="workspage-container">
-            <div className="workspage-header">
-              <motion.h2
-                className="workspage-main-title"
-                initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 1 }}
+      <main className="relative bg-bg-ink min-h-screen z-10">
+        {/* Mesh and Grids */}
+        <div className="blueprint-grid opacity-30" />
+        <div className="glow-spot top-10 left-10 opacity-30" />
+        <div className="glow-spot bottom-1/3 right-1/4 opacity-25" />
+
+        <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 px-4 md:px-8 w-full max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="max-w-3xl mb-24">
+            <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
+              PORTFOLIO
+            </span>
+            <motion.h1
+              className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-text-bright leading-none tracking-tight mb-8"
+              initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              Nos Brillantes <br />
+              <span className="font-editorial italic font-light text-accent-mint">Réalisations</span>
+            </motion.h1>
+            <motion.p
+              className="text-text-muted text-base sm:text-lg md:text-xl font-medium leading-relaxed"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              Une sélection de nos projets récents, alliant design réfléchi, stratégie claire et résultats d'impact.
+            </motion.p>
+          </div>
+
+          {/* List of projects */}
+          <div className="flex flex-col gap-24 md:gap-36">
+            {works.map((work) => (
+              <div 
+                key={work.id} 
+                className={`flex flex-col lg:flex-row justify-between items-center gap-12 ${
+                  work.side === "right" ? "lg:flex-row-reverse" : ""
+                }`}
               >
-                Nos Brillantes <br />
-                Réalisations
-              </motion.h2>
-              <motion.p
-                className="workspage-subtitle"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                Une sélection de nos projets récents, alliant <br />
-                design réfléchi, stratégie claire et résultats d'impact.
-              </motion.p>
-            </div>
-
-            <div className="workspage-list">
-              {works.map((work) => (
-                <div key={work.id} className={`workspage-item ${work.side}`}>
-                  <motion.div
-                    className="workspage-info"
-                    initial={{
-                      opacity: 0,
-                      x: work.side === "left" ? -50 : 50,
-                      filter: "blur(15px)",
-                    }}
-                    whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8 }}
+                {/* Details info */}
+                <motion.div
+                  className="w-full lg:w-5/12 p-8 sm:p-10 border border-white/5 rounded-3xl bg-surface-card/40 hover:border-accent-mint/20 shadow-soft relative"
+                  initial={{ opacity: 0, x: work.side === "left" ? -50 : 50, filter: "blur(15px)" }}
+                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <span className="block text-xs font-bold text-accent-gold tracking-widest uppercase mb-4">
+                    {work.topLabel}
+                  </span>
+                  <h3 className="font-display font-black text-3xl sm:text-4xl text-text-bright mb-6">
+                    {work.title}
+                  </h3>
+                  <p className="text-text-muted text-sm sm:text-base leading-relaxed mb-8">
+                    {work.description}
+                  </p>
+                  <a
+                    href={work.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <div className="workspage-info-content">
-                      <span className="workspage-category">
-                        {work.topLabel}
-                      </span>
-                      <h3 className="workspage-title">{work.title}</h3>
-                    </div>
+                    <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-[0.82rem] tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-colors shadow-glow-mint">
+                      Visiter le site ↗
+                    </button>
+                  </a>
+                </motion.div>
 
-                    <div className="workspage-desc-wrap">
-                      <p className="workspage-desc">{work.description}</p>
-                      <a
-                        href={work.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="workspage-external-link"
-                      >
-                        <button
-                          className="workspage-btn btn-roulette"
-                          data-text="Visiter le site ↗"
-                        >
-                          <span className="btn-text">Visiter le site ↗</span>
-                        </button>
-                      </a>
+                {/* Visuals stack */}
+                <motion.div
+                  className="w-full lg:w-7/12 flex flex-col gap-6"
+                  initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
+                  whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 1 }}
+                >
+                  {/* Main large image */}
+                  <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500">
+                    <img 
+                      src={work.mainImage} 
+                      alt={work.title} 
+                      className="w-full h-full object-cover block filter brightness-90 hover:brightness-100 transition-all duration-750" 
+                    />
+                  </div>
+                  
+                  {/* Two small thumbnails */}
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="aspect-[16/10] rounded-xl overflow-hidden border border-white/5 bg-surface-card">
+                      <img src={work.thumb1} alt={`${work.title} detail 1`} className="w-full h-full object-cover block" />
                     </div>
-                  </motion.div>
-
-                  <motion.div
-                    className="workspage-visuals"
-                    initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
-                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 1 }}
-                  >
-                    <div className="workspage-main-image">
-                      <img src={work.mainImage} alt={work.title} />
+                    <div className="aspect-[16/10] rounded-xl overflow-hidden border border-white/5 bg-surface-card">
+                      <img src={work.thumb2} alt={`${work.title} detail 2`} className="w-full h-full object-cover block" />
                     </div>
-                    <div className="workspage-thumbnails">
-                      <div className="workspage-thumb-img">
-                        <img src={work.thumb1} alt={`${work.title} detail 1`} />
-                      </div>
-                      <div className="workspage-thumb-img">
-                        <img src={work.thumb2} alt={`${work.title} detail 2`} />
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
+                  </div>
+                </motion.div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Adding FAQ section requested here */}
         <FAQ />
       </main>
+
       <Footer />
     </>
   );
