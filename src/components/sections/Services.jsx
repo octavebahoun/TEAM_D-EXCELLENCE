@@ -93,7 +93,7 @@ function Services() {
             </motion.span>
             <motion.h2 
               className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight"
-              {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0, x: -30, filter: "blur(10px)" }, whileInView: { opacity: 1, x: 0, filter: "blur(0px)" }, viewport: { once: true }, transition: { duration: 0.8 } })}
+              {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0, x: -20 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, transition: { duration: 0.6 } })}
             >
               Des offres pensées<br />
               pour des <span className="font-editorial italic font-light text-accent-gold">résultats concrets</span>
@@ -108,7 +108,7 @@ function Services() {
               className="px-6 py-3.5 border border-white/10 hover:border-accent-mint text-text-bright hover:text-bg-ink hover:bg-accent-mint text-[0.85rem] font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300"
               {...(reduce
                 ? { initial: { opacity: 1, x: 0 }, whileInView: { opacity: 1, x: 0 } }
-                : { initial: { opacity: 0, x: 20 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, whileHover: { scale: 1.05 } })}
+                : { initial: { opacity: 0, x: 15 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, whileHover: { scale: 1.03 } })}
             >
               Parler à un expert ↗
             </motion.button>
@@ -124,11 +124,11 @@ function Services() {
               {...(reduce
                 ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } }
                 : { 
-                    initial: { opacity: 0, y: 40, filter: "blur(15px)" }, 
-                    whileInView: { opacity: 1, y: 0, filter: "blur(0px)" }, 
-                    viewport: { once: true, amount: 0.2 }, 
-                    transition: { duration: 0.8, delay: index * 0.15 }, 
-                    whileHover: { y: -8 } 
+                    initial: { opacity: 0, y: 20 }, 
+                    whileInView: { opacity: 1, y: 0 }, 
+                    viewport: { once: true, amount: 0.15 }, 
+                    transition: { duration: 0.6, delay: index * 0.1 }, 
+                    whileHover: { y: -6 } 
                   })}
             >
               {/* Service image block */}

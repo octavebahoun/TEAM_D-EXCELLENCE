@@ -33,7 +33,7 @@ function Team() {
       <div className="glow-spot top-1/4 right-1/4 opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
@@ -49,7 +49,7 @@ function Team() {
 
         {/* Carousel block */}
         <div className="relative flex items-center mb-16 px-0 md:px-8">
-          
+
           {/* Previous Arrow Button */}
           <button
             className={`absolute left-0 z-30 w-12 h-12 rounded-full border border-white/10 bg-bg-ink/80 text-text-bright flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-accent-mint hover:text-accent-mint hover:shadow-glow-mint disabled:opacity-30 disabled:cursor-not-allowed hidden md:flex`}
@@ -81,10 +81,10 @@ function Team() {
                     <div className="w-full flex flex-col items-center">
                       {/* circular avatar frame with glowing green border */}
                       <div className="w-32 h-32 rounded-full p-1 border-2 border-white/10 group-hover:border-accent-mint shadow-soft overflow-hidden transition-all duration-500 mb-6">
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover rounded-full block filter brightness-90 group-hover:scale-105 transition-transform duration-700" 
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover rounded-full block filter brightness-90 group-hover:scale-105 transition-transform duration-700"
                         />
                       </div>
 
@@ -94,7 +94,7 @@ function Team() {
                       <span className="text-xs font-black text-accent-gold tracking-widest uppercase mb-4 block">
                         {member.role}
                       </span>
-                      
+
                       {/* Editorial quote styling */}
                       <p className="font-editorial italic font-light text-base text-text-muted/90 leading-relaxed mb-6">
                         "{member.quote}"

@@ -27,8 +27,8 @@ function Testimonials() {
           </motion.span>
           <motion.h2
             className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight"
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             Ce que nos partenaires <span className="font-editorial italic font-light text-accent-mint">pensent de nous</span>
           </motion.h2>
@@ -49,9 +49,9 @@ function Testimonials() {
                 : words.map((word, i) => (
                     <motion.span
                       key={i}
-                      initial={{ opacity: 0, filter: "blur(8px)" }}
-                      whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                      transition={{ delay: i * 0.03, duration: 0.5 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: i * 0.02, duration: 0.3 }}
                       style={{ display: "inline-block", marginRight: "0.3em" }}
                     >
                       {word}
@@ -69,7 +69,7 @@ function Testimonials() {
           {/* Author/Image panel */}
           <motion.div 
             className="w-full lg:w-2/5 aspect-[4/3] lg:aspect-auto self-stretch relative overflow-hidden border-t lg:border-t-0 lg:border-l border-white/5" 
-            {...(reduce ? { initial: { opacity: 1, rotate: 0, scale: 1 }, whileInView: { opacity: 1, rotate: 0, scale: 1 } } : { initial: { opacity: 0, scale: 0.95, filter: "blur(20px)" }, whileInView: { opacity: 1, scale: 1, filter: "blur(0px)" }, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } })}
+            {...(reduce ? { initial: { opacity: 1, scale: 1 }, whileInView: { opacity: 1, scale: 1 } } : { initial: { opacity: 0, scale: 0.98 }, whileInView: { opacity: 1, scale: 1 }, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } })}
           >
             <img
               src="https://res.cloudinary.com/dla8wr5qj/image/upload/v1773383605/WhatsApp_Image_2026-03-13_at_07.28.01_1_pb0qhe.jpg"

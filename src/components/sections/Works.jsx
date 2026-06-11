@@ -83,18 +83,18 @@ function Works() {
       <div className="glow-spot bottom-1/3 left-10 opacity-20" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span 
-            className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4" 
+          <motion.span
+            className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4"
             {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0 }, whileInView: { opacity: 1 } })}
           >
             SELECTED WORKS
           </motion.span>
-          <motion.h2 
-            className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-text-bright leading-none tracking-tight" 
-            {...(reduce ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } } : { initial: { opacity: 0, y: 40, filter: "blur(15px)" }, whileInView: { opacity: 1, y: 0, filter: "blur(0px)" }, transition: { duration: 1 } })}
+          <motion.h2
+            className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-text-bright leading-none tracking-tight"
+            {...(reduce ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } } : { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.6 } })}
           >
             Nos Brillantes <span className="font-editorial italic font-light text-accent-mint">Réalisations</span>
           </motion.h2>
@@ -103,23 +103,22 @@ function Works() {
         {/* Feature Projects List */}
         <div className="flex flex-col gap-24 md:gap-32 mb-28">
           {initialWorks.map((work, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col lg:flex-row gap-12 items-center justify-between ${
-                work.side === "right" ? "lg:flex-row-reverse" : ""
-              }`}
+            <div
+              key={index}
+              className={`flex flex-col lg:flex-row gap-12 items-center justify-between ${work.side === "right" ? "lg:flex-row-reverse" : ""
+                }`}
             >
               {/* Info Block */}
               <motion.div
                 className="w-full lg:w-1/2 p-8 sm:p-10 border border-white/5 rounded-3xl bg-surface-card/40 hover:border-accent-mint/20 shadow-soft relative"
                 {...(reduce
                   ? { initial: { opacity: 1, x: 0 }, whileInView: { opacity: 1, x: 0 } }
-                  : { 
-                      initial: { opacity: 0, x: work.side === "left" ? -50 : 50, filter: "blur(15px)" }, 
-                      whileInView: { opacity: 1, x: 0, filter: "blur(0px)" }, 
-                      viewport: { once: true }, 
-                      transition: { duration: 0.8 } 
-                    })}
+                  : {
+                    initial: { opacity: 0, x: work.side === "left" ? -30 : 30 },
+                    whileInView: { opacity: 1, x: 0 },
+                    viewport: { once: true },
+                    transition: { duration: 0.6 }
+                  })}
               >
                 {/* Large serial number overlay */}
                 <span className="absolute top-6 right-8 font-display font-black text-6xl text-white/5 pointer-events-none">
@@ -148,14 +147,14 @@ function Works() {
               </motion.div>
 
               {/* Asymmetric image block with border tilt */}
-              <motion.div 
-                className="w-full lg:w-1/2 aspect-[16/10] rounded-asym-2 overflow-hidden border border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500" 
-                {...(reduce ? { initial: { opacity: 1, scale: 1 }, whileInView: { opacity: 1, scale: 1 } } : { initial: { opacity: 0, scale: 0.9, filter: "blur(20px)" }, whileInView: { opacity: 1, scale: 1, filter: "blur(0px)" }, viewport: { once: true }, transition: { duration: 1 } })}
+              <motion.div
+                className="w-full lg:w-1/2 aspect-[16/10] rounded-asym-2 overflow-hidden border border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500"
+                {...(reduce ? { initial: { opacity: 1, scale: 1 }, whileInView: { opacity: 1, scale: 1 } } : { initial: { opacity: 0, scale: 0.95 }, whileInView: { opacity: 1, scale: 1 }, viewport: { once: true }, transition: { duration: 0.7 } })}
               >
-                <img 
-                  src={work.image} 
-                  alt={work.title} 
-                  className="w-full h-full object-cover block filter brightness-90 hover:brightness-100 transition-all duration-750" 
+                <img
+                  src={work.image}
+                  alt={work.title}
+                  className="w-full h-full object-cover block filter brightness-90 hover:brightness-100 transition-all duration-750"
                 />
               </motion.div>
             </div>
@@ -191,7 +190,7 @@ function Works() {
                         {project.title}
                       </h4>
                     </div>
-                    
+
                     <div className="flex items-center gap-12 text-sm text-text-muted font-bold tracking-widest uppercase">
                       <span>{project.date}</span>
                       <span className="px-3 py-1 bg-surface-card border border-white/5 rounded-full text-xs text-text-bright/80">
@@ -202,9 +201,9 @@ function Works() {
                   </motion.div>
                 ) : (
                   // Open State: Dynamic details card
-                  <motion.div 
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-12 px-6 bg-surface-dark border-x border-white/5" 
-                    {...(reduce ? { initial: { opacity: 1 }, animate: { opacity: 1 } } : { initial: { opacity: 0, filter: "blur(20px)" }, animate: { opacity: 1, filter: "blur(0px)" }, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } })} 
+                  <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-12 px-6 bg-surface-dark border-x border-white/5"
+                    {...(reduce ? { initial: { opacity: 1 }, animate: { opacity: 1 } } : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } })}
                     layout
                   >
                     <div className="lg:col-span-5 aspect-[16/10] rounded-2xl overflow-hidden border border-white/10">
@@ -241,7 +240,7 @@ function Works() {
         {/* View all button */}
         <motion.div
           className="flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
           <Link to="/works">

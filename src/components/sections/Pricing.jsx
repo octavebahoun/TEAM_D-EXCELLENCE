@@ -57,7 +57,7 @@ function Pricing() {
       <div className="glow-spot top-1/2 left-1/4 opacity-25" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.span
@@ -82,9 +82,8 @@ function Pricing() {
           {tiers.map((tier, i) => (
             <motion.div
               key={i}
-              className={`glass-panel p-8 sm:p-10 flex flex-col justify-between items-start border bg-surface-card/40 hover:border-accent-mint/30 shadow-soft transition-all duration-500 relative ${
-                tier.accent ? "z-20 scale-100 md:scale-105" : "z-10 border-white/5"
-              } ${tier.cardShape}`}
+              className={`glass-panel p-8 sm:p-10 flex flex-col justify-between items-start border bg-surface-card/40 hover:border-accent-mint/30 shadow-soft transition-all duration-500 relative ${tier.accent ? "z-20 scale-100 md:scale-105" : "z-10 border-white/5"
+                } ${tier.cardShape}`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
@@ -100,7 +99,7 @@ function Pricing() {
                 <h3 className="font-display font-black text-3xl text-text-bright mb-2 group-hover:text-accent-mint">
                   {tier.name}
                 </h3>
-                
+
                 {/* Editorial text style for targeting */}
                 <p className="font-editorial italic text-accent-gold text-base mb-6 leading-tight">
                   {tier.target}
@@ -114,9 +113,8 @@ function Pricing() {
                 <div className="flex flex-col gap-4 mb-8">
                   {tier.features.map((feature, j) => (
                     <div key={j} className="flex items-center gap-3">
-                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
-                        tier.accent ? "bg-accent-mint text-bg-ink" : "bg-white/5 text-accent-mint"
-                      }`}>
+                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${tier.accent ? "bg-accent-mint text-bg-ink" : "bg-white/5 text-accent-mint"
+                        }`}>
                         ✓
                       </span>
                       <span className="text-xs sm:text-sm font-semibold tracking-wide text-text-bright/90">
@@ -129,11 +127,10 @@ function Pricing() {
 
               {/* Sweeping CTA Button */}
               <Link to="/contact" className="w-full mt-auto">
-                <button className={`w-full py-4 text-xs font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 ${
-                  tier.accent 
-                    ? "bg-accent-mint text-bg-ink shadow-glow-mint hover:bg-emerald-400" 
+                <button className={`w-full py-4 text-xs font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 ${tier.accent
+                    ? "bg-accent-mint text-bg-ink shadow-glow-mint hover:bg-emerald-400"
                     : "border border-white/10 hover:border-accent-mint text-text-bright hover:bg-accent-mint/5"
-                }`}>
+                  }`}>
                   {tier.cta}
                 </button>
               </Link>

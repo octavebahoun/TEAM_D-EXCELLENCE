@@ -35,10 +35,10 @@ function WorksPage() {
             </span>
             <motion.h1
               className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-text-bright leading-none tracking-tight mb-8"
-              initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
             >
               Nos Brillantes <br />
               <span className="font-editorial italic font-light text-accent-mint">Réalisations</span>
@@ -48,7 +48,7 @@ function WorksPage() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
             >
               Une sélection de nos projets récents, alliant design réfléchi, stratégie claire et résultats d'impact.
             </motion.p>
@@ -66,10 +66,10 @@ function WorksPage() {
                 {/* Details info */}
                 <motion.div
                   className="w-full lg:w-5/12 p-8 sm:p-10 border border-white/5 rounded-3xl bg-surface-card/40 hover:border-accent-mint/20 shadow-soft relative"
-                  initial={{ opacity: 0, x: work.side === "left" ? -50 : 50, filter: "blur(15px)" }}
-                  whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, x: work.side === "left" ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.6 }}
                 >
                   <span className="block text-xs font-bold text-accent-gold tracking-widest uppercase mb-4">
                     {work.topLabel}
@@ -94,10 +94,10 @@ function WorksPage() {
                 {/* Visuals stack */}
                 <motion.div
                   className="w-full lg:w-7/12 flex flex-col gap-6"
-                  initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
-                  whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.8 }}
                 >
                   {/* Main large image */}
                   <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500">

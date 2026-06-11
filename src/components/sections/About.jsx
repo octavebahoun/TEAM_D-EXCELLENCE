@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useAccessibleMotion, fadeIn, containerStagger } from "../../lib/animations";
+import { useAccessibleMotion, containerStagger } from "../../lib/animations";
 import aboutImage from "../../assets/hero2.avif";
 
 const MotionDiv = motion.div;
@@ -15,18 +15,16 @@ function About() {
 
   const containerVariants = reduce
     ? null
-    : containerStagger(0.03, 0.18);
+    : containerStagger(0.02, 0.1);
 
   const wordVariants = reduce
     ? null
     : {
-        hidden: { opacity: 0, y: 15, filter: "blur(12px)", rotate: 2 },
+        hidden: { opacity: 0, y: 8 },
         visible: {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
-          rotate: 0,
-          transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+          transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
         },
       };
 
@@ -37,7 +35,7 @@ function About() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6 }}
     >
       {/* Blueprint grid line backdrop */}
       <div className="blueprint-grid opacity-30" />
@@ -50,20 +48,20 @@ function About() {
           <div className="lg:col-span-7 flex flex-col items-start">
             <MotionDiv
               className="font-editorial text-accent-mint text-xl italic tracking-widest mb-6"
-              initial={{ opacity: 0, x: -20, filter: "blur(8px)" }}
-              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
             >
               À propos de nous
             </MotionDiv>
 
             <MotionDiv
               className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-tight tracking-tight mb-8"
-              initial={{ opacity: 0, y: 30, filter: "blur(15px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               Nés à Cotonou.<br />
               <span className="font-editorial italic font-light text-accent-gold">Pensés pour l'Afrique.</span>
@@ -73,7 +71,7 @@ function About() {
               className="text-text-muted text-lg sm:text-xl font-medium leading-relaxed max-w-2xl"
               {...(reduce
                 ? { initial: undefined, whileInView: undefined }
-                : { variants: containerVariants, initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.3 } })}
+                : { variants: containerVariants, initial: "hidden", whileInView: "visible", viewport: { once: true, amount: 0.25 } })}
             >
               {reduce
                 ? words.join(" ")
@@ -81,7 +79,7 @@ function About() {
                     <MotionSpan
                       key={index}
                       variants={wordVariants}
-                      style={{ display: "inline-block", marginRight: "0.38em" }}
+                      style={{ display: "inline-block", marginRight: "0.3em" }}
                     >
                       {word}
                     </MotionSpan>
@@ -92,14 +90,14 @@ function About() {
           {/* Right Image Block with Asymmetric Border Styling */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <MotionDiv
-              className="relative w-full max-w-[420px] aspect-[4/5] rounded-asym-1 overflow-hidden border-2 border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500"
+              className="relative w-full max-w-[420px] aspect-[4/5] rounded-asym-1 overflow-hidden border border-white/10 hover:border-accent-mint/30 shadow-soft transition-colors duration-500"
               {...(reduce
                 ? { initial: undefined, whileInView: undefined }
                 : {
-                    initial: { opacity: 0, filter: "blur(25px)", rotate: -12, scale: 0.85, y: 60 },
-                    whileInView: { opacity: 1, filter: "blur(0px)", rotate: -6, scale: 1, y: 0 },
-                    viewport: { once: true, amount: 0.4 },
-                    transition: { duration: 1.4, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
+                    initial: { opacity: 0, scale: 0.95, y: 20 },
+                    whileInView: { opacity: 1, scale: 1, y: 0 },
+                    viewport: { once: true, amount: 0.35 },
+                    transition: { duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
                   })}
             >
               <img 

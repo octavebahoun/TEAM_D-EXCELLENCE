@@ -101,9 +101,9 @@ function ArticlePage() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.98, filter: "blur(20px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              transition={{ delay: 0.3, duration: 1 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
               className="w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-soft"
             >
               <img src={article.image} alt={article.title} className="w-full h-full object-cover block" />
