@@ -1,0 +1,18 @@
+{
+  "title": "Questions Fréquentes",
+  "subtitle": "Tout ce que vous devez savoir sur notre approche et nos services.",
+  "faqs": [
+    {
+      "question": "Comment garantissez-vous la sécurité de nos données ?",
+      "answer": "Nous intégrons la sécurité à chaque étape du cycle de développement (DevSecOps), avec des audits réguliers, un chiffrement de bout en bout et une conformité stricte aux standards internationaux de cybersécurité."
+    },
+    {
+      "question": "Quelle est votre approche pour la modernisation des infrastructures ?",
+      "answer": "Nous procédons par itérations : évaluation de l'existant, conception d'une architecture cible (souvent cloud hybride), migration progressive sans interruption de service, et formation de vos équipes."
+    },
+    {
+      "question": "Proposez-vous du support post-déploiement ?",
+      "answer": "Oui, nous offrons des contrats de maintenance évolutive et corrective, incluant un monitoring 24/7 et des SLA adaptés à la criticité de vos applications."
+    }
+  ]
+}

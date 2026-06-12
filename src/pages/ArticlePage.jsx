@@ -133,7 +133,7 @@ function ArticlePage() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      className="pl-6 border-l-4 border-accent-gold font-editorial italic font-light text-2xl text-accent-gold py-2 my-6"
+                      className="pl-6 border-l-4 border-accent-mint font-editorial italic font-light text-2xl text-accent-mint py-2 my-6"
                     >
                       {block.text}
                     </motion.blockquote>

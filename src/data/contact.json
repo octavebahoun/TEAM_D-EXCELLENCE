@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "title": "Contactez-nous | Excellence Team",
+    "description": "Discutons de vos projets digitaux et cybersécurité."
+  },
+  "sectionTitle": "CONTACT",
+  "titleLine1": "Parlons de votre",
+  "titleLine2": "prochain projet",
+  "description": "Une idée, un besoin technique ou une question ? Notre équipe vous répond sous 24h.",
+  "form": {
+    "nameLabel": "Nom complet",
+    "namePlaceholder": "Jean Dupont",
+    "emailLabel": "Adresse Email",
+    "emailPlaceholder": "jean@entreprise.com",
+    "messageLabel": "Votre message",
+    "messagePlaceholder": "Détaillez votre besoin ici...",
+    "submitText": "Envoyer le message"
+  }
+}

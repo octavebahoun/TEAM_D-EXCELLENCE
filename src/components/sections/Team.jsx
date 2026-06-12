@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAccessibleMotion, fadeIn } from "../../lib/animations";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import teamData from "../../data/team.json";
 
@@ -36,7 +36,7 @@ function Team() {
 
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
+          <span className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4">
             EXPERTISE
           </span>
           <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight">
@@ -91,7 +91,7 @@ function Team() {
                       <h3 className="font-display font-black text-xl text-text-bright mb-1 tracking-tight">
                         {member.name}
                       </h3>
-                      <span className="text-xs font-black text-accent-gold tracking-widest uppercase mb-4 block">
+                      <span className="text-xs font-black text-accent-mint tracking-widest uppercase mb-4 block">
                         {member.role}
                       </span>
 
@@ -106,9 +106,10 @@ function Team() {
                         href={member.portfolio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-black tracking-widest text-text-bright hover:text-accent-mint border-b border-white/20 hover:border-accent-mint pb-1 uppercase transition-colors mt-auto inline-block"
+                        className="text-xs font-black tracking-widest text-text-bright hover:text-accent-mint border-b border-white/20 hover:border-accent-mint pb-1 uppercase transition-colors mt-auto inline-flex items-center gap-1"
                       >
-                        Voir le profil ↗
+                        <span>Voir le profil</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
                       </a>
                     ) : (
                       <span className="text-xs font-black tracking-widest text-text-muted/50 uppercase pb-1 mt-auto inline-block">
@@ -156,8 +157,9 @@ function Team() {
             Un projet sensible ou stratégique à lancer ?
           </p>
           <Link to="/contact">
-            <button className="px-6 py-3 bg-accent-gold hover:bg-amber-400 text-bg-ink font-bold text-xs tracking-widest uppercase rounded-full cursor-pointer transition-colors shadow-glow-gold">
-              Échanger avec l'équipe ↗
+            <button className="px-6 py-3 bg-accent-mint hover:bg-emerald-400 text-bg-ink font-bold text-xs tracking-widest uppercase rounded-full cursor-pointer transition-colors shadow-glow-mint flex items-center justify-center gap-1.5">
+              <span>Échanger avec l'équipe</span>
+              <ArrowUpRight className="w-4 h-4" />
             </button>
           </Link>
         </div>

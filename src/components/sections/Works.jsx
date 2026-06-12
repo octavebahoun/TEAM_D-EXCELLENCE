@@ -3,70 +3,7 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useAccessibleMotion } from "../../lib/animations";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-
-const initialWorks = [
-  {
-    category: "INGÉNIERIE DIGITALE",
-    title: "Academix",
-    num: "01",
-    description:
-      "Plateforme SaaS de gestion académique complète — bulletins automatisés, messagerie parents-école, tableau de bord en temps réel.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955345/academix_fn4oat.png",
-    side: "left",
-    url: "https://team-d-excellence-hackbyifri-2026.vercel.app/",
-  },
-  {
-    category: "CYBERSÉCURITÉ",
-    title: "Pentest PME",
-    num: "02",
-    description:
-      "Mission complète de pentest sur l'infrastructure réseau d'une PME béninoise — 14 vulnérabilités identifiées, rapport de remédiation livré.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956588/pentest_rytrll.webp",
-    side: "right",
-    url: "#",
-  },
-];
-
-const listProjects = [
-  {
-    id: "twin",
-    title: "Le TWIN",
-    num: "03",
-    date: "Août 2024",
-    category: "INGÉNIERIE DIGITALE",
-    description:
-      "Le TWIN est une marque de mode urbaine haut de gamme originaire du Bénin, axée sur une esthétique streetwear minimaliste et sombre, conçue pour la génération Z. Voici l'application officielle, offrant une expérience d'achat fluide et haut de gamme.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1773366626/WhatsApp_Image_2026-02-07_at_13.55.04_jb8uve.jpg",
-    url: "https://le-twin.vercel.app/",
-  },
-  {
-    id: "fieri",
-    title: "Fieri Research",
-    num: "04",
-    date: "Mars 2026",
-    category: "INGÉNIERIE DIGITALE",
-    description:
-      "FIERI Research est une plateforme web dédiée à la recherche scientifique, à l'innovation, aux clubs étudiants et chercheurs, aux événements et à l'espace membre. Voici le site officiel, offrant une expérience utilisateur fluide et moderne.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955620/fieri_pjxyof.webp",
-    url: "https://fieri-research.org",
-  },
-  {
-    id: "nuitdecoeur",
-    title: "La Nuit de Cœur",
-    num: "05",
-    date: "Nov 2023",
-    category: "BRANDING",
-    description:
-      "La Nuit du Cœur est un évènement culturel et artistique majeur organisé à Lokossa. Notre mission est simple mais puissante : célébrer l'amour sous toutes ses formes, valoriser les talents locaux et encourager la créativité. Voici le site officiel, offrant une expérience utilisateur fluide et moderne.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775955767/nuit_de_coeur_jx18zr.avif",
-    url: "https://nightheart.rf.gd",
-  },
-];
+import worksData from "../../data/works_section.json";
 
 function Works() {
   const reduce = useAccessibleMotion();
@@ -87,22 +24,22 @@ function Works() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.span
-            className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4"
+            className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4"
             {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0 }, whileInView: { opacity: 1 } })}
           >
-            SELECTED WORKS
+            {worksData.sectionTitle}
           </motion.span>
           <motion.h2
             className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-text-bright leading-none tracking-tight"
             {...(reduce ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } } : { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, transition: { duration: 0.6 } })}
           >
-            Nos Brillantes <span className="font-editorial italic font-light text-accent-mint">Réalisations</span>
+            {worksData.titlePart1}<span className="font-editorial italic font-light text-accent-mint">{worksData.titlePart2}</span>
           </motion.h2>
         </div>
 
         {/* Feature Projects List */}
         <div className="flex flex-col gap-24 md:gap-32 mb-28">
-          {initialWorks.map((work, index) => (
+          {worksData.featured.map((work, index) => (
             <div
               key={index}
               className={`flex flex-col lg:flex-row gap-12 items-center justify-between ${work.side === "right" ? "lg:flex-row-reverse" : ""
@@ -125,7 +62,7 @@ function Works() {
                   {work.num}
                 </span>
 
-                <span className="block text-xs font-bold text-accent-gold tracking-widest uppercase mb-4">
+                <span className="block text-xs font-bold text-accent-mint tracking-widest uppercase mb-4">
                   {work.category}
                 </span>
                 <h3 className="font-display font-black text-3xl sm:text-4xl text-text-bright mb-6">
@@ -140,8 +77,9 @@ function Works() {
                   rel="noopener noreferrer"
                   className="inline-block"
                 >
-                  <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-[0.85rem] tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-all duration-300 shadow-glow-mint">
-                    Découvrir le projet ↗
+                  <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-[0.85rem] tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-all duration-300 shadow-glow-mint flex items-center justify-center gap-1.5">
+                    <span>Découvrir le projet</span>
+                    <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </a>
               </motion.div>
@@ -164,7 +102,7 @@ function Works() {
         {/* Dynamic Accordion list for standard projects */}
         <div className="border-t border-white/10 mb-20">
           <LayoutGroup>
-            {listProjects.map((project) => (
+            {worksData.others.map((project) => (
               <motion.div
                 layout
                 key={project.id}
@@ -183,7 +121,7 @@ function Works() {
                     layout
                   >
                     <div className="flex items-center gap-6">
-                      <span className="font-display font-black text-xl text-accent-gold">
+                      <span className="font-display font-black text-xl text-accent-mint">
                         {project.num}
                       </span>
                       <h4 className="font-display font-extrabold text-2xl text-text-bright tracking-tight">
@@ -225,8 +163,9 @@ function Works() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <button className="px-6 py-3 bg-accent-gold text-bg-ink font-bold text-xs tracking-widest uppercase rounded-full cursor-pointer hover:bg-amber-400 transition-colors shadow-glow-gold">
-                          Voir le site ↗
+                        <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-xs tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-colors shadow-glow-mint flex items-center justify-center gap-1.5">
+                          <span>Voir le site</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </button>
                       </a>
                     </div>
@@ -244,8 +183,8 @@ function Works() {
           whileInView={{ opacity: 1, y: 0 }}
         >
           <Link to="/works">
-            <button className="px-10 py-5 bg-accent-gold hover:bg-amber-400 text-bg-ink text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 shadow-glow-gold">
-              Voir tout le portfolio
+            <button className="px-10 py-5 bg-accent-mint hover:bg-emerald-400 text-bg-ink text-sm font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 shadow-glow-mint">
+              {worksData.viewAllText}
             </button>
           </Link>
         </motion.div>

@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="flex items-center gap-6 self-end md:self-auto">
               {/* Stacked decorative cards */}
               <div className="relative w-36 h-24 hidden sm:block">
-                <div className="absolute inset-0 bg-accent-gold/20 border border-accent-gold/30 rounded-2xl rotate-[12deg] translate-x-4 translate-y-2" />
+                <div className="absolute inset-0 bg-accent-mint/20 border border-accent-mint/30 rounded-2xl rotate-[12deg] translate-x-4 translate-y-2" />
                 <div className="absolute inset-0 bg-accent-mint/10 border border-accent-mint/20 rounded-2xl rotate-6 translate-x-2 translate-y-1" />
                 <div className="absolute inset-0 bg-surface-card border border-white/10 rounded-2xl overflow-hidden -rotate-6">
                   <img
@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
 
               {/* Glowing Arrow Button */}
-              <div className="w-16 h-16 rounded-full bg-accent-mint text-bg-ink flex items-center justify-center group-hover:bg-accent-gold group-hover:scale-110 shadow-glow-mint group-hover:shadow-glow-gold transition-all duration-500">
+              <div className="w-16 h-16 rounded-full bg-accent-mint text-bg-ink flex items-center justify-center group-hover:bg-accent-mint group-hover:scale-110 shadow-glow-mint group-hover:shadow-glow-mint transition-all duration-500">
                 <ArrowUpRight className="w-8 h-8 stroke-[2.5]" />
               </div>
             </div>

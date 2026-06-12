@@ -102,7 +102,7 @@ function SystemDashboard() {
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { label: "SYS LATENCY", val: "18ms", color: "text-accent-mint", icon: Cpu },
-                  { label: "SECURITY AUDIT", val: "100%", color: "text-accent-gold", icon: Shield },
+                  { label: "SECURITY AUDIT", val: "100%", color: "text-accent-mint", icon: Shield },
                   { label: "NET TRAFFIC", val: "4.2TB", color: "text-accent-mint", icon: HardDrive }
                 ].map((m, i) => {
                   const Icon = m.icon;
@@ -168,7 +168,7 @@ function SystemDashboard() {
                           cx={p.x}
                           cy={p.y}
                           r="4"
-                          className="fill-accent-mint cursor-pointer hover:r-6 hover:fill-accent-gold transition-all"
+                          className="fill-accent-mint cursor-pointer hover:r-6 hover:fill-accent-mint transition-all"
                           onMouseEnter={() => setHoveredPoint(p)}
                           onMouseLeave={() => setHoveredPoint(null)}
                         />
@@ -203,7 +203,7 @@ function SystemDashboard() {
                   {[
                     { label: "IP Blocked", desc: "192.168.1.105 (Brute Force)", time: "2m ago", status: "border-red-500/30 text-red-400 bg-red-500/5" },
                     { label: "SSL Cert Renewal", desc: "Wildcard cert updated", time: "1h ago", status: "border-accent-mint/30 text-accent-mint bg-accent-mint/5" },
-                    { label: "Port Scan Detected", desc: "Block rule applied on WAN", time: "3h ago", status: "border-accent-gold/30 text-accent-gold bg-accent-gold/5" }
+                    { label: "Port Scan Detected", desc: "Block rule applied on WAN", time: "3h ago", status: "border-accent-mint/30 text-accent-mint bg-accent-mint/5" }
                   ].map((evt, idx) => (
                     <div key={idx} className="flex items-center justify-between p-2.5 rounded-lg border border-white/5 bg-bg-ink/30 text-[0.68rem]">
                       <div className="flex flex-col">
@@ -299,7 +299,7 @@ function Hero() {
           {/* Massive Display Title */}
           <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-bright leading-[0.9] tracking-tighter mb-8">
             Système robuste.<br />
-            <span className="font-editorial italic font-light text-accent-gold pr-3">Design premium.</span><br />
+            <span className="font-editorial italic font-light text-accent-mint pr-3">Design premium.</span><br />
             Impact mesurable.
           </h1>
 
@@ -329,7 +329,7 @@ function Hero() {
           {/* Action buttons */}
           <div className="flex flex-wrap gap-4 items-center w-full sm:w-auto">
             <Link to="/contact" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto px-8 py-4 bg-accent-gold hover:bg-amber-400 text-bg-ink font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 shadow-glow-gold">
+              <button className="w-full sm:w-auto px-8 py-4 bg-accent-mint hover:bg-emerald-400 text-bg-ink font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 shadow-glow-mint">
                 Démarrer un projet
               </button>
             </Link>

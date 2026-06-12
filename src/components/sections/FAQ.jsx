@@ -53,7 +53,7 @@ const FAQ = () => {
           
           {/* Left Description Column */}
           <div className="lg:col-span-4 sticky top-36">
-            <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
+            <span className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4">
               FAQ
             </span>
             <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight mb-6">

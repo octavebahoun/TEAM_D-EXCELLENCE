@@ -1,24 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const posts = [
-  {
-    id: "cybersecurite-pme",
-    tag: "CYBERSÉCURITÉ",
-    title: "Protéger sa PME contre les cyber-attaques",
-    description: "5 étapes simples pour sécuriser vos données.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: "saas-academique",
-    tag: "INGÉNIERIE",
-    title: "Pourquoi le SaaS révolutionne l'éducation",
-    description: "Retour sur le succès d'Academix au Bénin.",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1000&auto=format&fit=crop",
-  }
-];
+import blogData from "../../data/blog.json";
+import { ArrowUpRight } from "lucide-react";
 
 function Blog() {
+  // Take the first 2 articles to display as previews on landing page
+  const posts = blogData.articles.slice(0, 2);
+
   return (
     <section className="relative py-28 md:py-36 bg-bg-ink overflow-hidden z-10 border-b border-white/5">
       {/* Grid backdrop */}
@@ -30,7 +18,7 @@ function Blog() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-16">
           <div>
-            <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
+            <span className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4">
               BLOG
             </span>
             <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight">
@@ -39,8 +27,9 @@ function Blog() {
           </div>
           
           <Link to="/blog">
-            <button className="px-6 py-3.5 border border-white/10 hover:border-accent-mint text-text-bright hover:text-bg-ink hover:bg-accent-mint text-[0.85rem] font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300">
-              Voir tout ↗
+            <button className="px-6 py-3.5 border border-white/10 hover:border-accent-mint text-text-bright hover:text-bg-ink hover:bg-accent-mint text-[0.85rem] font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300 flex items-center justify-center gap-1.5">
+              <span>Voir tout</span>
+              <ArrowUpRight className="w-4 h-4" />
             </button>
           </Link>
         </div>
@@ -75,8 +64,9 @@ function Blog() {
                   <p className="text-text-muted text-sm font-medium leading-relaxed mb-6">
                     {post.description}
                   </p>
-                  <span className="text-xs font-black tracking-widest text-text-bright group-hover:text-accent-mint border-b border-white/20 group-hover:border-accent-mint pb-1 uppercase transition-all duration-300">
-                    Lire l'article ↗
+                  <span className="text-xs font-black tracking-widest text-text-bright group-hover:text-accent-mint border-b border-white/20 group-hover:border-accent-mint pb-1 uppercase transition-all duration-300 inline-flex items-center gap-1">
+                    <span>Lire l'article</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
               </Link>

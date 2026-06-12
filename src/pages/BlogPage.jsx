@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import FAQ from "../components/sections/FAQ";
+import AnimatedFAQ from "../components/sections/AnimatedFAQ";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/layout/SEO";
 import blogData from "../data/blog.json";
@@ -30,7 +30,7 @@ function BlogPage() {
         {/* Marquee Banner */}
         <div className="w-full bg-surface-dark border-y border-white/5 py-4 overflow-hidden select-none relative z-10">
           <div className="flex gap-20 whitespace-nowrap animate-pulse-slow">
-            <div className="flex gap-20 text-xs font-black tracking-widest text-accent-gold uppercase">
+            <div className="flex gap-20 text-xs font-black tracking-widest text-accent-mint uppercase">
               {[1, 2, 3, 4].map((n) => (
                 <span key={n}>
                   L'OPINION D'EXCELLENCE • INSIGHTS DIGITAUX • STRATÉGIE TECH • CYBERSÉCURITÉ •
@@ -53,7 +53,7 @@ function BlogPage() {
               transition={{ duration: 0.8 }}
             >
               Le Journal <br />
-              <span className="font-editorial italic font-light text-accent-gold">d'Excellence</span>
+              <span className="font-editorial italic font-light text-accent-mint">d'Excellence</span>
             </motion.h1>
           </div>
 
@@ -139,7 +139,7 @@ function BlogPage() {
           </div>
         </section>
 
-        <FAQ />
+        <AnimatedFAQ />
       </main>
 
       <Footer />

@@ -1,0 +1,66 @@
+{
+  "intro": {
+    "sectionTitle": "Nos Expertises",
+    "title": "L'Excellence\nen action",
+    "description": "Nous combinons ingénierie de pointe, design de haut niveau et cybersécurité pour catalyser votre réussite numérique.",
+    "scrollGuide": "Défiler pour explorer"
+  },
+  "services": [
+    {
+      "num": "01",
+      "title": "Ingénierie Digitale",
+      "iconType": "cpu",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956049/ingi%C3%A9nerie_ylf4x3.webp",
+      "list": [
+        "Développement web & plateformes SaaS",
+        "Applications mobiles iOS & Android",
+        "Logiciels métiers & intégration IA",
+        "Conception UX/UI & prototypage interactif"
+      ],
+      "result": "Objectif : robustesse, scalabilité et vélocité.",
+      "description": "Nous concevons et développons des architectures logicielles modernes parfaitement alignées sur vos enjeux de croissance et d'efficacité opérationnelle."
+    },
+    {
+      "num": "02",
+      "title": "Cybersécurité",
+      "iconType": "shield",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956328/cybers%C3%A9curit%C3%A9_kao6kb.avif",
+      "list": [
+        "Audit de sécurité (Pentesting)",
+        "Analyse de vulnérabilités applicatives",
+        "Réponse aux incidents & durcissement",
+        "Conformité RGPD & formation des équipes"
+      ],
+      "result": "Objectif : protection absolue de vos actifs numériques.",
+      "description": "Nos experts évaluent les risques cyber, testent vos défenses et structurent des barrières de sécurité imperméables autour de vos infrastructures."
+    },
+    {
+      "num": "03",
+      "title": "Infra & DevOps",
+      "iconType": "network",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956409/reseau_eiltf5.webp",
+      "list": [
+        "Architectures Cloud (AWS, GCP, Scaleway)",
+        "Pipelines CI/CD & orchestration (Kubernetes)",
+        "Supervision en temps réel & alerting 24/7",
+        "Réseaux d'entreprise & domotique"
+      ],
+      "result": "Objectif : zéro interruption de service.",
+      "description": "Nous concevons des infrastructures résilientes, automatisons les déploiements et assurons la maintenance pour garantir une disponibilité maximale."
+    },
+    {
+      "num": "04",
+      "title": "Design & Audience",
+      "iconType": "sparkles",
+      "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956474/motion_qg16k4.avif",
+      "list": [
+        "Identités de marque (Branding premium)",
+        "Animations, Motion Design & 3D",
+        "Stratégies d'acquisition & réseaux sociaux",
+        "Photographie & réalisation vidéo"
+      ],
+      "result": "Objectif : mémorisation et impact de marque.",
+      "description": "Nous traduisons l'excellence de votre savoir-faire en interfaces immersives et campagnes visuelles uniques pour capter votre audience cible."
+    }
+  ]
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import navbarLogo from "../../assets/logo.svg";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const ObjectNavItems = [
   { name: "À propos", id: "about" },
@@ -184,9 +185,10 @@ function Navbar() {
                     setIsMenuOpen(false);
                     navigate("/contact");
                   }}
-                  className="w-full py-4 bg-accent-mint text-bg-ink font-bold tracking-widest text-center uppercase rounded-full cursor-pointer shadow-glow-mint"
+                  className="w-full py-4 bg-accent-mint text-bg-ink font-bold tracking-widest text-center uppercase rounded-full cursor-pointer shadow-glow-mint flex items-center justify-center gap-1.5"
                 >
-                  Démarrer un Projet ↗
+                  <span>Démarrer un Projet</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </button>
               </div>
             </div>

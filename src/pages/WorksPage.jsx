@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import FAQ from "../components/sections/FAQ";
+import { ArrowUpRight } from "lucide-react";
+import AnimatedFAQ from "../components/sections/AnimatedFAQ";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/layout/SEO";
 import worksData from "../data/works.json";
@@ -30,7 +31,7 @@ function WorksPage() {
         <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 px-4 md:px-8 w-full max-w-7xl mx-auto">
           {/* Header */}
           <div className="max-w-3xl mb-24">
-            <span className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4">
+            <span className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4">
               PORTFOLIO
             </span>
             <motion.h1
@@ -71,7 +72,7 @@ function WorksPage() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="block text-xs font-bold text-accent-gold tracking-widest uppercase mb-4">
+                  <span className="block text-xs font-bold text-accent-mint tracking-widest uppercase mb-4">
                     {work.topLabel}
                   </span>
                   <h3 className="font-display font-black text-3xl sm:text-4xl text-text-bright mb-6">
@@ -85,8 +86,9 @@ function WorksPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-[0.82rem] tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-colors shadow-glow-mint">
-                      Visiter le site ↗
+                    <button className="px-6 py-3 bg-accent-mint text-bg-ink font-bold text-[0.82rem] tracking-widest uppercase rounded-full cursor-pointer hover:bg-emerald-400 transition-colors shadow-glow-mint flex items-center justify-center gap-1.5">
+                      <span>Visiter le site</span>
+                      <ArrowUpRight className="w-4 h-4" />
                     </button>
                   </a>
                 </motion.div>
@@ -123,7 +125,7 @@ function WorksPage() {
           </div>
         </section>
 
-        <FAQ />
+        <AnimatedFAQ />
       </main>
 
       <Footer />

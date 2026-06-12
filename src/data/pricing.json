@@ -1,0 +1,48 @@
+{
+  "sectionTitle": "POUR QUI ON TRAVAILLE",
+  "title": "Un partenaire pour chaque étape de votre croissance",
+  "tiers": [
+    {
+      "name": "Starter",
+      "target": "Entrepreneurs, auto-entrepreneurs, petits commerces",
+      "description": "Vous lancez votre activité et avez besoin d'une présence digitale professionnelle qui inspire confiance dès le premier clic.",
+      "features": [
+        "Site vitrine 1 à 5 pages",
+        "Landing page conversion",
+        "Identité visuelle de base",
+        "Configuration hébergement"
+      ],
+      "cta": "Démarrer →",
+      "accent": false,
+      "cardShape": "rounded-asym-1"
+    },
+    {
+      "name": "Growth",
+      "target": "PME, startups, associations, institutions",
+      "description": "Votre activité tourne. Vous avez besoin d'outils qui structurent, automatisent et vous donnent un avantage sur vos concurrents.",
+      "features": [
+        "Plateformes web & métiers",
+        "SaaS & outils sur-mesure",
+        "Audits de sécurité & cyber",
+        "Stratégies digitales & contenu"
+      ],
+      "cta": "Discuter du projet →",
+      "accent": true,
+      "cardShape": "rounded-3xl border-accent-mint/30 shadow-glow-mint bg-bg-ink/80"
+    },
+    {
+      "name": "Enterprise",
+      "target": "Grandes entreprises, groupes, institutions",
+      "description": "Vous pilotez une organisation d'envergure. On devient votre partenaire tech de confiance sur le long terme.",
+      "features": [
+        "Systèmes d'information complexes",
+        "Infrastructure cloud enterprise",
+        "Transformation digitale",
+        "SLA garanti & équipe dédiée"
+      ],
+      "cta": "Nous contacter →",
+      "accent": false,
+      "cardShape": "rounded-asym-2"
+    }
+  ]
+}

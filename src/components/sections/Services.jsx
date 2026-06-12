@@ -1,184 +1,235 @@
-import { motion } from "framer-motion";
-import { useAccessibleMotion } from "../../lib/animations";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import servicesData from "../../data/services.json";
 
-const services = [
-  {
-    title: "Ingénierie Digitale",
-    gridClass: "lg:col-span-8",
-    list: [
-      "Développement web",
-      "Sites vitrines, plateformes et e-commerce",
-      "Applications mobile iOS & Android",
-      "Logiciels sur-mesure",
-      "Intégration IA & API REST/GraphQL",
-      "UX/UI Design & prototypage",
-    ],
-    result: "Objectif : un produit digital stable, rapide et évolutif.",
-    description:
-      "Du cahier des charges à la mise en production, nous concevons et développons des solutions numériques robustes, performantes et évolutives — web, mobile, logiciel, IA — parfaitement adaptées à vos besoins spécifiques.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956049/ingi%C3%A9nerie_ylf4x3.webp",
-  },
-  {
-    title: "Audience & Création",
-    gridClass: "lg:col-span-4",
-    list: [
-      "Motion design & animations",
-      "Identité visuelle complète",
-      "Stratégie & gestion social media",
-      "Photographie & direction artistique",
-    ],
-    result:
-      "Objectif : renforcer la mémorisation de marque.",
-    description:
-      "Nous créons les contenus visuels, les identités de marque et les stratégies digitales qui permettent à vos produits et services de se démarquer.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956474/motion_qg16k4.avif",
-  },
-  {
-    title: "Cybersécurité",
-    gridClass: "lg:col-span-4",
-    list: [
-      "Audit de sécurité & tests d'intrusion (pentest)",
-      "Analyse des vulnérabilités",
-      "Conformité RGPD & réponse aux incidents",
-      "Sensibilisation & formation des équipes",
-    ],
-    result:
-      "Objectif : réduire les risques et protéger vos actifs.",
-    description:
-      "La sécurité de vos systèmes d'information est un enjeu stratégique. Notre équipe certifiée évalue vos vulnérabilités et renforce vos défenses.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956328/cybers%C3%A9curit%C3%A9_kao6kb.avif",
-  },
-  {
-    title: "Infra & Maintenance",
-    gridClass: "lg:col-span-8",
-    list: [
-      "Cloud & hébergement (AWS, DigitalOcean, etc.)",
-      "Installation & configuration réseaux locaux",
-      "Supervision, monitoring & alerting 24/7",
-      "Maintenance préventive et corrective",
-      "Domotique & smart building",
-    ],
-    result: "Objectif : assurer disponibilité et performance.",
-    description:
-      "Une infrastructure digitale fiable est le socle de toute activité moderne. Nous concevons, déployons et maintenons des environnements techniques hautement disponibles — du réseau local au cloud.",
-    image:
-      "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956409/reseau_eiltf5.webp",
-  },
-];
+gsap.registerPlugin(ScrollTrigger);
 
-const MotionDiv = motion.div;
+export default function Services() {
+  const containerRef = useRef(null);
+  const scrollTrackRef = useRef(null);
 
-function Services() {
-  const reduce = useAccessibleMotion();
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      const track = scrollTrackRef.current;
+      if (!track) return;
+
+      // On desktop, we run the custom horizontal scrolling experience
+      if (window.innerWidth >= 1024) {
+        // Calculate exact horizontal scroll amount
+        const totalWidth = track.scrollWidth - window.innerWidth;
+
+        gsap.to(track, {
+          x: -totalWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            pin: true,
+            scrub: 0.8,
+            start: "top top",
+            end: () => `+=${track.scrollWidth}`,
+            invalidateOnRefresh: true,
+          },
+        });
+      } else {
+        // On mobile, we use standard vertical reveal animations
+        const mobileCards = track.querySelectorAll(".service-slide-mobile");
+        mobileCards.forEach((card) => {
+          gsap.from(card, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            },
+          });
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="services" className="relative py-28 md:py-36 bg-surface-dark border-t border-white/5 overflow-hidden z-10">
-      {/* Decorative grids */}
-      <div className="blueprint-grid opacity-30" />
-      <div className="glow-spot top-10 right-1/4 opacity-20" />
-      
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
-          <div className="max-w-2xl">
-            <motion.span
-              className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4"
-              {...(reduce ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } } : { initial: { opacity: 0, y: 10 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } })}
-            >
-              NOS SERVICES
-            </motion.span>
-            <motion.h2 
-              className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight"
-              {...(reduce ? { initial: { opacity: 1 }, whileInView: { opacity: 1 } } : { initial: { opacity: 0, x: -20 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, transition: { duration: 0.6 } })}
-            >
-              Des offres pensées<br />
-              pour des <span className="font-editorial italic font-light text-accent-gold">résultats concrets</span>
-            </motion.h2>
-            <p className="text-text-muted mt-6 text-base font-medium max-w-xl">
-              Nous intervenons sur tout le cycle de vie digital : cadrage, conception, implémentation, sécurisation et maintenance.
-            </p>
-          </div>
+    <section
+      id="services"
+      ref={containerRef}
+      className="relative bg-bg-ink overflow-hidden z-10 lg:h-screen lg:flex lg:items-center"
+    >
+      {/* Decorative backdrop elements */}
+      <div className="absolute inset-0 blueprint-grid opacity-20 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent-mint/5 blur-[120px] rounded-full pointer-events-none" />
 
-          <Link to="/contact" className="self-start md:self-auto">
-            <motion.button
-              className="px-6 py-3.5 border border-white/10 hover:border-accent-mint text-text-bright hover:text-bg-ink hover:bg-accent-mint text-[0.85rem] font-bold tracking-widest uppercase rounded-full cursor-pointer transition-all duration-300"
-              {...(reduce
-                ? { initial: { opacity: 1, x: 0 }, whileInView: { opacity: 1, x: 0 } }
-                : { initial: { opacity: 0, x: 15 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, whileHover: { scale: 1.03 } })}
-            >
-              Parler à un expert ↗
-            </motion.button>
-          </Link>
+      {/* HORIZONTAL SCROLL TRACK (Desktop) */}
+      <div
+        ref={scrollTrackRef}
+        className="hidden lg:flex flex-row items-center gap-16 px-[10vw] w-max h-full"
+      >
+        {/* Intro Slide */}
+        <div className="w-[30vw] flex flex-col justify-center items-start shrink-0 pr-12 border-r border-white/5">
+          <span className="text-xs font-bold text-accent-mint tracking-[0.3em] uppercase mb-4">
+            {servicesData.intro.sectionTitle}
+          </span>
+          <h2 className="font-display font-black text-5xl xl:text-6xl text-text-bright leading-none mb-6">
+            {servicesData.intro.title.split('\n')[0]}<br />
+            {servicesData.intro.title.split('\n')[1]}
+          </h2>
+          <p className="text-text-muted text-base leading-relaxed mb-8 max-w-sm">
+            {servicesData.intro.description}
+          </p>
+          <div className="flex items-center gap-3 text-accent-mint font-semibold text-xs tracking-widest uppercase">
+            <span>{servicesData.intro.scrollGuide}</span>
+            <span className="animate-[ping_1.5s_infinite] w-2 h-2 rounded-full bg-accent-mint" />
+            <span className="text-lg animate-[pulse_1s_infinite]">→</span>
+          </div>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {services.map((service, index) => (
-            <MotionDiv
+        {/* Services Slides */}
+        {servicesData.services.map((service, index) => {
+          return (
+            <div
               key={index}
-              className={`glass-panel group relative flex flex-col md:flex-row rounded-3xl overflow-hidden border border-white/5 bg-surface-card/50 hover:border-accent-mint/30 shadow-soft transition-all duration-500 ${service.gridClass}`}
-              {...(reduce
-                ? { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 } }
-                : { 
-                    initial: { opacity: 0, y: 20 }, 
-                    whileInView: { opacity: 1, y: 0 }, 
-                    viewport: { once: true, amount: 0.15 }, 
-                    transition: { duration: 0.6, delay: index * 0.1 }, 
-                    whileHover: { y: -6 } 
-                  })}
+              className="service-slide w-[80vw] max-w-[950px] h-[65vh] flex rounded-3xl overflow-hidden border border-white/5 bg-[#0d0f0e]/60 backdrop-blur-md hover:border-accent-mint/30 shadow-2xl shrink-0 transition-colors duration-500 relative group"
             >
-              {/* Service image block */}
-              <div className="w-full md:w-2/5 aspect-[16/10] md:aspect-auto relative overflow-hidden">
+              {/* Tech grid style line decoration inside card */}
+              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+
+              {/* Left Column: Image Presentation instead of Icon */}
+              <div className="w-[45%] h-full relative overflow-hidden bg-[#070908]/90 flex items-center justify-center border-r border-white/5">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover block filter brightness-75 group-hover:scale-105 group-hover:brightness-90 transition-all duration-700"
+                  className="absolute inset-0 w-full h-full object-cover filter brightness-75 group-hover:scale-105 group-hover:brightness-90 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-bg-ink via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-bg-ink/80 opacity-60 pointer-events-none" />
+
+                {/* Giant absolute index number */}
+                <div className="absolute bottom-6 left-6 font-display font-black text-7xl text-white/20 tracking-tighter select-none z-10">
+                  {service.num}
+                </div>
               </div>
 
-              {/* Service info content */}
-              <div className="w-full md:w-3/5 p-8 sm:p-10 flex flex-col justify-between items-start">
+              {/* Right Column: Detailed info */}
+              <div className="w-[55%] p-12 flex flex-col justify-between items-start">
                 <div>
-                  <h3 className="font-display font-black text-2xl sm:text-3xl text-text-bright mb-4 group-hover:text-accent-mint transition-colors">
-                    {service.title}
-                  </h3>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="font-mono text-accent-mint font-bold text-sm tracking-widest bg-accent-mint/10 px-2.5 py-1 rounded-md">
+                      {service.num}
+                    </span>
+                    <h3 className="font-display font-black text-3xl xl:text-4xl text-text-bright group-hover:text-accent-mint transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                  </div>
                   <p className="text-text-muted text-sm leading-relaxed mb-6 border-b border-white/5 pb-6">
                     {service.description}
                   </p>
-                  
-                  {/* Objective text styled with editorial font */}
-                  <span className="font-editorial italic font-light text-accent-gold text-base block mb-6">
+
+                  {/* Objective styled beautifully */}
+                  <span className="font-editorial italic font-light text-accent-mint text-base block mb-6">
                     {service.result}
                   </span>
 
-                  {/* High-end list arrows */}
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 w-full">
-                    {service.list.map((item) => (
-                      <li key={item} className="relative pl-5 text-xs font-semibold tracking-wide text-text-muted/90 leading-tight">
-                        <span className="absolute left-0 text-accent-mint font-bold">→</span>
+                  {/* Cyber/Tech checklist */}
+                  <ul className="grid grid-cols-2 gap-x-6 gap-y-3.5 w-full">
+                    {service.list.map((item, i) => (
+                      <li
+                        key={i}
+                        className="relative pl-5 text-xs font-semibold tracking-wide text-text-muted/80 leading-normal"
+                      >
+                        <span className="absolute left-0 text-accent-mint font-bold">✓</span>
                         {item}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <Link to="/contact" className="text-xs font-black tracking-widest text-text-bright group-hover:text-accent-mint border-b border-white/20 group-hover:border-accent-mint pb-1.5 uppercase transition-all duration-300">
-                  Demander un cadrage ↗
+                <Link
+                  to="/contact"
+                  className="text-xs font-black tracking-widest text-text-bright group-hover:text-accent-mint border-b border-white/20 group-hover:border-accent-mint pb-1.5 uppercase transition-all duration-300 cursor-pointer flex items-center gap-1"
+                >
+                  <span>Demander une étude</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
+            </div>
+          );
+        })}
+      </div>
 
-            </MotionDiv>
-          ))}
+      {/* MOBILE LIST (Under 1024px) */}
+      <div className="lg:hidden w-full px-6 py-20 flex flex-col gap-12">
+        <div className="mb-8">
+          <span className="text-xs font-bold text-accent-mint tracking-[0.3em] uppercase mb-3 block">
+            {servicesData.intro.sectionTitle}
+          </span>
+          <h2 className="font-display font-black text-4xl text-text-bright leading-none">
+            {servicesData.intro.title.replace('\n', ' ')}
+          </h2>
         </div>
 
+        <div className="flex flex-col gap-8">
+          {servicesData.services.map((service, index) => {
+            return (
+              <div
+                key={index}
+                className="service-slide-mobile flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0d0f0e]/50 backdrop-blur-sm"
+              >
+                {/* Service image header */}
+                <div className="h-48 relative overflow-hidden border-b border-white/5">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover filter brightness-75"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-ink/80 to-transparent pointer-events-none" />
+                  
+                  <div className="absolute top-4 left-4 font-mono text-accent-mint font-bold text-xs tracking-widest bg-[#0d0f0e]/90 px-2.5 py-1.5 rounded-md border border-white/5 z-10">
+                    {service.num}
+                  </div>
+                </div>
+
+                <div className="p-8 flex flex-col justify-between items-start gap-6">
+                  <div>
+                    <h3 className="font-display font-black text-2xl text-text-bright mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-text-muted text-xs leading-relaxed mb-4">
+                      {service.description}
+                    </p>
+                    <span className="font-editorial italic font-light text-accent-mint text-sm block mb-4">
+                      {service.result}
+                    </span>
+                    <ul className="flex flex-col gap-2.5">
+                      {service.list.map((item, i) => (
+                        <li
+                          key={i}
+                          className="relative pl-5 text-xs font-semibold tracking-wide text-text-muted/80 leading-normal"
+                        >
+                          <span className="absolute left-0 text-accent-mint font-bold">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Link
+                    to="/contact"
+                    className="text-xs font-black tracking-widest text-text-bright border-b border-white/20 pb-1.5 uppercase transition-all duration-300 flex items-center gap-1"
+                  >
+                    <span>Demander une étude</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
-
-export default Services;

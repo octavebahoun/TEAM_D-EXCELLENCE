@@ -1,53 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const tiers = [
-  {
-    name: "Starter",
-    target: "Entrepreneurs, auto-entrepreneurs, petits commerces",
-    description:
-      "Vous lancez votre activité et avez besoin d'une présence digitale professionnelle qui inspire confiance dès le premier clic.",
-    features: [
-      "Site vitrine 1 à 5 pages",
-      "Landing page conversion",
-      "Identité visuelle de base",
-      "Configuration hébergement",
-    ],
-    cta: "Démarrer →",
-    accent: false,
-    cardShape: "rounded-asym-1", // Custom asymmetrical shape
-  },
-  {
-    name: "Growth",
-    target: "PME, startups, associations, institutions",
-    description:
-      "Votre activité tourne. Vous avez besoin d'outils qui structurent, automatisent et vous donnent un avantage sur vos concurrents.",
-    features: [
-      "Plateformes web & métiers",
-      "SaaS & outils sur-mesure",
-      "Audits de sécurité & cyber",
-      "Stratégies digitales & contenu",
-    ],
-    cta: "Discuter du projet →",
-    accent: true,
-    cardShape: "rounded-3xl border-accent-mint/30 shadow-glow-mint bg-bg-ink/80", // Popout card
-  },
-  {
-    name: "Enterprise",
-    target: "Grandes entreprises, groupes, institutions",
-    description:
-      "Vous pilotez une organisation d'envergure. On devient votre partenaire tech de confiance sur le long terme.",
-    features: [
-      "Systèmes d'information complexes",
-      "Infrastructure cloud enterprise",
-      "Transformation digitale",
-      "SLA garanti & équipe dédiée",
-    ],
-    cta: "Nous contacter →",
-    accent: false,
-    cardShape: "rounded-asym-2", // Opposite asymmetrical shape
-  },
-];
+import pricingData from "../../data/pricing.json";
 
 function Pricing() {
   return (
@@ -61,11 +14,11 @@ function Pricing() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.span
-            className="block text-[0.8rem] font-bold text-accent-gold tracking-widest uppercase mb-4"
+            className="block text-[0.8rem] font-bold text-accent-mint tracking-widest uppercase mb-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            POUR QUI ON TRAVAILLE
+            {pricingData.sectionTitle}
           </motion.span>
           <motion.h2
             className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-text-bright leading-none tracking-tight"
@@ -79,7 +32,7 @@ function Pricing() {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {tiers.map((tier, i) => (
+          {pricingData.tiers.map((tier, i) => (
             <motion.div
               key={i}
               className={`glass-panel p-8 sm:p-10 flex flex-col justify-between items-start border bg-surface-card/40 hover:border-accent-mint/30 shadow-soft transition-all duration-500 relative ${tier.accent ? "z-20 scale-100 md:scale-105" : "z-10 border-white/5"
@@ -101,7 +54,7 @@ function Pricing() {
                 </h3>
 
                 {/* Editorial text style for targeting */}
-                <p className="font-editorial italic text-accent-gold text-base mb-6 leading-tight">
+                <p className="font-editorial italic text-accent-mint text-base mb-6 leading-tight">
                   {tier.target}
                 </p>
 

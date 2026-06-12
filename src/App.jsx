@@ -4,20 +4,22 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SEO from "./components/layout/SEO";
 import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
+import HeroInference from "./components/sections/HeroInference";
 import Services from "./components/sections/Services";
+
+import AnimatedFAQ from "./components/sections/AnimatedFAQ";
+import Preloader from "./components/sections/Preloader";
+import About from "./components/sections/About";
 import Works from "./components/sections/Works";
 import Testimonials from "./components/sections/Testimonials";
 import Pricing from "./components/sections/Pricing";
 import Blog from "./components/sections/Blog";
 import Team from "./components/sections/Team";
-import FAQ from "./components/sections/FAQ";
 import teamData from "./data/team.json";
 
 import Footer from "./components/layout/Footer";
@@ -27,6 +29,7 @@ import ArticlePage from "./pages/ArticlePage";
 import ContactPage from "./pages/ContactPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import AdminCMSPage from "./pages/AdminCMSPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,11 +39,14 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
+function AppContent({ showPreloader }) {
+  const location = useLocation();
+  const isAdminPage = location.pathname.startsWith("/admin") || location.pathname.startsWith("/cms");
+
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
+    <>
+      {showPreloader && !isAdminPage && <Preloader />}
+      {!isAdminPage && <Navbar />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -50,8 +56,28 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/admin" element={<AdminCMSPage />} />
       </Routes>
       <Analytics />
+    </>
+  );
+}
+
+function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  useEffect(() => {
+    // The preloader animation takes ~2.5s total.
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContent showPreloader={showPreloader} />
     </Router>
   );
 }
@@ -67,15 +93,17 @@ function HomePage() {
       <div className="vignette-blur-bottom" />
       <div className="noise-overlay" />
 
-      <Hero />
+      <HeroInference />
       <About />
       <Services />
+      
       <Works />
       <Testimonials />
       <Pricing />
+
       <Team />
       <Blog />
-      <FAQ />
+      <AnimatedFAQ />
       <Footer />
     </>
   );
