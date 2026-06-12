@@ -29,12 +29,26 @@ import ArticlePage from "./pages/ArticlePage";
 import ContactPage from "./pages/ContactPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AdminCMSPage from "./pages/AdminCMSPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
+    // Scroll to top instantly
     window.scrollTo(0, 0);
+
+    // Reset styles that might have been left locked by pinning
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.top = "";
+
+    // Refresh ScrollTrigger to recalculate page layouts
+    setTimeout(() => {
+      ScrollTrigger.clearScrollMemory();
+      ScrollTrigger.refresh();
+    }, 100);
   }, [pathname]);
   return null;
 }

@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Mourchid FOLARIN",
     "role": "Fondateur & Directeur technique / Cybersecurité & Developpement Backend",
-    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1774810490/224025435_j7qhdz.jpg",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1781228322/224025435_j7qhdz_szccjx.webp",
     "specialty": "Architecture logicielle & et Sécurité",
     "quote": "Le code est une forme d'art qui doit d'abord servir l'humain tout en garantissant la sécurité des données.",
     "portfolio": "https://mourchidfolarin.vercel.app/"
@@ -12,7 +12,7 @@
     "id": 2,
     "name": "Octave BAHOUN-HOUTOUKPE",
     "role": "Cofondateur / Ingenieur IA , Fullstack Web (Orienté Frontend)",
-    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775679083/WhatsApp_Image_2026-03-31_at_20.30.30_lhjikm.jpg",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1781010145/octave_j928uo.webp",
     "specialty": "Direction artistique & UX Premium",
     "quote": "L'excellence réside dans les détails que l'on ne voit pas, mais que l'on ressent.",
     "portfolio": "https://octavebahoun-houtoukpe.vercel.app/"
@@ -21,7 +21,7 @@
     "id": 3,
     "name": "Ezechiel TADAGBE",
     "role": "Ingénieur Cloud /Infrastructure & IA",
-    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775954560/ezedev_ycavef.jpg",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1781228322/ezedev_ycavef_ztuq1a.webp",
     "specialty": "DevOps & Cloud Architect",
     "quote": "Bâtir des socles robustes pour libérer le potentiel de l'innovation.",
     "portfolio": "https://ezeckiel.netlify.app/"
@@ -39,7 +39,7 @@
     "id": 5,
     "name": "Wasfade TONOUKOIN",
     "role": "Développeur Senior Fullstack",
-    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1779542579/wafade_iajqor.webp",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1781228322/wafade_iajqor_hmdpsn.webp",
     "specialty": "Expert Web & Mobile",
     "quote": "Donner vie au digital par le mouvement et l'interaction fluide.",
     "portfolio": "https://wasfolio.vercel.app"
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Cosme MISSIKPODE",
     "role": "Architecte Cybersécurité / Réseau",
-    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775954840/cosme_csvugm.jpg",
+    "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1781228322/cosme_csvugm_yf4nvs.webp",
     "specialty": "Tests d'intrusion & Pentesting",
     "quote": "La sécurité n'est pas une option, c'est la fondation de toute innovation.",
     "portfolio": "#"

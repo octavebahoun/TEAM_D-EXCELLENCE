@@ -4,15 +4,15 @@
   "faqs": [
     {
       "question": "Comment garantissez-vous la sécurité de nos données ?",
-      "answer": "Nous intégrons la sécurité à chaque étape du cycle de développement (DevSecOps), avec des audits réguliers, un chiffrement de bout en bout et une conformité stricte aux standards internationaux de cybersécurité."
+      "answer": "Nous intégrons les bonnes pratiques de sécurité à chaque étape du développement : chiffrement des données sensibles, gestion rigoureuse des accès et recommandations conformes aux standards reconnus."
     },
     {
-      "question": "Quelle est votre approche pour la modernisation des infrastructures ?",
-      "answer": "Nous procédons par itérations : évaluation de l'existant, conception d'une architecture cible (souvent cloud hybride), migration progressive sans interruption de service, et formation de vos équipes."
+      "question": "Quelle est votre approche pour un nouveau projet ?",
+      "answer": "Nous commençons par comprendre votre contexte et vos objectifs, puis nous proposons une architecture adaptée. Chaque projet est livré par itérations pour rester aligné avec vos besoins réels."
     },
     {
-      "question": "Proposez-vous du support post-déploiement ?",
-      "answer": "Oui, nous offrons des contrats de maintenance évolutive et corrective, incluant un monitoring 24/7 et des SLA adaptés à la criticité de vos applications."
+      "question": "Proposez-vous du support après livraison ?",
+      "answer": "Oui, nous assurons un suivi post-livraison et pouvons convenir d'un accompagnement maintenance selon la nature du projet. Les modalités sont définies avec chaque client."
     }
   ]
 }

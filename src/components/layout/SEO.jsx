@@ -15,7 +15,7 @@ function SEO({
   const siteUrl =
     import.meta.env.VITE_SITE_URL || "https://team-d-excellence.vercel.app";
   const defaultImage =
-    "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775957944/pomelli_creative_image_9_16_0412_pdumcn.png";
+    "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775957944/pomelli_creative_image_9_16_0412_pdumcn.webp";
   const canonicalUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   const validTeamMembers = teamMembers.filter(

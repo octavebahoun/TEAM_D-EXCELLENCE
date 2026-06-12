@@ -2,7 +2,7 @@
   "intro": {
     "sectionTitle": "Nos Expertises",
     "title": "L'Excellence\nen action",
-    "description": "Nous combinons ingénierie de pointe, design de haut niveau et cybersécurité pour catalyser votre réussite numérique.",
+    "description": "Nous combinons ingénierie, design et cybersécurité pour accompagner votre croissance numérique.",
     "scrollGuide": "Défiler pour explorer"
   },
   "services": [
@@ -18,7 +18,7 @@
         "Conception UX/UI & prototypage interactif"
       ],
       "result": "Objectif : robustesse, scalabilité et vélocité.",
-      "description": "Nous concevons et développons des architectures logicielles modernes parfaitement alignées sur vos enjeux de croissance et d'efficacité opérationnelle."
+      "description": "Nous concevons et développons des architectures logicielles modernes adaptées à vos enjeux de croissance."
     },
     {
       "num": "02",
@@ -29,10 +29,10 @@
         "Audit de sécurité (Pentesting)",
         "Analyse de vulnérabilités applicatives",
         "Réponse aux incidents & durcissement",
-        "Conformité RGPD & formation des équipes"
+        "Sensibilisation & formation des équipes"
       ],
-      "result": "Objectif : protection absolue de vos actifs numériques.",
-      "description": "Nos experts évaluent les risques cyber, testent vos défenses et structurent des barrières de sécurité imperméables autour de vos infrastructures."
+      "result": "Objectif : protection de vos actifs numériques.",
+      "description": "Nous évaluons vos risques, testons vos défenses et vous accompagnons dans la mise en place de bonnes pratiques de sécurité."
     },
     {
       "num": "03",
@@ -40,13 +40,13 @@
       "iconType": "network",
       "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956409/reseau_eiltf5.webp",
       "list": [
-        "Architectures Cloud (AWS, GCP, Scaleway)",
-        "Pipelines CI/CD & orchestration (Kubernetes)",
-        "Supervision en temps réel & alerting 24/7",
-        "Réseaux d'entreprise & domotique"
+        "Déploiement Cloud (AWS, GCP, Scaleway)",
+        "Pipelines CI/CD & automatisation",
+        "Supervision & monitoring applicatif",
+        "Réseaux d'entreprise & configuration"
       ],
-      "result": "Objectif : zéro interruption de service.",
-      "description": "Nous concevons des infrastructures résilientes, automatisons les déploiements et assurons la maintenance pour garantir une disponibilité maximale."
+      "result": "Objectif : disponibilité et stabilité de vos services.",
+      "description": "Nous déployons et maintenons des infrastructures fiables, adaptées à la taille et aux besoins réels de votre organisation."
     },
     {
       "num": "04",
@@ -54,13 +54,13 @@
       "iconType": "sparkles",
       "image": "https://res.cloudinary.com/dla8wr5qj/image/upload/v1775956474/motion_qg16k4.avif",
       "list": [
-        "Identités de marque (Branding premium)",
+        "Identités de marque (Branding)",
         "Animations, Motion Design & 3D",
-        "Stratégies d'acquisition & réseaux sociaux",
+        "Stratégies de contenu & réseaux sociaux",
         "Photographie & réalisation vidéo"
       ],
-      "result": "Objectif : mémorisation et impact de marque.",
-      "description": "Nous traduisons l'excellence de votre savoir-faire en interfaces immersives et campagnes visuelles uniques pour capter votre audience cible."
+      "result": "Objectif : impact et mémorisation de marque.",
+      "description": "Nous traduisons votre savoir-faire en interfaces soignées et contenus visuels percutants pour capter votre audience cible."
     }
   ]
 }
