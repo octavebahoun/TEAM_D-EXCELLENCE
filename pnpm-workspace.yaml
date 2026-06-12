@@ -1,0 +1,16 @@
+# pnpm workspace configuration
+# https://pnpm.io/workspaces
+
+packages:
+  - "."
+
+# --- Security hardening (react-doctor/require-pnpm-hardening) ---
+
+# Delay installing any package version published within the last 7 days (10 080 minutes).
+# Malicious packages are often caught and unpublished within hours; this window lets the
+# ecosystem catch them before they land in a production install.
+minimumReleaseAge: "10080 minutes"
+
+# Prevent pnpm from silently accepting a package whose trust signals (provenance,
+# signatures) have weakened compared to the version already on disk.
+trustPolicy: no-downgrade

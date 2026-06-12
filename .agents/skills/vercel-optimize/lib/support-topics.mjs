@@ -74,23 +74,32 @@ export async function loadSupportTopics({ includeDraft = false } = {}) {
     throw err;
   }
 
-  const topics = [];
-  for (const name of names.sort()) {
-    if (!name.endsWith('.md') || name === 'README.md') continue;
-    const path = join(TOPICS_DIR, name);
-    const raw = await readFile(path, 'utf-8');
-    const topic = parseSupportTopic(raw, path);
-    if (includeDraft || topic.status === 'active') topics.push(topic);
-  }
+  const mdNames = names.sort().filter((n) => n.endsWith('.md') && n !== 'README.md');
+
+  // Fan out all file reads concurrently — each file is independent.
+  const topics = (await Promise.all(
+    mdNames.map(async (name) => {
+      const path = join(TOPICS_DIR, name);
+      const raw = await readFile(path, 'utf-8');
+      const topic = parseSupportTopic(raw, path);
+      return (includeDraft || topic.status === 'active') ? topic : null;
+    })
+  )).filter(Boolean);
+
   return topics.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 export async function validateSupportTopics() {
   const topics = await loadSupportTopics({ includeDraft: true });
+
+  // Fan out all topic validations concurrently — each is independent.
+  const perTopicErrors = await Promise.all(topics.map((topic) => validateSupportTopic(topic)));
+
   const errors = [];
   const seen = new Set();
-  for (const topic of topics) {
-    errors.push(...await validateSupportTopic(topic));
+  for (let i = 0; i < topics.length; i++) {
+    errors.push(...perTopicErrors[i]);
+    const topic = topics[i];
     if (seen.has(topic.id)) errors.push(`${topic.path}: duplicate topic id "${topic.id}"`);
     seen.add(topic.id);
   }
@@ -263,7 +272,9 @@ async function validateSupportTopic(topic) {
 
 function matchesCandidateKind(topic, candidateKind) {
   if (!candidateKind) return false;
-  return topic.candidateKinds.includes('*') || topic.candidateKinds.includes(candidateKind);
+  // Build a Set for O(1) lookup — candidateKinds is queried twice per topic per call.
+  const kindSet = new Set(topic.candidateKinds);
+  return kindSet.has('*') || kindSet.has(candidateKind);
 }
 
 function matchesFrameworks(frameworks, framework, version) {

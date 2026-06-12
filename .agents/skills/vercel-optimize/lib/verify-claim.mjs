@@ -882,15 +882,20 @@ function extractCacheTags(text) {
 }
 
 async function extractCacheTagsFromFiles(files, repoRoot, projectRootDirectory) {
-  const out = [];
-  if (!Array.isArray(files)) return out;
-  for (const file of files) {
-    try {
-      const { content } = await readClaimFile({ file, repoRoot, projectRootDirectory });
-      out.push(...extractCacheTags(content));
-    } catch {}
-  }
-  return out;
+  if (!Array.isArray(files)) return [];
+
+  // Fan out all file reads concurrently — each file is independent.
+  const perFile = await Promise.all(
+    files.map(async (file) => {
+      try {
+        const { content } = await readClaimFile({ file, repoRoot, projectRootDirectory });
+        return extractCacheTags(content);
+      } catch {
+        return [];
+      }
+    })
+  );
+  return perFile.flat();
 }
 
 function dedupeCacheTags(tags) {

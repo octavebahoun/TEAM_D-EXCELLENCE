@@ -106,32 +106,36 @@ export async function libraryForStack(framework, version) {
 
 export async function sanitizeCitations(rec, framework, version) {
   const lib = await loadLibrary();
-  const strippedUnknown = [];
-  const strippedVersion = [];
-  const kept = [];
+  const citations = rec.citations ?? [];
 
-  for (const cite of rec.citations ?? []) {
+  // Run all citation lookups concurrently — each is independent.
+  const results = await Promise.all(citations.map(async (cite) => {
     const ruleRef = await lookupSkillRule(cite);
     if (ruleRef) {
-      if (matchesFrameworkVersion(ruleRef.applicableFrameworks.join(' || '), framework, version) || ruleRef.applicableFrameworks.includes('*')) {
-        kept.push(cite);
-      } else {
-        strippedVersion.push(cite);
-      }
-      continue;
+      // Build a Set once per ruleRef for O(1) membership test.
+      const fwSet = new Set(ruleRef.applicableFrameworks);
+      const kept = fwSet.has('*') ||
+        matchesFrameworkVersion(ruleRef.applicableFrameworks.join(' || '), framework, version);
+      return { cite, bucket: kept ? 'kept' : 'strippedVersion' };
     }
 
     const entry = lib.urls.find(e => e.url === cite);
-    if (!entry) {
-      strippedUnknown.push(cite);
-      continue;
-    }
-    if (entry.applicableFrameworks.includes('*') ||
-        entry.applicableFrameworks.some(p => matchesFrameworkVersion(p, framework, version))) {
-      kept.push(cite);
-    } else {
-      strippedVersion.push(cite);
-    }
+    if (!entry) return { cite, bucket: 'strippedUnknown' };
+
+    // Build a Set once per entry for O(1) membership test.
+    const fwSet = new Set(entry.applicableFrameworks);
+    const kept = fwSet.has('*') ||
+      entry.applicableFrameworks.some(p => matchesFrameworkVersion(p, framework, version));
+    return { cite, bucket: kept ? 'kept' : 'strippedVersion' };
+  }));
+
+  const kept = [];
+  const strippedUnknown = [];
+  const strippedVersion = [];
+  for (const { cite, bucket } of results) {
+    if (bucket === 'kept') kept.push(cite);
+    else if (bucket === 'strippedUnknown') strippedUnknown.push(cite);
+    else strippedVersion.push(cite);
   }
 
   rec.citations = kept;

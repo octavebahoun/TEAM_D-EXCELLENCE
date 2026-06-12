@@ -69,12 +69,15 @@ export async function listWorkspacePackages(monorepoRoot) {
     const expanded = await expandWorkspaceGlob(monorepoRoot, g);
     for (const d of expanded) dirs.add(d);
   }
-  const out = [];
-  for (const dir of dirs) {
-    const pkg = await tryReadJson(join(dir, 'package.json'));
-    if (pkg?.name) out.push({ name: pkg.name, dir, pkg });
-  }
-  return out.sort((a, b) => a.name.localeCompare(b.name));
+
+  // Fan out package.json reads concurrently — each directory is independent.
+  const results = await Promise.all(
+    [...dirs].map(async (dir) => {
+      const pkg = await tryReadJson(join(dir, 'package.json'));
+      return pkg?.name ? { name: pkg.name, dir, pkg } : null;
+    })
+  );
+  return results.filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 // Handles workspace-shape globs only. `**` collapses to one level — npm/pnpm don't document deep `**`.
@@ -199,13 +202,20 @@ export async function resolveWorkspaceImports(sourceFilePath, resolver, options 
   }
   const opts = { ...DEFAULT_RESOLVE_OPTIONS, ...options };
   const refs = extractModuleReferences(text);
-  const out = [];
   const seen = new Set();
-  for (const ref of refs) {
-    const resolved = await resolveModuleSpecifier(sourceFilePath, ref.specifier, resolver);
-    if (!resolved) continue;
-    const expanded = await expandResolvedSpecifier(resolved, ref.importedNames, resolver, opts);
-    for (const file of expanded) {
+  const out = [];
+
+  // Fan out all specifier resolutions+expansions concurrently — each import is independent.
+  const allFiles = await Promise.all(
+    refs.map(async (ref) => {
+      const resolved = await resolveModuleSpecifier(sourceFilePath, ref.specifier, resolver);
+      if (!resolved) return [];
+      return expandResolvedSpecifier(resolved, ref.importedNames, resolver, opts);
+    })
+  );
+
+  for (const files of allFiles) {
+    for (const file of files) {
       if (seen.has(file)) continue;
       seen.add(file);
       out.push(file);

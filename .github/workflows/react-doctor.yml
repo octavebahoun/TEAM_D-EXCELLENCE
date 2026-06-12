@@ -1,0 +1,39 @@
+name: React Doctor
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  statuses: write
+
+concurrency:
+  group: react-doctor-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  react-doctor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # Phase 1 (current): advisory mode — reports issues without failing the PR.
+      # This is intentional because the project has ~213 existing issues that
+      # pre-date CI. New PRs will see findings as warnings only.
+      #
+      # Graduation plan:
+      #   Phase 2: Remove `blocking: none` → errors block PRs, warnings don't.
+      #   Phase 3: Change to `blocking: warning` → all issues block PRs.
+      #
+      # Once the existing debt is paid down, remove the two lines below.
+      - uses: millionco/react-doctor@v2
+        with:
+          blocking: none   # ← remove when existing debt is cleared
+          scope: changed   # only scan files touched by the PR
