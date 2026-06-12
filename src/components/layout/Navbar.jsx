@@ -150,7 +150,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 bg-bg-ink/98 z-[90] flex flex-col justify-center px-8 md:hidden"
+            className="fixed inset-0 bg-bg-ink/98 z-[90] flex flex-col justify-center px-8 md:hidden pointer-events-auto"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
