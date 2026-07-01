@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60" width="300" height="60">
+  <defs>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,900&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background pill -->
+  <rect x="0" y="0" width="300" height="60" rx="30" ry="30" fill="#090e0c"/>
+
+  <!-- 3 lignes empilées à gauche, centrées verticalement -->
+  <line x1="18" y1="21" x2="34" y2="21" stroke="#00FF9D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="14" y1="30" x2="38" y2="30" stroke="#00FF9D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="18" y1="39" x2="34" y2="39" stroke="#00FF9D" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- EXCELLENCE — Clash Display Bold -->
+  <text x="52" y="38"
+        font-family="'Clash Display', sans-serif"
+        font-weight="700"
+        font-size="16"
+        letter-spacing="1"
+        fill="#FFFFFF">EXCELLENCE</text>
+
+  <!-- TEAM — Fraunces Black Italic -->
+  <text x="180" y="38"
+        font-family="'Fraunces', serif"
+        font-weight="200"
+        font-style="italic"
+        font-size="16"
+        letter-spacing="1"
+        fill="#00FF9D">TEAM</text>
+</svg>
