@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #fe4619;
+  --color-primary-hover: #e03a10;
+  --color-ink: #0d0d0d;
+  --color-bg-soft: #f0f0f0;
+  --color-bg-card: #f7f7f7;
+  --color-border: #e0e0e0;
+  --color-text-muted: #6b6b6b;
+  --color-text-light: #9a9a9a;
+
+  --font-sans: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+  --radius-input: 0.75rem;
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lift: 0 12px 40px rgba(0, 0, 0, 0.1);
+
+  --spacing-site: 77.5rem;
+}
+
+html, body {
+  background: var(--color-bg-soft);
+  color: var(--color-ink);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.italic-accent {
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+/* Rendu markdown des fiches projet */
+.project-prose { color: var(--color-ink); max-width: 68ch; font-size: 15px; line-height: 1.7; }
+.project-prose h1 { display: none; } /* le titre est déjà dans le hero */
+.project-prose h2 {
+  margin-top: 2.5rem; margin-bottom: 0.75rem;
+  font-size: 1.75rem; font-weight: 800; letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+.project-prose h3 {
+  margin-top: 1.75rem; margin-bottom: 0.5rem;
+  font-size: 1.15rem; font-weight: 700; color: var(--color-ink);
+}
+.project-prose p { margin: 0.9rem 0; color: var(--color-text-muted); }
+.project-prose strong { color: var(--color-ink); font-weight: 700; }
+.project-prose a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+.project-prose a:hover { color: var(--color-primary-hover); }
+.project-prose ul, .project-prose ol { margin: 0.75rem 0 0.9rem; padding-left: 1.25rem; color: var(--color-text-muted); }
+.project-prose ul li, .project-prose ol li { margin: 0.35rem 0; }
+.project-prose ul li::marker { color: var(--color-primary); }
+.project-prose code {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 1px 6px; border-radius: 6px;
+  font-size: 0.85em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--color-ink);
+}
+.project-prose pre {
+  background: var(--color-ink); color: #fff;
+  padding: 1rem 1.25rem; border-radius: 12px; overflow-x: auto;
+  font-size: 0.85rem;
+}
+.project-prose pre code { background: transparent; border: 0; padding: 0; color: inherit; }
+.project-prose blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0;
+  color: var(--color-ink); font-style: italic;
+}
+.project-prose table {
+  width: 100%; border-collapse: collapse; margin: 1rem 0;
+  font-size: 0.9rem; border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden;
+}
+.project-prose th, .project-prose td {
+  padding: 0.65rem 0.9rem; text-align: left; border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+.project-prose th {
+  background: var(--color-bg-card); font-weight: 700; color: var(--color-ink);
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.project-prose td { color: var(--color-text-muted); }
+.project-prose tr:last-child td { border-bottom: 0; }
+.project-prose hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--color-border); }
