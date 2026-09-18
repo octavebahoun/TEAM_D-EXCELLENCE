@@ -27,3 +27,4 @@ dist-ssr
 /*.zip
 /*.mp4
 /*.webp
+.vercel

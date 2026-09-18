@@ -16,21 +16,9 @@
       rel="stylesheet"
     />
 
-    <!-- Fallback SEO — remplacé par react-helmet-async côté React -->
-    <title>Excellence Team — Collectif d’ingénieurs & designers à Lokossa</title>
-    <meta
-      name="description"
-      content="Excellence Team conçoit, développe et met en production des applications web, SaaS, IA et infrastructures cloud. Collectif de 11 personnes à Lokossa, Bénin."
-    />
-    <link rel="canonical" href="https://www.excellenceteam.site/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Excellence Team" />
-    <meta property="og:title" content="Excellence Team — Collectif d’ingénieurs & designers à Lokossa" />
-    <meta property="og:description" content="Excellence Team conçoit, développe et met en production des applications web, SaaS, IA et infrastructures cloud." />
-    <meta property="og:url" content="https://www.excellenceteam.site/" />
-    <meta property="og:image" content="https://www.excellenceteam.site/og.png" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Titre, description, canonical, OG et Twitter cards sont posés par
+         react-helmet-async au rendu React (et injectés en dur par le
+         prérendu vers dist/*/index.html pour les crawlers sans JS). -->
 
     <script type="application/ld+json">
       {
