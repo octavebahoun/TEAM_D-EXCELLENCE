@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Assets Vite/build
+Disallow: /assets/
+
+Sitemap: https://www.excellenceteam.site/sitemap.xml

@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Star from '../components/Star'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
@@ -180,6 +181,11 @@ export default function ProjectsPage() {
 
   return (
     <>
+      <Seo
+        path="/projets"
+        title="Projets"
+        description="15 projets livrés par Excellence Team : SaaS internes (Contravo, Gentube, StudyNotes…), missions clients (Waaloge, Fieri, Le TWIN, Mecano) et contributions open source (codetovecto)."
+      />
       <PageHeader total={projects.length} />
       <FilterChips active={active} onChange={setActive} counts={counts} />
 

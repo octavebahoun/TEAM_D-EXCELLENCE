@@ -2,14 +2,14 @@
 
 Waaloge est une PWA qui permet aux étudiants de chercher, visualiser et réserver une visite de logement à distance, avec un assistant IA intégré. C'est un projet client livré en 2026.
 
-| Champ | Info |
-| --- | --- |
-| Type | Projet client externe, réalisé via Excellence Team |
-| Contexte | Logement étudiant; les maquettes utilisent des quartiers de Cotonou et d'Abomey-Calavi (UAC) |
-| Année | 2026 |
-| Statut | Livré. Au 12 août: MVP en développement, délai de deux semaines |
-| Rôle d'Oktav | Responsable de l'architecture |
-| Liens | [Site](https://waaloge.excellenceteam.site/) |
+| Champ        | Info                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| Type         | Projet client externe, réalisé via Excellence Team                                           |
+| Contexte     | Logement étudiant; les maquettes utilisent des quartiers de Cotonou et d'Abomey-Calavi (UAC) |
+| Année        | 2026                                                                                         |
+| Statut       | Livré. Au 12 août: MVP en développement, délai de deux semaines                              |
+| Rôle d'Oktav | Responsable de l'architecture                                                                |
+| Liens        | [Site](https://waaloge.excellenceteam.site/)                                                 |
 
 ## Ce que ça fait
 
@@ -41,9 +41,3 @@ Les propriétaires existent en base mais n'ont aucune interface: tout passe par 
 ## Design
 
 Maquette mobile dans Figma: fond blanc chaud `#FAF9F7`, bleu `#2B6CE5` pour les boutons et liens, marine `#1A2540` pour le texte. Quatre écrans prévus: Recherche, Détail d'un logement, Réservation et contact, Profil. L'écran Recherche est fait.
-
-## À vérifier
-
-- Back-end: Laravel (architecture du 12 août) ou Node.js (indiqué le 17 septembre) ?
-- Nom du client, date de livraison exacte, nombre d'utilisateurs
-- Équipe et rôle de chaque membre

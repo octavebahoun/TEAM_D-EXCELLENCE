@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Star from '../components/Star'
 import { useMemo } from 'react'
 import { motion } from 'motion/react'
@@ -252,6 +253,22 @@ export default function ProjectDetailPage() {
 
   return (
     <>
+      <Seo
+        path={`/projets/${project.slug}`}
+        title={project.name}
+        description={project.copy}
+        image={project.image || undefined}
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: project.name,
+          description: project.copy,
+          author: { '@type': 'Organization', name: 'Excellence Team' },
+          dateCreated: project.year,
+          url: `https://www.excellenceteam.site/projets/${project.slug}`,
+        }}
+      />
       <ProjectHero p={project} />
       <CoverImage p={project} />
 

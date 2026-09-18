@@ -2,13 +2,13 @@
 
 StudyNotes est un carnet de notes intelligent pour étudiants, en PWA: calcul des moyennes avec une formule personnalisée par matière, révisions assistées par IA et suivi des contrôles.
 
-| Champ | Info |
-| --- | --- |
-| Type | Produit d'Excellence Team, application pour étudiants (PWA) |
-| Année | À préciser |
-| Statut | Fonctionnel, déployable avec Docker Compose sur un VPS |
-| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser |
-| Liens | [Site](https://study.excellenceteam.site/), [GitHub](https://github.com/octavebahoun/Study) |
+| Champ        | Info                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------- |
+| Type         | Produit d'Excellence Team, application pour étudiants (PWA)                                 |
+| Année        | À préciser                                                                                  |
+| Statut       | Fonctionnel, déployable avec Docker Compose sur un VPS                                      |
+| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser                                          |
+| Liens        | [Site](https://study.excellenceteam.site/), [GitHub](https://github.com/octavebahoun/Study) |
 
 ## Ce que ça fait
 
@@ -34,8 +34,3 @@ L'application propose aussi quatre thèmes (Bleu Indigo, Vert forêt, Orange vif
 - Audio: microservice Flask avec gTTS
 - Déploiement: Docker Compose et Nginx
 - Sécurité: mots de passe bcrypt (12 rounds), JWT, limitation de débit, Helmet, CORS restreint au client
-
-## À compléter
-
-- Année de démarrage et nombre d'utilisateurs
-- Rôle d'Oktav et équipe

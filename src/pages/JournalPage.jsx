@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Star from '../components/Star'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
@@ -244,6 +245,11 @@ export default function JournalPage() {
 
   return (
     <>
+      <Seo
+        path="/journal"
+        title="Journal"
+        description="Nos retex tirés du terrain — décisions d’architecture, cas concrets, patterns qu’on répète, erreurs qu’on ne refait plus."
+      />
       <PageHeader />
       {featured && <FeaturedArticle a={featured} />}
       <FilterChips active={active} onChange={setActive} counts={counts} />

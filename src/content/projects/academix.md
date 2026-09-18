@@ -2,16 +2,16 @@
 
 AcademiX est une plateforme académique tout-en-un qui combine organisation intelligente, IA générative et collaboration en temps réel pour aider les étudiants à réussir, avec une faible ingérence de l'administration. Elle a remporté la 1re place au HackByIFRI 2026.
 
-| Champ | Info |
-| --- | --- |
-| Type | Plateforme web multi-rôles pour l'enseignement supérieur, développée pour un hackathon |
-| Événement | HackByIFRI 2026 (Hackathon IFRI), thème: intégration efficace du numérique dans l'apprentissage universitaire |
-| Année | 2026 |
-| Statut | MVP validé le 24 février 2026, démo en ligne avec trois parcours (admin, chef de département, étudiant) |
-| Résultats | 1re place au HackByIFRI |
-| Équipe | Team D'excellence, trois développeurs: frontend et design React (Hanna Biaou), backend Laravel et MySQL (Mourchid Folarin), fullstack Node.js et IA Python (Octave Bahoun) |
-| Rôle d'Oktav | Développeur fullstack: service temps réel en Node.js et service IA en Python |
-| Liens | [Démo](https://team-d-excellence-hackbyifri-2026.vercel.app/login), [GitHub](https://github.com/octavebahoun/TEAM_D-EXCELLENCE_HACKBYIFRI) |
+| Champ        | Info                                                                                                                                                                       |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type         | Plateforme web multi-rôles pour l'enseignement supérieur, développée pour un hackathon                                                                                     |
+| Événement    | HackByIFRI 2026 (Hackathon IFRI), thème: intégration efficace du numérique dans l'apprentissage universitaire                                                              |
+| Année        | 2026                                                                                                                                                                       |
+| Statut       | MVP validé le 24 février 2026, démo en ligne avec trois parcours (admin, chef de département, étudiant)                                                                    |
+| Résultats    | 1re place au HackByIFRI                                                                                                                                                    |
+| Équipe       | Team D'excellence, trois développeurs: frontend et design React (Hanna Biaou), backend Laravel et MySQL (Mourchid Folarin), fullstack Node.js et IA Python (Octave Bahoun) |
+| Rôle d'Oktav | Développeur fullstack: service temps réel en Node.js et service IA en Python                                                                                               |
+| Liens        | [Démo](https://team-d-excellence-hackbyifri-2026.vercel.app/login), [GitHub](https://github.com/octavebahoun/TEAM_D-EXCELLENCE_HACKBYIFRI)                                 |
 
 ## Problème et solution
 
@@ -72,11 +72,4 @@ Le code contient aussi une roadmap de révision, un outil d'images et une analys
 
 ## Piste en cours
 
-Combiner AcademiX avec un projet à présenter pour les 25 ans de l'INSTI, pour le département de génie électrique et informatique. Une couche de capteurs IoT (présence en cours, suivi d'énergie d'un labo) a été proposée, sans décision notée.
-
-## À vérifier
-
-- Dates: MVP validé le 24 février 2026 d'après le README, cahier des charges daté du 11 mars 2026. Quelle est la date de la finale ?
-- Le README annonce React 18, Vite 5 et Tailwind 3, le code utilise React 19, Vite 7 et Tailwind 4: la fiche suit le code
-- Statut actuel: la démo est-elle toujours en ligne, et des étudiants réels l'utilisent-ils ?
-- Classement exact et nombre d'équipes au HackByIFRI
+AcademiX présenter pour les 25 ans de l'INSTI, pour le département de génie électrique et informatique. Une couche de capteurs IoT (présence en cours, suivi d'énergie d'un labo) a été proposée.

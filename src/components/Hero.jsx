@@ -1,7 +1,44 @@
+import { useEffect, useState } from 'react'
 import Star from './Star'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 
 const EASE = [0.22, 1, 0.36, 1]
+
+function RollingWords({ words, interval = 2400 }) {
+  const [i, setI] = useState(0)
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), '')
+
+  useEffect(() => {
+    const t = setInterval(() => setI((x) => (x + 1) % words.length), interval)
+    return () => clearInterval(t)
+  }, [words.length, interval])
+
+  return (
+    <span className="relative inline-block align-baseline">
+      {/* fantôme : réserve la largeur du mot le plus long */}
+      <span aria-hidden="true" className="invisible italic whitespace-nowrap">
+        {longest}
+      </span>
+      <span
+        className="absolute inset-0 "
+        style={{ lineHeight: 1 }}
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={words[i]}
+            initial={{ y: '110%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: '-110%', opacity: 0 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="italic-accent whitespace-nowrap block"
+          >
+            {words[i]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </span>
+  )
+}
 
 function SlantedUnderline() {
   return (
@@ -56,12 +93,12 @@ function StaticStat({ children }) {
 }
 
 const pills = [
-  { label: 'React',         tone: 'dark',   pos: 'top-8 left-[8%]' },
-  { label: 'SaaS',          tone: 'orange', pos: 'top-24 right-[10%]' },
-  { label: 'Design',        tone: 'dark',   pos: 'top-56 left-[4%]' },
-  { label: 'Ingénierie IA', tone: 'orange', pos: 'top-64 right-[4%]' },
-  { label: 'Cloud',         tone: 'dark',   pos: 'bottom-40 left-[10%]' },
-  { label: 'Open Source',   tone: 'orange', pos: 'bottom-28 right-[8%]' },
+  { label: 'Cybersécurité', tone: 'dark',   pos: 'top-8 left-[8%]',      dur: 4.2, amp: 10 },
+  { label: 'SaaS',          tone: 'orange', pos: 'top-24 right-[10%]',   dur: 5.0, amp: 12 },
+  { label: 'Design',        tone: 'dark',   pos: 'top-56 left-[4%]',     dur: 4.6, amp: 8  },
+  { label: 'Ingénierie IA', tone: 'orange', pos: 'top-64 right-[4%]',    dur: 5.4, amp: 11 },
+  { label: 'Cloud',         tone: 'dark',   pos: 'bottom-40 left-[10%]', dur: 4.8, amp: 9  },
+  { label: 'Open Source',   tone: 'orange', pos: 'bottom-28 right-[8%]', dur: 5.2, amp: 10 },
 ]
 
 function Pill({ tone = 'orange', children, className = '' }) {
@@ -81,16 +118,26 @@ export default function Hero() {
       {pills.map((p, i) => (
         <motion.div
           key={p.label}
-          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.4 + i * 0.08 }}
           className={`pointer-events-none absolute hidden md:block ${p.pos}`}
         >
-          <Pill tone={p.tone}>{p.label}</Pill>
+          <motion.div
+            animate={{ y: [0, -p.amp, 0, p.amp * 0.5, 0], rotate: [0, -1.5, 0, 1.5, 0] }}
+            transition={{
+              duration: p.dur,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: i * 0.35,
+            }}
+          >
+            <Pill tone={p.tone}>{p.label}</Pill>
+          </motion.div>
         </motion.div>
       ))}
 
-      <div className="relative text-center max-w-3xl mx-auto">
+      <div className="relative text-center max-w-4xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,12 +152,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
-          className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] text-ink"
+          className="mt-6 text-xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] text-ink"
         >
           On construit,{' '}
-          <span className="italic-accent">on livre</span>,
+          <RollingWords words={['on livre ,', 'on itère ,', 'on build ,', 'on tech ,']} />
           <br />
-          on <span className="italic-accent">publie</span>.
+          on <RollingWords words={['publie', 'partage', 'déploie', 'rénove']} interval={2100} />.
           <Star className="ml-3" />
         </motion.h1>
 

@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Star from '../components/Star'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
@@ -325,6 +326,11 @@ function ResponsePromise() {
 export default function ContactPage() {
   return (
     <>
+      <Seo
+        path="/contact"
+        title="Contact"
+        description="Un brief, on vous répond sous 24-48h ouvrées. Email, WhatsApp, Cal.com — décrivez votre projet, on cadre la suite."
+      />
       <PageHeader />
       <ChannelsRow />
       <FormSection />

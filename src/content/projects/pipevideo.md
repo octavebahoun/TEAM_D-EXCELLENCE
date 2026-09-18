@@ -2,12 +2,12 @@
 
 Pipevideo est un pipeline de production vidéo piloté par un agent IA: à partir d'un storyboard JSON, il génère des vidéos complètes (shorts 9:16 ou essais 16:9) avec voix off, sous-titres, transitions et sound design.
 
-| Champ | Info |
-| --- | --- |
-| Type | Outil de production vidéo (paquet content-factory 1.0.0) |
-| Statut | À préciser |
-| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser |
-| Liens | [GitHub](https://github.com/octavebahoun/pipevideo) |
+| Champ        | Info                                                     |
+| ------------ | -------------------------------------------------------- |
+| Type         | Outil de production vidéo (paquet content-factory 1.0.0) |
+| Statut       | À préciser                                               |
+| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser       |
+| Liens        | [GitHub](https://github.com/octavebahoun/pipevideo)      |
 
 ## Ce que ça fait
 
@@ -34,8 +34,3 @@ Le flux de travail:
 - AWS Lambda pour le rendu distribué
 - Pilotage par un agent avec des skills (Remotion, ElevenLabs, vidéo)
 - Même socle de rendu que Gentube: Remotion, AWS Lambda, ElevenLabs
-
-## À compléter
-
-- Année, statut, vidéos produites pour de vrais clients
-- Rôle d'Oktav, lien éventuel avec l'origine de Gentube

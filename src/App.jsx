@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
+import Seo from './components/Seo'
 import Services from './components/Services'
 import StarMascot from './components/StarMascot'
 import Team from './components/Team'
@@ -29,6 +30,7 @@ function Placeholder({ title }) {
 function Home() {
   return (
     <>
+      <Seo path="/" />
       <Hero />
       <Services />
       <Projects />

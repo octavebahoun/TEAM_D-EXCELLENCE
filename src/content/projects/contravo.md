@@ -2,15 +2,15 @@
 
 Contravo est un SaaS multi-tenant B2B pour freelances et petites entreprises du Bénin: devis, factures, contrats et paiements par mobile money. Il est en bêta et utilisable.
 
-| Champ | Info |
-| --- | --- |
-| Type | SaaS interne d'Excellence Team, produit principal d'Oktav |
-| Cible | Freelances et petites entreprises, Bénin et Afrique de l'Ouest francophone |
-| Année | 2026 |
-| Statut | Bêta utilisable; enregistrement légal en cours au 18 août |
+| Champ        | Info                                                                                                            |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| Type         | SaaS interne d'Excellence Team, produit principal d'Oktav                                                       |
+| Cible        | Freelances et petites entreprises, Bénin et Afrique de l'Ouest francophone                                      |
+| Année        | 2026                                                                                                            |
+| Statut       | Bêta utilisable; enregistrement légal en cours au 18 août                                                       |
 | Rôle d'Oktav | Responsable architecture, développeur fullstack et IA. A codé tous les modules IA et toute l'automatisation n8n |
-| Équipe | Quatre personnes au hackathon: IA et matching, backend, frontend, cybersécurité |
-| Liens | [Site](https://contravo.excellenceteam.site/), [GitHub](https://github.com/octavebahoun/contravo) |
+| Équipe       | Quatre personnes au hackathon: IA et matching, backend, frontend, cybersécurité                                 |
+| Liens        | [Site](https://contravo.excellenceteam.site/), [GitHub](https://github.com/octavebahoun/contravo)               |
 
 ## Ce que ça fait
 
@@ -47,13 +47,4 @@ Deux comptes GeniusPay restent séparés: celui de chaque organisation pour ses 
 
 - Hackathon des 9 et 10 septembre: 2e place avec Contravo. Pitch prévu le 27
 - Soumis à plusieurs appels à projets
-- Étude de marché par formulaire Tally: 11 réponses, surtout du Bénin. La plupart ne paient aucun logiciel de facturation; le prix acceptable se situe entre 5 000 et 10 000 XOF par mois
-- Préparation UniPod: dossier d'entretien structuré et entretien blanc en français, avec des signaux positifs
-
-## À vérifier
-
-- Base de données: Neon (spec du 13 août) ou Supabase (préparation UniPod du 1er septembre) ?
-- Les six étapes ci-dessus décrivent-elles bien Contravo ? La conversation d'origine ne cite pas de nom de projet
-- Le 25 août, Write et Gentube étaient envisagés pour le hackathon Cursor × Devs Days (9 et 10 septembre). La 2e place de Contravo concerne-t-elle le même événement ?
-- Prix des plans et chiffres de traction réels (signalés comme manquants pour UniPod)
-- Nombre de testeurs de la bêta
+- Étude de marché par formulaire Tally Freelance: 110 réponses, surtout du Bénin. La plupart ne paient aucun logiciel de facturation; le prix acceptable se situe entre 5 000 et 15 000 XOF par mois

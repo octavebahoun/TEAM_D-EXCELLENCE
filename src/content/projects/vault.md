@@ -2,13 +2,13 @@
 
 Vault est une bibliothèque d'images privée doublée d'un gestionnaire de clés de projet (fichiers .env chiffrés). Chaque utilisateur branche son propre compte Cloudinary.
 
-| Champ | Info |
-| --- | --- |
-| Type | Application web, inscription ouverte |
-| Version | 2.0.0 |
-| Statut | Fonctionnel |
-| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser |
-| Liens | [Site](https://vaut-bibliotheque.vercel.app/), [GitHub](https://github.com/octavebahoun/Vaut-Bibliotheque) |
+| Champ        | Info                                                                                                       |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| Type         | Application web, inscription ouverte                                                                       |
+| Version      | 2.0.0                                                                                                      |
+| Statut       | Fonctionnel                                                                                                |
+| Rôle d'Oktav | Dépôt sur son compte GitHub, rôle exact à préciser                                                         |
+| Liens        | [Site](https://vaut-bibliotheque.vercel.app/), [GitHub](https://github.com/octavebahoun/Vaut-Bibliotheque) |
 
 ## Ce que ça fait
 
@@ -26,7 +26,3 @@ Vault est une bibliothèque d'images privée doublée d'un gestionnaire de clés
 - Neon (Postgres) avec Drizzle ORM
 - Cloudinary, Resend en option
 - Déploiement sur Vercel
-
-## À compléter
-
-- Année, nombre d'utilisateurs, usage réel

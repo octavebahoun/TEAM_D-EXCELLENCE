@@ -2,14 +2,14 @@
 
 codetovecto est un outil en ligne de commande, publié sur npm, qui transforme le code d'un projet en base de connaissances vectorielle locale pour alimenter un chatbot IA. Il dépasse 1 500 téléchargements organiques.
 
-| Champ | Info |
-| --- | --- |
-| Type | Paquet npm open source (licence MIT), RAG sur du code |
-| Version | 2.0.8 |
-| Auteur | Oktav |
-| Statut | Publié |
-| Téléchargements | Plus de 1 500, organiques |
-| Liens | [GitHub](https://github.com/octavebahoun/Code-to-vector) |
+| Champ           | Info                                                     |
+| --------------- | -------------------------------------------------------- |
+| Type            | Paquet npm open source (licence MIT), RAG sur du code    |
+| Version         | 2.0.8                                                    |
+| Auteur          | Oktav                                                    |
+| Statut          | Publié                                                   |
+| Téléchargements | Plus de 1 500, organiques                                |
+| Liens           | [GitHub](https://github.com/octavebahoun/Code-to-vector) |
 
 ## Ce que ça fait
 
@@ -32,8 +32,3 @@ Le scan lit le code source, le découpe par fonction ou par composant grâce à 
 
 - Couche RAG de Jarvis, l'assistant IA agentique personnel d'Oktav, et d'autres projets
 - Candidature envisagée au Nebius x NVIDIA Global AI Hackathon (Devpost, échéance du 30 octobre 2026, piste Personal AI), via Jarvis
-
-## À compléter
-
-- Date de première publication sur npm et téléchargements actuels
-- Liste des projets qui l'utilisent

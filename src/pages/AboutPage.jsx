@@ -1,3 +1,4 @@
+import Seo from '../components/Seo'
 import Star from '../components/Star'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
@@ -347,6 +348,11 @@ function CtaFinal() {
 export default function AboutPage() {
   return (
     <>
+      <Seo
+        path="/a-propos"
+        title="À propos"
+        description="Excellence Team, collectif de 11 personnes à Lokossa : vision, mission, valeurs, équipe complète et organigramme officiel."
+      />
       <ManifestoHero />
       <VisionMission />
       <Values />

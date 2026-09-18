@@ -1,4 +1,5 @@
 import Star from '../components/Star'
+import Seo from '../components/Seo'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router-dom'
@@ -487,6 +488,11 @@ function CtaFinal() {
 export default function ServicesPage() {
   return (
     <>
+      <Seo
+        path="/services"
+        title="Services"
+        description="Quatre terrains, un seul standard : Web & SaaS, IA & Data, Plateformes métier, Cloud & Architecture. Prototype, cadrage, livraison."
+      />
       <PageHeader />
       <AnchorNav />
       {services.map((s, i) => (
