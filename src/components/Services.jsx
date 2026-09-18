@@ -79,8 +79,18 @@ function ServiceCard({ s, layout }) {
           src={s.illu}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-4 right-4 w-[300px] select-none transition-transform duration-500 ease-out group-hover:scale-105 opacity-95"
+          className="pointer-events-none absolute bottom-4 right-4 w-[300px] select-none transition-transform duration-500 ease-out group-hover:scale-105 opacity-95 hidden lg:block"
         />
+      )}
+      {isBigSide && s.illu && (
+        <div className="relative overflow-hidden rounded-t-[24px] bg-white/10 flex items-center justify-center h-44 sm:h-52 lg:hidden">
+          <img
+            src={s.illu}
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none select-none w-[70%]"
+          />
+        </div>
       )}
 
       {(isTallTop || isSmallTop) && s.illu && (
@@ -108,7 +118,7 @@ function ServiceCard({ s, layout }) {
           <ArrowBadge dark={dark} />
         </div>
 
-        <div className={`mt-6 sm:mt-8 ${isBigSide ? 'max-w-[55%]' : ''}`}>
+        <div className={`mt-6 sm:mt-8 ${isBigSide ? 'lg:max-w-[55%]' : ''}`}>
           <h3
             className={`text-2xl sm:text-3xl font-bold leading-tight tracking-tight ${
               dark ? 'text-white' : 'text-ink'
@@ -119,7 +129,7 @@ function ServiceCard({ s, layout }) {
             {parts[1]}
           </h3>
           <p
-            className={`mt-4 text-[15px] leading-relaxed ${isBigSide ? 'max-w-md' : ''} ${
+            className={`mt-4 text-[15px] leading-relaxed ${isBigSide ? 'lg:max-w-md' : ''} ${
               dark ? 'text-white/70' : 'text-text-muted'
             }`}
           >

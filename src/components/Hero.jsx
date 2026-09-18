@@ -152,7 +152,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
-          className="mt-6 text-xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] text-ink"
+          className="mt-6 text-4xl sm:text-7xl font-extrabold tracking-tight leading-[1.05] text-ink"
         >
           On construit,{' '}
           <RollingWords words={['on livre ,', 'on itère ,', 'on build ,', 'on tech ,']} />
@@ -174,7 +174,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: EASE, delay: 0.22 }}
-          className="mt-8 flex flex-nowrap items-baseline justify-center gap-x-4 sm:gap-x-5 whitespace-nowrap text-ink text-sm sm:text-base font-medium"
+          className="mt-8 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2 sm:gap-x-5 sm:flex-nowrap sm:whitespace-nowrap text-ink text-sm sm:text-base font-medium"
         >
           <span>
             <span className="font-extrabold text-ink tabular-nums">

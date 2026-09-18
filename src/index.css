@@ -24,6 +24,7 @@
 html, body {
   background: var(--color-bg-soft);
   color: var(--color-ink);
+  overflow-x: hidden;
 }
 
 body {

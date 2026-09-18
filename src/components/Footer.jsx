@@ -165,7 +165,7 @@ export default function Footer() {
           <div className="overflow-hidden pointer-events-none" aria-hidden="true">
             <div
               className="font-extrabold text-primary leading-[0.85] tracking-[-0.04em] whitespace-nowrap"
-              style={{ fontSize: 'clamp(2.5rem, 12vw, 11rem)' }}
+              style={{ fontSize: 'clamp(1.9rem, 10vw, 11rem)' }}
             >
               excellence team<span className="text-ink">.</span>
             </div>
