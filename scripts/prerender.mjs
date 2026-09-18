@@ -6,7 +6,7 @@
 import { spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
 
 const HOST = 'http://localhost:4173'
 const DIST = 'dist'
@@ -48,11 +48,26 @@ async function main() {
     const up = await waitForServer(HOST + '/')
     if (!up) throw new Error('Serveur preview injoignable après 15s')
 
-    const browser = await puppeteer.launch({
-      headless: true,
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    })
+    // Sur Vercel / Lambda : @sparticuz/chromium fournit un Chromium bundlé
+    // avec toutes les libs système (libnspr4, libnss3…). En local, on
+    // utilise le Chrome/Chromium installé via PUPPETEER_EXECUTABLE_PATH.
+    let launchOpts
+    if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+      const chromium = (await import('@sparticuz/chromium')).default
+      launchOpts = {
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: true,
+      }
+    } else {
+      launchOpts = {
+        headless: true,
+        executablePath:
+          process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      }
+    }
+    const browser = await puppeteer.launch(launchOpts)
 
     for (const route of routes) {
       const url = HOST + route
