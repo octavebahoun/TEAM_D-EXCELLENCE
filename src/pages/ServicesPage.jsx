@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router-dom'
@@ -191,7 +192,7 @@ function PageHeader() {
       </div>
       <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
         Quatre terrains. Un <span className="italic-accent">seul</span> standard.
-        <span className="text-primary ml-3">✦</span>
+        <Star className="ml-3" />
       </h1>
       <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
         On conçoit, on développe, on met en production. Chaque mission suit le même process : écoute, cadrage écrit, prototype, livraison, transfert.

@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { ExcellenceTeam } from '../components/mascot/index.js'
@@ -53,7 +54,7 @@ function PageHeader() {
       </div>
       <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
         Un brief, on vous <span className="italic-accent">répond</span>.
-        <span className="text-primary ml-3">✦</span>
+        <Star className="ml-3" />
       </h1>
       <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
         Décrivez votre besoin en quelques lignes. On revient vers vous sous <span className="font-semibold text-ink">24 à 48 heures ouvrées</span>, avec les prochaines étapes concrètes.

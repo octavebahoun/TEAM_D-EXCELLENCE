@@ -1,3 +1,4 @@
+import Star from './Star'
 import { motion } from 'motion/react'
 import { projects as allProjects } from '../data/projects.js'
 
@@ -73,7 +74,7 @@ export default function Projects() {
             — Projets phares
           </div>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-ink max-w-2xl">
-            Ce qu’on a <span className="italic-accent">livré</span> récemment. <span className="text-primary">✦</span>
+            Ce qu’on a <span className="italic-accent">livré</span> récemment. <Star />
           </h2>
         </div>
         <a

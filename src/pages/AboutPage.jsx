@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { members } from '../data/members.js'
@@ -38,7 +39,7 @@ function ManifestoHero() {
       </div>
       <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
         On construit, <span className="italic-accent">on livre</span>,<br />
-        on <span className="italic-accent">publie</span>. <span className="text-primary">✦</span>
+        on <span className="italic-accent">publie</span>. <Star />
       </h1>
       <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
         Excellence Team est un collectif d’ingénieurs et de designers basé à Lokossa, au Bénin. Onze personnes, six co-fondateurs, une gouvernance écrite. On conçoit et livre des logiciels utiles, sobres et documentés.
@@ -259,7 +260,7 @@ function OrgChart() {
       <div className="mt-14 flex flex-col items-center">
         {/* Tier 1 — Cofondateurs */}
         <div className="rounded-full border border-border bg-white px-6 py-3 text-sm font-semibold text-ink">
-          <span className="text-primary">✦</span> 6 co-fondateurs · organe stratégique
+          <Star /> 6 co-fondateurs · organe stratégique
         </div>
         <div className="my-4 h-8 w-px bg-border" />
 

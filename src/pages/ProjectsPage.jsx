@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router-dom'
@@ -78,7 +79,7 @@ function PageHeader({ total }) {
       </div>
       <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
         {total} projets, une seule <span className="italic-accent">exigence</span>.
-        <span className="text-primary ml-3">✦</span>
+        <Star className="ml-3" />
       </h1>
       <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
         SaaS internes, missions clients, contributions open source. Filtrez par domaine pour voir ce qu’on livre concrètement.

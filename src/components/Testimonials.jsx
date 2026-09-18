@@ -1,3 +1,4 @@
+import Star from './Star'
 import { motion } from 'motion/react'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -138,7 +139,7 @@ export default function Testimonials() {
             <span className="h-px w-8 bg-primary" />
           </div>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-ink max-w-3xl mx-auto">
-            Ce que disent ceux qui nous ont <span className="italic-accent">confié</span> un projet. <span className="text-primary">✦</span>
+            Ce que disent ceux qui nous ont <span className="italic-accent">confié</span> un projet. <Star />
           </h2>
           <p className="mt-4 text-sm text-text-light max-w-md mx-auto">
             Témoignages placeholders — remplacés par les vrais dès qu’ils arrivent.

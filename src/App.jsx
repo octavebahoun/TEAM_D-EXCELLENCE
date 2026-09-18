@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Projects from './components/Projects'
 import Services from './components/Services'
+import StarMascot from './components/StarMascot'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
 import AboutPage from './pages/AboutPage'
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="*" element={<Placeholder title="404" />} />
       </Routes>
       <Footer />
+      <StarMascot />
     </>
   )
 }

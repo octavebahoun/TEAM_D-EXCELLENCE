@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Link } from 'react-router-dom'
@@ -55,7 +56,7 @@ function PageHeader() {
         <span className="h-px w-8 bg-primary" />
       </div>
       <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
-        Nos retex, <span className="italic-accent">tirés du terrain</span>. <span className="text-primary">✦</span>
+        Nos retex, <span className="italic-accent">tirés du terrain</span>. <Star />
       </h1>
       <p className="mt-6 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
         Ce qu’on apprend en construisant. Décisions d’architecture, cas concrets, patterns qu’on répète, erreurs qu’on ne refait plus.

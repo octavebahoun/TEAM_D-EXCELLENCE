@@ -1,3 +1,4 @@
+import Star from './Star'
 import { motion } from 'motion/react'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -153,7 +154,7 @@ export default function Services() {
             — Ce qu’on fait
           </div>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-ink max-w-2xl">
-            Quatre <span className="italic-accent">terrains</span>, un seul standard. <span className="text-primary">✦</span>
+            Quatre <span className="italic-accent">terrains</span>, un seul standard. <Star />
           </h2>
         </div>
         <a

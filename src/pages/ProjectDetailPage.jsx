@@ -1,3 +1,4 @@
+import Star from '../components/Star'
 import { useMemo } from 'react'
 import { motion } from 'motion/react'
 import { Link, useParams } from 'react-router-dom'
@@ -69,7 +70,7 @@ function ProjectHero({ p }) {
         </div>
 
         <h1 className="mt-6 text-5xl sm:text-7xl font-extrabold tracking-tight leading-[1.02] text-ink">
-          {p.name} <span className="text-primary">✦</span>
+          {p.name} <Star />
         </h1>
         <p className="mt-6 text-lg text-text-muted max-w-3xl leading-relaxed">{p.copy}</p>
 

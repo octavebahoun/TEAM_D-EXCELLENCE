@@ -1,3 +1,4 @@
+import Star from './Star'
 import { motion } from 'motion/react'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -110,7 +111,7 @@ export default function Hero() {
           <span className="italic-accent">on livre</span>,
           <br />
           on <span className="italic-accent">publie</span>.
-          <span className="text-primary ml-3">✦</span>
+          <Star className="ml-3" />
         </motion.h1>
 
         <motion.p

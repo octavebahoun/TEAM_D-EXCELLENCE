@@ -1,3 +1,4 @@
+import Star from './Star'
 import { useRef } from 'react'
 import { motion } from 'motion/react'
 
@@ -98,7 +99,7 @@ export default function Team() {
             — L’équipe
           </div>
           <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-ink max-w-2xl">
-            Onze têtes, un même <span className="italic-accent">standard</span>. <span className="text-primary">✦</span>
+            Onze têtes, un même <span className="italic-accent">standard</span>. <Star />
           </h2>
         </div>
 

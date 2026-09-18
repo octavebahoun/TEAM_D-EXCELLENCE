@@ -1,0 +1,21 @@
+.wobbi-character {
+  display: block;
+  overflow: visible;
+}
+
+.wobbi-character [data-eye] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.wobbi-character:focus-visible {
+  border-radius: 20px;
+  outline: 2px solid #9270ff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wobbi-character * {
+    transition: none !important;
+  }
+}
