@@ -8,7 +8,6 @@ import Seo from './components/Seo'
 import Services from './components/Services'
 import StarMascot from './components/StarMascot'
 import Team from './components/Team'
-import Testimonials from './components/Testimonials'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import JournalPage from './pages/JournalPage'
@@ -35,7 +34,6 @@ function Home() {
       <Services />
       <Projects />
       <Team />
-      <Testimonials />
       <FaqContact />
     </>
   )

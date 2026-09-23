@@ -20,7 +20,7 @@ function RollingWords({ words, interval = 2400 }) {
         {longest}
       </span>
       <span
-        className="absolute inset-0 "
+        className="absolute inset-0 overflow-hidden"
         style={{ lineHeight: 1 }}
       >
         <AnimatePresence mode="wait" initial={false}>
