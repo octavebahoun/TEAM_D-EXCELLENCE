@@ -9,6 +9,7 @@ import Services from './components/Services'
 import StarMascot from './components/StarMascot'
 import Team from './components/Team'
 import AboutPage from './pages/AboutPage'
+import ArticleDetailPage from './pages/ArticleDetailPage'
 import ContactPage from './pages/ContactPage'
 import JournalPage from './pages/JournalPage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/a-propos" element={<AboutPage />} />
         <Route path="/journal" element={<JournalPage />} />
+        <Route path="/blog/:id" element={<ArticleDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Placeholder title="404" />} />
       </Routes>
